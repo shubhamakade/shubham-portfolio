@@ -164,10 +164,26 @@
     100% { background-position: 0% 50%; }
   }
 
-  /* Celestial Aura Breathing Glow */
+  /* Celestial Aura Breathing Glow - Directional Keyframes */
   @keyframes celestial-float {
     0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-8px) rotate(0.8deg); }
+    50% { transform: translateY(-6px) rotate(0.6deg); }
+  }
+  @keyframes celestial-float-up {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-6px) rotate(0.6deg); }
+  }
+  @keyframes celestial-float-down {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(6px) rotate(-0.6deg); }
+  }
+  @keyframes celestial-float-left {
+    0%, 100% { transform: translateX(0px) rotate(0deg); }
+    50% { transform: translateX(-6px) rotate(-0.5deg); }
+  }
+  @keyframes celestial-float-right {
+    0%, 100% { transform: translateX(0px) rotate(0deg); }
+    50% { transform: translateX(6px) rotate(0.5deg); }
   }
   .celestial-float {
     animation: celestial-float 6s ease-in-out infinite;

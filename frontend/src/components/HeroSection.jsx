@@ -206,7 +206,7 @@ export default function HeroSection({ onWarp, isWarped, onOpenResume, onOpenTerm
           </div>
 
           {/* Right Column: Celestial Portal 3D Monolith (Balanced 50% proportion) */}
-          <div className="col-span-1 lg:col-span-6 flex justify-center items-center relative overflow-visible py-2 w-full">
+          <div className="col-span-1 lg:col-span-6 flex justify-center items-center relative overflow-visible py-3 xl:py-4 w-full">
             <CelestialPortal3D
               onSupernova={() => {
                 celestialAudio.playChime('supernova');
@@ -215,7 +215,7 @@ export default function HeroSection({ onWarp, isWarped, onOpenResume, onOpenTerm
           </div>
 
           {/* Full-Width Row: Continuously Bouncing & Floating Frosted Glass Statistic Cards */}
-          <div className="col-span-1 lg:col-span-12 pt-2.5 sm:pt-3 border-t border-white/10 overflow-visible w-full">
+          <div className="col-span-1 lg:col-span-12 pt-4 sm:pt-6 border-t border-white/10 overflow-visible w-full">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-2.5 lg:gap-3 overflow-visible">
               {personalInfo.metrics.map((m, idx) => {
                 const profile = cardFloatProfiles[idx % cardFloatProfiles.length];
