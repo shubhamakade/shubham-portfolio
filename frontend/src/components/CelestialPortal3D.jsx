@@ -219,7 +219,7 @@ export default function CelestialPortal3D({ onSupernova }) {
       glowColor: 'rgba(56, 189, 248, 0.4)',
       textColor: isDark ? 'text-sky-300' : 'text-sky-700',
       borderColor: isDark ? 'border-sky-400/50 hover:border-sky-300 shadow-[0_4px_20px_rgba(56,189,248,0.25)]' : 'border-sky-400 hover:border-sky-600 shadow-md',
-      position: 'top-1 sm:top-2 lg:top-[28px] left-2 sm:left-4 lg:left-[40px]',
+      position: '-top-3 sm:-top-2 lg:top-0 left-1 sm:left-2 lg:left-0',
       floatStyle: { animation: 'celestial-float 7s ease-in-out infinite 1s' },
     },
     {
@@ -233,7 +233,7 @@ export default function CelestialPortal3D({ onSupernova }) {
       glowColor: 'rgba(16, 185, 129, 0.4)',
       textColor: isDark ? 'text-emerald-300' : 'text-emerald-700',
       borderColor: isDark ? 'border-emerald-400/50 hover:border-emerald-300 shadow-[0_4px_20px_rgba(16,185,129,0.25)]' : 'border-emerald-400 hover:border-emerald-600 shadow-md',
-      position: 'top-8 sm:top-10 lg:top-[120px] -right-2 sm:-right-4 lg:-right-[120px] xl:-right-[130px]',
+      position: 'top-4 sm:top-6 lg:top-10 -right-2 sm:-right-4 lg:-right-8 xl:-right-10',
       floatStyle: { animation: 'celestial-float 6s ease-in-out infinite' },
     },
     {
@@ -247,7 +247,7 @@ export default function CelestialPortal3D({ onSupernova }) {
       glowColor: 'rgba(244, 63, 94, 0.4)',
       textColor: isDark ? 'text-pink-300' : 'text-pink-700',
       borderColor: isDark ? 'border-pink-400/50 hover:border-pink-300 shadow-[0_4px_20px_rgba(244,63,94,0.25)]' : 'border-pink-400 hover:border-pink-600 shadow-md',
-      position: '-bottom-4 sm:-bottom-6 lg:bottom-[120px] left-2 sm:left-4 lg:-left-[110px] xl:-left-[120px]',
+      position: 'bottom-6 sm:bottom-8 lg:bottom-12 -left-2 sm:-left-4 lg:-left-8 xl:-left-10',
       floatStyle: { animation: 'celestial-float 8s ease-in-out infinite 2s' },
     },
     {
@@ -261,7 +261,7 @@ export default function CelestialPortal3D({ onSupernova }) {
       glowColor: 'rgba(129, 140, 248, 0.4)',
       textColor: isDark ? 'text-indigo-300' : 'text-indigo-700',
       borderColor: isDark ? 'border-indigo-400/50 hover:border-indigo-300 shadow-[0_4px_20px_rgba(129,140,248,0.25)]' : 'border-indigo-400 hover:border-indigo-600 shadow-md',
-      position: '-bottom-2 sm:-bottom-3 lg:-bottom-[6px] right-0 sm:-right-2 lg:-right-[24px]',
+      position: '-bottom-3 sm:-bottom-2 lg:bottom-0 right-1 sm:right-2 lg:right-0',
       floatStyle: { animation: 'celestial-float 7.5s ease-in-out infinite 3s' },
     },
   ];
@@ -273,7 +273,7 @@ export default function CelestialPortal3D({ onSupernova }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
       onClick={handlePortalClick}
-      className="relative w-full max-w-[500px] sm:max-w-[540px] h-[490px] sm:h-[540px] flex items-center justify-center cursor-pointer select-none group overflow-visible"
+      className="relative w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[400px] xl:max-w-[460px] h-[280px] sm:h-[320px] lg:h-[340px] xl:h-[420px] flex items-center justify-center cursor-pointer select-none group overflow-visible"
       style={{ perspective: 1200 }}
     >
       {/* 3D Sacred Geometry Canvas Layer (Rings, God Rays, Gyro Beacons) */}
@@ -281,7 +281,7 @@ export default function CelestialPortal3D({ onSupernova }) {
 
       {/* Floating 3D Portrait Monolith Card (z-20) */}
       <div
-        className={`relative z-20 w-60 sm:w-68 h-80 sm:h-92 rounded-3xl overflow-hidden border-2 transition-transform duration-200 ease-out shadow-2xl backdrop-blur-2xl hud-border ${
+        className={`relative z-20 w-40 sm:w-48 lg:w-48 xl:w-56 h-56 sm:h-66 lg:h-66 xl:h-76 rounded-2xl sm:rounded-3xl overflow-hidden border-2 transition-transform duration-200 ease-out shadow-2xl backdrop-blur-2xl hud-border ${
           isDark 
             ? 'bg-aurora-card/85 border-aurora-violet/50 shadow-glow-violet' 
             : 'bg-white/90 border-atelier-violet/40 shadow-glow-atelier'
