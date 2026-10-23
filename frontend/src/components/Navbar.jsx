@@ -132,7 +132,7 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
             : 'bg-atelier-ivory/80 backdrop-blur-md border-b border-stone-200/50 py-3.5'
         }`}
       >
-        <div className="max-w-7xl 2xl:max-w-[1440px] 3xl:max-w-[1640px] 4xl:max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
+        <div className="max-w-[1320px] w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
           
           {/* Identity Monolith: Elegant SA Logo + Name + Role */}
           <a href="#hero" className="flex items-center gap-3 group shrink-0 select-none">
@@ -327,7 +327,7 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
                   : 'bg-white/95 border-stone-200 shadow-xl'
               }`}
             >
-              <div className="px-4 py-5 space-y-4 max-w-7xl 2xl:max-w-[1440px] 3xl:max-w-[1640px] 4xl:max-w-[1920px] mx-auto">
+              <div className="px-4 py-5 space-y-4 max-w-[1320px] w-full mx-auto">
                 
                 {/* Prominent Full-Width Resume Download CTA */}
                 <button

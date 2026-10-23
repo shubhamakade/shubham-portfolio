@@ -20,7 +20,7 @@ export default function Footer() {
           : 'bg-gradient-to-b from-atelier-violet/10 via-atelier-coral/5 to-transparent'
       }`} />
 
-      <div className="max-w-7xl 2xl:max-w-[1440px] 3xl:max-w-[1640px] 4xl:max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-[1320px] w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-current/10">
           <div className="flex items-center gap-3">

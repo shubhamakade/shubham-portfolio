@@ -105,7 +105,7 @@ public class AccountsPayableGraphQLController {
 
   return (
     <section id="architecture" className="py-24 relative z-10 section-ambient-divider transition-colors duration-500">
-      <div className="max-w-7xl 2xl:max-w-[1440px] 3xl:max-w-[1640px] 4xl:max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1320px] w-full mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* ========================================================
             PART 1: VERIFIED ENGINEERING PROFILE DOSSIER
