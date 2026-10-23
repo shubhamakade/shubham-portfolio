@@ -37,13 +37,13 @@ export default function HeroSection({ onWarp, isWarped, onOpenResume, onOpenTerm
   return (
     <section
       id="hero"
-      className="relative min-h-[90vh] flex flex-col justify-between pt-8 sm:pt-10 pb-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-visible"
+      className="relative min-h-[90vh] flex flex-col justify-between pt-8 sm:pt-10 pb-8 px-4 sm:px-6 lg:px-8 max-w-7xl 2xl:max-w-[1440px] 3xl:max-w-[1640px] 4xl:max-w-[1920px] mx-auto overflow-visible"
     >
       <div className="w-full my-auto py-6 sm:py-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center overflow-visible">
           
           {/* Left Column: Architectural Dossier */}
-          <div className="lg:col-span-6 xl:col-span-7 flex flex-col gap-6 z-10">
+          <div className="col-span-1 lg:col-span-6 xl:col-span-7 flex flex-col gap-6 z-10 w-full min-w-0">
             
             {/* Real Status Badge */}
             <div className="flex items-center gap-2">
@@ -201,8 +201,20 @@ export default function HeroSection({ onWarp, isWarped, onOpenResume, onOpenTerm
               </MagneticButton>
             </div>
 
-            {/* Continuously Bouncing & Floating Frosted Glass Statistic Cards with Interactive Spotlight & Telemetry Waveforms */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 pb-2 border-t border-white/10 overflow-visible">
+          </div>
+
+          {/* Right Column: Celestial Portal 3D Monolith (Guaranteed Unclipped & Overflow-Visible) */}
+          <div className="col-span-1 lg:col-span-6 xl:col-span-5 flex justify-center items-center relative overflow-visible py-4 w-full">
+            <CelestialPortal3D
+              onSupernova={() => {
+                celestialAudio.playChime('supernova');
+              }}
+            />
+          </div>
+
+          {/* Full-Width Row: Continuously Bouncing & Floating Frosted Glass Statistic Cards */}
+          <div className="col-span-1 lg:col-span-12 pt-8 lg:pt-10 border-t border-white/10 overflow-visible w-full">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 overflow-visible">
               {personalInfo.metrics.map((m, idx) => {
                 const profile = cardFloatProfiles[idx % cardFloatProfiles.length];
                 const isDailyMeals = m.value === '12,000+';
@@ -233,14 +245,14 @@ export default function HeroSection({ onWarp, isWarped, onOpenResume, onOpenTerm
                     className="will-change-transform cursor-default"
                   >
                     <SpotlightCard
-                      className={`p-3.5 rounded-xl border backdrop-blur-2xl transition-all duration-300 ${
+                      className={`p-4 sm:p-5 rounded-2xl border backdrop-blur-2xl transition-all duration-300 ${
                         isDark
                           ? 'bg-aurora-card/45 border-white/10 hover:border-aurora-violet/50 hover:shadow-glow-violet'
                           : 'bg-white/80 border-stone-200 shadow-sm hover:border-atelier-violet/40 hover:shadow-glow-atelier'
                       }`}
                       spotlightColor={isDark ? 'rgba(167, 139, 250, 0.22)' : 'rgba(109, 40, 217, 0.15)'}
                     >
-                      <div className={`font-display font-extrabold text-base sm:text-lg tracking-tight transition-colors flex items-center justify-between ${
+                      <div className={`font-display font-extrabold text-base sm:text-lg lg:text-xl 2xl:text-2xl tracking-tight transition-colors flex items-center justify-between ${
                         isDark ? 'text-white group-hover:text-aurora-lavender' : 'text-stone-900 group-hover:text-atelier-violet'
                       }`}>
                         {isDailyMeals ? (
@@ -265,10 +277,10 @@ export default function HeroSection({ onWarp, isWarped, onOpenResume, onOpenTerm
                           <AnimatedIcon icon={ShieldCheck} variant="pulse" color="emerald" size="sm" badge={false} />
                         )}
                       </div>
-                      <div className="font-mono text-[9px] sm:text-[10px] opacity-75 tracking-wider uppercase mt-1">
+                      <div className="font-mono text-[9px] sm:text-[10px] 2xl:text-xs opacity-75 tracking-wider uppercase mt-1.5 font-medium">
                         {m.label}
                       </div>
-                      <div className={`font-mono text-[9px] mt-1.5 font-semibold flex items-center gap-1.5 ${
+                      <div className={`font-mono text-[9px] sm:text-[10px] 2xl:text-xs mt-1.5 font-semibold flex items-center gap-1.5 ${
                         isDark ? 'text-emerald-400' : 'text-emerald-600'
                       }`}>
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
@@ -279,16 +291,6 @@ export default function HeroSection({ onWarp, isWarped, onOpenResume, onOpenTerm
                 );
               })}
             </div>
-
-          </div>
-
-          {/* Right Column: Celestial Portal 3D Monolith (Guaranteed Unclipped & Overflow-Visible) */}
-          <div className="lg:col-span-6 xl:col-span-5 flex justify-center items-center relative overflow-visible py-4">
-            <CelestialPortal3D
-              onSupernova={() => {
-                celestialAudio.playChime('supernova');
-              }}
-            />
           </div>
 
         </div>
