@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { celestialAudio } from '../utils/celestialAudio';
-import { Sparkles, Database, Layers, Cpu, Server } from 'lucide-react';
+import { Sparkles, Database, Layers, Cpu, Server, Code2, Box } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import AnimatedIcon from './AnimatedIcon';
 
@@ -205,64 +205,67 @@ export default function CelestialPortal3D({ onSupernova }) {
     };
   }, [isDark, isHovered, supernovaActive, tilt]);
 
-  // Technology Satellites: Placed in deliberate, beautiful quadrants around the portrait
-  // With zero clipping, dedicated z-30 layering, and responsive placement
-  const techSatellites = [
-    {
-      id: 'postgres',
-      label: 'PostgreSQL',
-      sublabel: 'ACID INTEGRITY',
-      metric: '99.999% ACID',
-      icon: Database,
-      color: 'sky',
-      dotColor: 'bg-sky-400',
-      glowColor: 'rgba(56, 189, 248, 0.4)',
-      textColor: isDark ? 'text-sky-300' : 'text-sky-700',
-      borderColor: isDark ? 'border-sky-400/50 hover:border-sky-300 shadow-[0_4px_20px_rgba(56,189,248,0.25)]' : 'border-sky-400 hover:border-sky-600 shadow-md',
-      position: 'sm:top-5 sm:right-full sm:mr-4 xl:sm:mr-6 sm:left-auto',
-      floatStyle: { animation: 'celestial-float-left 7s ease-in-out infinite 1s' },
-    },
-    {
-      id: 'graphql',
-      label: 'GraphQL API',
-      sublabel: 'MOBILE MICROSERVICES',
-      metric: 'P99 <40ms',
-      icon: Cpu,
-      color: 'pink',
-      dotColor: 'bg-pink-400',
-      glowColor: 'rgba(244, 63, 94, 0.4)',
-      textColor: isDark ? 'text-pink-300' : 'text-pink-700',
-      borderColor: isDark ? 'border-pink-400/50 hover:border-pink-300 shadow-[0_4px_20px_rgba(244,63,94,0.25)]' : 'border-pink-400 hover:border-pink-600 shadow-md',
-      position: 'sm:bottom-6 sm:right-full sm:mr-4 xl:sm:mr-6 sm:left-auto',
-      floatStyle: { animation: 'celestial-float-left 8s ease-in-out infinite 2s' },
-    },
+  // Core Enterprise Architecture Skills for the continuous running stream
+  const streamSkills = [
     {
       id: 'spring',
       label: 'Spring Boot 3',
-      sublabel: 'ENTERPRISE CORE',
-      metric: '12.3ms SLA',
+      metric: '12.3ms SLA Core',
       icon: Server,
       color: 'emerald',
       dotColor: 'bg-emerald-400',
-      glowColor: 'rgba(16, 185, 129, 0.4)',
       textColor: isDark ? 'text-emerald-300' : 'text-emerald-700',
-      borderColor: isDark ? 'border-emerald-400/50 hover:border-emerald-300 shadow-[0_4px_20px_rgba(16,185,129,0.25)]' : 'border-emerald-400 hover:border-emerald-600 shadow-md',
-      position: 'sm:top-5 sm:left-full sm:ml-4 xl:sm:ml-6 sm:right-auto',
-      floatStyle: { animation: 'celestial-float-right 6s ease-in-out infinite' },
+      borderColor: isDark ? 'border-emerald-500/30 hover:border-emerald-400/80 bg-emerald-950/25' : 'border-emerald-300 hover:border-emerald-500 bg-emerald-50/70',
     },
     {
       id: 'react',
       label: 'React 18',
-      sublabel: 'OPERATIONS UI',
-      metric: '60 FPS GPU',
+      metric: '60 FPS GPU UI',
       icon: Layers,
       color: 'indigo',
       dotColor: 'bg-indigo-400',
-      glowColor: 'rgba(129, 140, 248, 0.4)',
       textColor: isDark ? 'text-indigo-300' : 'text-indigo-700',
-      borderColor: isDark ? 'border-indigo-400/50 hover:border-indigo-300 shadow-[0_4px_20px_rgba(129,140,248,0.25)]' : 'border-indigo-400 hover:border-indigo-600 shadow-md',
-      position: 'sm:bottom-6 sm:left-full sm:ml-4 xl:sm:ml-6 sm:right-auto',
-      floatStyle: { animation: 'celestial-float-right 7.5s ease-in-out infinite 3s' },
+      borderColor: isDark ? 'border-indigo-500/30 hover:border-indigo-400/80 bg-indigo-950/25' : 'border-indigo-300 hover:border-indigo-500 bg-indigo-50/70',
+    },
+    {
+      id: 'postgres',
+      label: 'PostgreSQL',
+      metric: '99.999% ACID',
+      icon: Database,
+      color: 'sky',
+      dotColor: 'bg-sky-400',
+      textColor: isDark ? 'text-sky-300' : 'text-sky-700',
+      borderColor: isDark ? 'border-sky-500/30 hover:border-sky-400/80 bg-sky-950/25' : 'border-sky-300 hover:border-sky-500 bg-sky-50/70',
+    },
+    {
+      id: 'graphql',
+      label: 'GraphQL API',
+      metric: 'P99 <40ms',
+      icon: Cpu,
+      color: 'pink',
+      dotColor: 'bg-pink-400',
+      textColor: isDark ? 'text-pink-300' : 'text-pink-700',
+      borderColor: isDark ? 'border-pink-500/30 hover:border-pink-400/80 bg-pink-950/25' : 'border-pink-300 hover:border-pink-500 bg-pink-50/70',
+    },
+    {
+      id: 'java',
+      label: 'Java 17 / 21',
+      metric: 'JDK Core & JVM',
+      icon: Code2,
+      color: 'amber',
+      dotColor: 'bg-amber-400',
+      textColor: isDark ? 'text-amber-300' : 'text-amber-700',
+      borderColor: isDark ? 'border-amber-500/30 hover:border-amber-400/80 bg-amber-950/25' : 'border-amber-300 hover:border-amber-500 bg-amber-50/70',
+    },
+    {
+      id: 'docker',
+      label: 'Docker & Cloud',
+      metric: 'Microservices',
+      icon: Box,
+      color: 'cyan',
+      dotColor: 'bg-cyan-400',
+      textColor: isDark ? 'text-cyan-300' : 'text-cyan-700',
+      borderColor: isDark ? 'border-cyan-500/30 hover:border-cyan-400/80 bg-cyan-950/25' : 'border-cyan-300 hover:border-cyan-500 bg-cyan-50/70',
     },
   ];
 
@@ -273,13 +276,13 @@ export default function CelestialPortal3D({ onSupernova }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
       onClick={handlePortalClick}
-      className="relative w-full max-w-[440px] sm:max-w-[480px] h-auto min-h-[320px] sm:h-[370px] flex flex-col items-center justify-center cursor-pointer select-none group overflow-visible"
+      className="relative w-full max-w-[480px] sm:max-w-[540px] h-auto min-h-[380px] sm:min-h-[430px] flex flex-col items-center justify-center cursor-pointer select-none group overflow-visible pt-1"
       style={{ perspective: 1200 }}
     >
       {/* 3D Sacred Geometry Canvas Layer (Rings, God Rays, Gyro Beacons) */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none z-10" />
 
-      {/* Central Portrait Card + Anchor for Orbiting Technology Satellites */}
+      {/* Central Portrait Card */}
       <div className="relative">
         
         {/* Floating 3D Portrait Monolith Card (z-20) */}
@@ -335,102 +338,83 @@ export default function CelestialPortal3D({ onSupernova }) {
           </div>
         </div>
 
-        {/* ========================================================
-            ELEVATED TECHNOLOGY SATELLITES (z-30) - Desktop & Tablet Orbiting
-            Zero overlap with photo, zero clipping, fully legible & styled
-            ======================================================== */}
-        {techSatellites.map((sat) => {
-          const IconComponent = sat.icon;
-          const colorKey = sat.color === 'emerald' ? 'emerald' : sat.color === 'sky' ? 'cyan' : sat.color === 'pink' ? 'rose' : 'violet';
-          return (
-            <div
-              key={sat.id}
-              style={sat.floatStyle}
-              className={`hidden sm:block absolute ${sat.position} z-30 pointer-events-auto transition-all duration-300 hover:scale-110 group/sat whitespace-nowrap`}
-            >
-              <div
-                onMouseEnter={() => celestialAudio.playChime('hover')}
-                className={`flex items-center gap-2 px-2.5 py-1.5 rounded-xl border backdrop-blur-2xl shadow-xl transition-all ${sat.borderColor} ${
-                  isDark 
-                    ? 'bg-white/[0.08] hover:bg-white/[0.15] border-t-white/30 text-white' 
-                    : 'bg-white/95 shadow-md border-slate-200 text-slate-900'
-                }`}
-              >
-                <div className={`p-1.5 rounded-lg shrink-0 ${isDark ? 'bg-white/[0.08] border border-white/15' : 'bg-slate-100 border border-slate-200/80'}`}>
-                  <AnimatedIcon
-                    icon={IconComponent}
-                    variant="float"
-                    color={colorKey}
-                    size="sm"
-                    badge={false}
-                    className="shrink-0"
-                  />
-                </div>
-                <div className="flex flex-col min-w-0">
-                  <div className="flex items-center gap-1.5">
-                    <span className={`font-mono text-[10px] xl:text-[11px] font-bold tracking-tight leading-none whitespace-nowrap ${sat.textColor}`}>
+      </div>
+
+      {/* ========================================================
+          EXECUTIVE CONTINUOUS ARCHITECTURE TELEMETRY DECK
+          Seamless left-to-right animated stream, 0% side clutter
+          ======================================================== */}
+      <div 
+        onClick={(e) => e.stopPropagation()}
+        className={`mt-4 w-full max-w-[340px] sm:max-w-[440px] xl:max-w-[480px] rounded-2xl border backdrop-blur-2xl p-2.5 transition-all shadow-xl z-30 pointer-events-auto select-none ${
+          isDark 
+            ? 'bg-slate-950/80 border-aurora-violet/35 shadow-[0_12px_35px_rgba(0,0,0,0.5)]' 
+            : 'bg-white/95 border-slate-200/90 shadow-[0_12px_35px_rgba(15,23,42,0.06)]'
+        }`}
+      >
+        {/* Header Telemetry Status Bar */}
+        <div className="flex items-center justify-between px-2 pb-2 mb-1.5 border-b border-white/10 dark:border-white/5 font-mono">
+          <div className="flex items-center gap-1.5">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span className={`text-[10px] font-extrabold uppercase tracking-wider ${isDark ? 'text-aurora-lavender' : 'text-slate-800'}`}>
+              CORE STACK TELEMETRY
+            </span>
+          </div>
+          <div className="flex items-center gap-1 text-[8.5px] uppercase tracking-wider font-semibold opacity-75">
+            <span className="text-emerald-400 font-bold">STREAMING</span>
+            <span className="text-emerald-400 animate-pulse font-bold">⇾</span>
+          </div>
+        </div>
+
+        {/* Continuous Left-to-Right Animated Carousel Viewport */}
+        <div 
+          className="relative overflow-hidden w-full py-1"
+          style={{
+            maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+          }}
+        >
+          <div className="animate-stream-right flex items-center gap-2.5">
+            {[...streamSkills, ...streamSkills].map((sat, idx) => {
+              const IconComponent = sat.icon;
+              const colorKey = sat.color === 'emerald' ? 'emerald' : sat.color === 'sky' ? 'cyan' : sat.color === 'pink' ? 'rose' : sat.color === 'amber' ? 'amber' : sat.color === 'cyan' ? 'cyan' : 'violet';
+              return (
+                <div
+                  key={`${sat.id}-${idx}`}
+                  onMouseEnter={() => celestialAudio.playChime('hover')}
+                  className={`flex items-center gap-2 px-3 py-1.5 rounded-xl border backdrop-blur-xl transition-all duration-300 hover:scale-105 shrink-0 shadow-sm cursor-pointer ${sat.borderColor} ${
+                    isDark ? 'text-white' : 'text-slate-900'
+                  }`}
+                >
+                  <div className={`p-1 rounded-lg shrink-0 ${isDark ? 'bg-white/[0.08]' : 'bg-white shadow-xs'}`}>
+                    <AnimatedIcon
+                      icon={IconComponent}
+                      variant="float"
+                      color={colorKey}
+                      size="sm"
+                      badge={false}
+                      className="shrink-0"
+                    />
+                  </div>
+                  <div className="flex flex-col min-w-0 pr-1">
+                    <span className={`font-mono text-[10.5px] font-bold tracking-tight leading-tight whitespace-nowrap ${sat.textColor}`}>
                       {sat.label}
                     </span>
-                    <span className={`px-1 py-0.2 rounded text-[7px] font-mono font-bold tracking-wider border shrink-0 ${
-                      isDark ? 'bg-white/10 border-white/15 text-white/90' : 'bg-slate-100 border-slate-200 text-slate-700 font-semibold'
+                    <span className={`font-mono text-[8px] uppercase tracking-wider opacity-65 leading-none whitespace-nowrap ${
+                      isDark ? 'text-slate-300' : 'text-slate-600 font-semibold'
                     }`}>
                       {sat.metric}
                     </span>
                   </div>
-                  <div className={`font-mono text-[7px] sm:text-[8px] uppercase tracking-wider mt-0.5 leading-none whitespace-nowrap ${
-                    isDark ? 'text-slate-300 opacity-75' : 'text-slate-600 font-semibold'
-                  }`}>
-                    {sat.sublabel}
-                  </div>
+                  <span className={`w-1.5 h-1.5 rounded-full ${sat.dotColor} shrink-0`} />
                 </div>
-                <div className="relative flex items-center justify-center ml-0.5 shrink-0">
-                  <span className={`w-1.5 h-1.5 rounded-full ${sat.dotColor} animate-pulse`} />
-                  <span className={`absolute -inset-1 rounded-full ${sat.dotColor} opacity-40 animate-ping`} />
-                </div>
-              </div>
-            </div>
-          );
-        })}
-
-      </div>
-
-      {/* Mobile-Only Satellites Grid (Clean 2x2 layout below portrait, 0% obstruction) */}
-      <div className="grid grid-cols-2 gap-2 mt-4 w-full max-w-[340px] px-2 sm:hidden z-30 pointer-events-auto">
-        {techSatellites.map((sat) => {
-          const IconComponent = sat.icon;
-          const colorKey = sat.color === 'emerald' ? 'emerald' : sat.color === 'sky' ? 'cyan' : sat.color === 'pink' ? 'rose' : 'violet';
-          return (
-            <div
-              key={`mob-${sat.id}`}
-              className={`flex items-center gap-2 px-2.5 py-1.5 rounded-xl border backdrop-blur-xl shadow-sm ${sat.borderColor} ${
-                isDark 
-                  ? 'bg-white/[0.08] text-white' 
-                  : 'bg-white/95 text-slate-900 border-slate-200'
-              }`}
-            >
-              <div className={`p-1 rounded-md shrink-0 ${isDark ? 'bg-white/[0.08]' : 'bg-slate-100 border border-slate-200/60'}`}>
-                <AnimatedIcon
-                  icon={IconComponent}
-                  variant="float"
-                  color={colorKey}
-                  size="sm"
-                  badge={false}
-                  className="shrink-0"
-                />
-              </div>
-              <div className="flex flex-col min-w-0">
-                <span className={`font-mono text-[10px] font-bold tracking-tight leading-none truncate ${sat.textColor}`}>
-                  {sat.label}
-                </span>
-                <span className={`font-mono text-[8px] uppercase tracking-wider mt-0.5 leading-none truncate ${
-                  isDark ? 'text-slate-300 opacity-75' : 'text-slate-600 font-semibold'
-                }`}>
-                  {sat.metric}
-                </span>
-              </div>
-            </div>
-          );
-        })}
+              );
+            })}
+          </div>
+        </div>
       </div>
 
     </div>

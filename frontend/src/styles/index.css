@@ -189,6 +189,21 @@
     animation: celestial-float 6s ease-in-out infinite;
   }
 
+  /* Seamless Left-to-Right Continuous Architecture Telemetry Stream */
+  @keyframes marquee-stream-right {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0%); }
+  }
+  .animate-stream-right {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+    animation: marquee-stream-right 22s linear infinite;
+  }
+  .animate-stream-right:hover {
+    animation-play-state: paused;
+  }
+
   /* ========================================================
      CONTINUOUS LIVING CARD MOTION SYSTEM
      Sophisticated, organic, out-of-phase kinematics with zero CLS
