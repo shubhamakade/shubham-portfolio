@@ -26,7 +26,7 @@ export default function ThemeToggle({ className = "" }) {
         )}
       </div>
 
-      <span className="font-semibold text-[11px] tracking-wide hidden sm:inline">
+      <span className="font-semibold text-[11px] tracking-wide hidden 2xl:inline">
         {isDark ? 'MIDNIGHT AURORA' : 'IVORY ATELIER'}
       </span>
     </button>

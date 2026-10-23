@@ -219,7 +219,7 @@ export default function CelestialPortal3D({ onSupernova }) {
       glowColor: 'rgba(56, 189, 248, 0.4)',
       textColor: isDark ? 'text-sky-300' : 'text-sky-700',
       borderColor: isDark ? 'border-sky-400/50 hover:border-sky-300 shadow-[0_4px_20px_rgba(56,189,248,0.25)]' : 'border-sky-400 hover:border-sky-600 shadow-md',
-      position: 'sm:bottom-full sm:top-auto sm:mb-3 sm:left-0',
+      position: 'sm:bottom-full sm:top-auto sm:mb-2.5 sm:left-0 sm:right-auto',
       floatStyle: { animation: 'celestial-float 7s ease-in-out infinite 1s' },
     },
     {
@@ -233,7 +233,7 @@ export default function CelestialPortal3D({ onSupernova }) {
       glowColor: 'rgba(16, 185, 129, 0.4)',
       textColor: isDark ? 'text-emerald-300' : 'text-emerald-700',
       borderColor: isDark ? 'border-emerald-400/50 hover:border-emerald-300 shadow-[0_4px_20px_rgba(16,185,129,0.25)]' : 'border-emerald-400 hover:border-emerald-600 shadow-md',
-      position: 'sm:top-3 sm:left-full sm:ml-3 sm:right-auto',
+      position: 'sm:top-3 sm:left-full sm:ml-2 sm:right-auto',
       floatStyle: { animation: 'celestial-float 6s ease-in-out infinite' },
     },
     {
@@ -247,7 +247,7 @@ export default function CelestialPortal3D({ onSupernova }) {
       glowColor: 'rgba(244, 63, 94, 0.4)',
       textColor: isDark ? 'text-pink-300' : 'text-pink-700',
       borderColor: isDark ? 'border-pink-400/50 hover:border-pink-300 shadow-[0_4px_20px_rgba(244,63,94,0.25)]' : 'border-pink-400 hover:border-pink-600 shadow-md',
-      position: 'sm:bottom-8 sm:right-full sm:mr-3 sm:left-auto',
+      position: 'sm:bottom-5 sm:right-full sm:mr-2 sm:left-auto',
       floatStyle: { animation: 'celestial-float 8s ease-in-out infinite 2s' },
     },
     {
@@ -261,7 +261,7 @@ export default function CelestialPortal3D({ onSupernova }) {
       glowColor: 'rgba(129, 140, 248, 0.4)',
       textColor: isDark ? 'text-indigo-300' : 'text-indigo-700',
       borderColor: isDark ? 'border-indigo-400/50 hover:border-indigo-300 shadow-[0_4px_20px_rgba(129,140,248,0.25)]' : 'border-indigo-400 hover:border-indigo-600 shadow-md',
-      position: 'sm:top-full sm:mt-3 sm:right-0 sm:left-auto',
+      position: 'sm:top-full sm:mt-2.5 sm:right-0 sm:left-auto',
       floatStyle: { animation: 'celestial-float 7.5s ease-in-out infinite 3s' },
     },
   ];
@@ -273,7 +273,7 @@ export default function CelestialPortal3D({ onSupernova }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
       onClick={handlePortalClick}
-      className="relative w-full max-w-[480px] sm:max-w-[520px] h-auto min-h-[340px] sm:h-[400px] flex flex-col items-center justify-center cursor-pointer select-none group overflow-visible"
+      className="relative w-full max-w-[440px] sm:max-w-[480px] h-auto min-h-[340px] sm:h-[400px] flex flex-col items-center justify-center cursor-pointer select-none group overflow-visible"
       style={{ perspective: 1200 }}
     >
       {/* 3D Sacred Geometry Canvas Layer (Rings, God Rays, Gyro Beacons) */}
@@ -284,7 +284,7 @@ export default function CelestialPortal3D({ onSupernova }) {
         
         {/* Floating 3D Portrait Monolith Card (z-20) */}
         <div
-          className={`relative z-20 w-48 sm:w-56 h-64 sm:h-76 rounded-2xl sm:rounded-3xl overflow-hidden border-2 transition-transform duration-200 ease-out shadow-2xl backdrop-blur-2xl hud-border ${
+          className={`relative z-20 w-44 sm:w-48 xl:w-52 h-60 sm:h-64 xl:h-72 rounded-2xl sm:rounded-3xl overflow-hidden border-2 transition-transform duration-200 ease-out shadow-2xl backdrop-blur-2xl hud-border ${
             isDark 
               ? 'bg-aurora-card/85 border-aurora-violet/50 shadow-glow-violet' 
               : 'bg-white/90 border-atelier-violet/40 shadow-glow-atelier'
@@ -350,7 +350,7 @@ export default function CelestialPortal3D({ onSupernova }) {
             >
               <div
                 onMouseEnter={() => celestialAudio.playChime('hover')}
-                className={`flex items-center gap-2.5 px-3 py-2 rounded-2xl border backdrop-blur-2xl shadow-xl transition-all ${sat.borderColor} ${
+                className={`flex items-center gap-2 px-2.5 py-1.5 rounded-xl border backdrop-blur-2xl shadow-xl transition-all ${sat.borderColor} ${
                   isDark 
                     ? 'bg-white/[0.08] hover:bg-white/[0.15] border-t-white/30 text-white' 
                     : 'bg-white/95 shadow-lg border-stone-200'
@@ -368,18 +368,18 @@ export default function CelestialPortal3D({ onSupernova }) {
                 </div>
                 <div className="flex flex-col min-w-0">
                   <div className="flex items-center gap-1.5">
-                    <span className={`font-mono text-[11px] font-bold tracking-tight leading-none ${sat.textColor}`}>
+                    <span className={`font-mono text-[10px] xl:text-[11px] font-bold tracking-tight leading-none whitespace-nowrap ${sat.textColor}`}>
                       {sat.label}
                     </span>
-                    <span className="px-1 py-0.2 rounded text-[7px] font-mono font-bold tracking-wider bg-white/10 border border-white/15 text-white/90">
+                    <span className="px-1 py-0.2 rounded text-[7px] font-mono font-bold tracking-wider bg-white/10 border border-white/15 text-white/90 shrink-0">
                       {sat.metric}
                     </span>
                   </div>
-                  <div className="font-mono text-[8px] opacity-70 uppercase tracking-wider mt-1 leading-none text-slate-300">
+                  <div className="font-mono text-[7px] sm:text-[8px] opacity-70 uppercase tracking-wider mt-0.5 leading-none text-slate-300 whitespace-nowrap">
                     {sat.sublabel}
                   </div>
                 </div>
-                <div className="relative flex items-center justify-center ml-1">
+                <div className="relative flex items-center justify-center ml-0.5 shrink-0">
                   <span className={`w-1.5 h-1.5 rounded-full ${sat.dotColor} animate-pulse`} />
                   <span className={`absolute -inset-1 rounded-full ${sat.dotColor} opacity-40 animate-ping`} />
                 </div>

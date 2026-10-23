@@ -78,45 +78,47 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
   return (
     <>
       {/* 1. Slim Minimalist Telemetry Ticker */}
-      <div className={`hidden md:flex justify-between items-center px-6 py-1 text-[11px] font-mono tracking-wider z-50 relative border-b transition-colors duration-300 ${
+      <div className={`hidden md:flex justify-between items-center px-4 sm:px-6 lg:px-8 py-1 text-[11px] font-mono tracking-wider z-50 relative border-b transition-colors duration-300 ${
         isDark
           ? 'bg-aurora-night/95 border-white/5 text-slate-400'
           : 'bg-atelier-cream/80 border-stone-200/60 text-stone-600'
       }`}>
-        <div className="flex items-center gap-3">
-          <span className={`flex items-center gap-1.5 font-semibold ${isDark ? 'text-aurora-lavender' : 'text-atelier-violet'}`}>
-            <span className={`w-1.5 h-1.5 rounded-full ${isDark ? 'bg-aurora-violet' : 'bg-atelier-violet'} animate-pulse`} />
-            PUNE, INDIA // {personalInfo.coordinates}
-          </span>
-          <span className="opacity-30">•</span>
-          <span className={`font-medium ${isDark ? 'text-slate-300' : 'text-stone-700'}`}>{currentTime}</span>
-        </div>
+        <div className="max-w-[1280px] w-full mx-auto flex justify-between items-center">
+          <div className="flex items-center gap-3">
+            <span className={`flex items-center gap-1.5 font-semibold ${isDark ? 'text-aurora-lavender' : 'text-atelier-violet'}`}>
+              <span className={`w-1.5 h-1.5 rounded-full ${isDark ? 'bg-aurora-violet' : 'bg-atelier-violet'} animate-pulse`} />
+              PUNE, INDIA // {personalInfo.coordinates}
+            </span>
+            <span className="opacity-30">•</span>
+            <span className={`font-medium ${isDark ? 'text-slate-300' : 'text-stone-700'}`}>{currentTime}</span>
+          </div>
 
-        <div className="flex items-center gap-3.5">
-          <span className={`flex items-center gap-1.5 font-semibold ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`}>
-            <span className={`w-1.5 h-1.5 rounded-full ${isDark ? 'bg-emerald-400' : 'bg-emerald-600'}`} />
-            ACID INTEGRITY: 100%
-          </span>
-          <span className="opacity-30">•</span>
-          <a
-            href={personalInfo.social.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            className="hover:underline flex items-center gap-1 transition-colors hover:text-aurora-lavender"
-          >
-            <span>LinkedIn</span>
-            <ExternalLink className="w-2.5 h-2.5 opacity-60" />
-          </a>
-          <span className="opacity-30">•</span>
-          <a
-            href={personalInfo.social.github}
-            target="_blank"
-            rel="noreferrer"
-            className="hover:underline flex items-center gap-1 transition-colors hover:text-aurora-lavender"
-          >
-            <span>GitHub</span>
-            <ExternalLink className="w-2.5 h-2.5 opacity-60" />
-          </a>
+          <div className="flex items-center gap-3.5">
+            <span className={`flex items-center gap-1.5 font-semibold ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`}>
+              <span className={`w-1.5 h-1.5 rounded-full ${isDark ? 'bg-emerald-400' : 'bg-emerald-600'}`} />
+              ACID INTEGRITY: 100%
+            </span>
+            <span className="opacity-30">•</span>
+            <a
+              href={personalInfo.social.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="hover:underline flex items-center gap-1 transition-colors hover:text-aurora-lavender"
+            >
+              <span>LinkedIn</span>
+              <ExternalLink className="w-2.5 h-2.5 opacity-60" />
+            </a>
+            <span className="opacity-30">•</span>
+            <a
+              href={personalInfo.social.github}
+              target="_blank"
+              rel="noreferrer"
+              className="hover:underline flex items-center gap-1 transition-colors hover:text-aurora-lavender"
+            >
+              <span>GitHub</span>
+              <ExternalLink className="w-2.5 h-2.5 opacity-60" />
+            </a>
+          </div>
         </div>
       </div>
 
@@ -125,18 +127,18 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
         className={`sticky top-0 z-40 transition-all duration-300 radiant-hairline-track ${
           scrolled
             ? isDark
-              ? 'bg-aurora-night/90 backdrop-blur-xl border-b border-aurora-violet/20 shadow-2xl py-3'
-              : 'bg-white/90 backdrop-blur-xl border-b border-stone-200/90 shadow-md py-3'
+              ? 'bg-aurora-night/90 backdrop-blur-xl border-b border-aurora-violet/20 shadow-2xl py-2.5'
+              : 'bg-white/90 backdrop-blur-xl border-b border-stone-200/90 shadow-md py-2.5'
             : isDark
-            ? 'bg-aurora-night/60 backdrop-blur-md border-b border-white/5 py-3.5'
-            : 'bg-atelier-ivory/80 backdrop-blur-md border-b border-stone-200/50 py-3.5'
+            ? 'bg-aurora-night/60 backdrop-blur-md border-b border-white/5 py-3'
+            : 'bg-atelier-ivory/80 backdrop-blur-md border-b border-stone-200/50 py-3'
         }`}
       >
-        <div className="max-w-[1320px] w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
+        <div className="max-w-[1280px] w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-2 lg:gap-3 xl:gap-4">
           
           {/* Identity Monolith: Elegant SA Logo + Name + Role */}
-          <a href="#hero" className="flex items-center gap-3 group shrink-0 select-none">
-            <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-mono font-bold text-sm tracking-tight transition-all duration-300 shadow-sm ${
+          <a href="#hero" className="flex items-center gap-2.5 sm:gap-3 group shrink-0 select-none">
+            <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center font-mono font-bold text-sm tracking-tight transition-all duration-300 shadow-sm ${
               isDark
                 ? 'bg-gradient-to-br from-aurora-card to-aurora-night border border-aurora-violet/40 text-aurora-lavender group-hover:border-aurora-violet group-hover:shadow-glow-violet'
                 : 'bg-gradient-to-br from-white to-stone-100 border border-stone-300 text-atelier-violet group-hover:border-atelier-violet group-hover:shadow-glow-atelier'
@@ -145,14 +147,14 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
             </div>
             <div className="flex flex-col">
               <div className="flex items-center gap-2">
-                <span className={`font-display font-extrabold text-base tracking-tight whitespace-nowrap transition-colors ${
+                <span className={`font-display font-extrabold text-sm sm:text-base tracking-tight whitespace-nowrap transition-colors ${
                   isDark ? 'text-white group-hover:text-aurora-lavender' : 'text-stone-900 group-hover:text-atelier-violet'
                 }`}>
                   SHUBHAM AKADE
                 </span>
                 <span className={`w-1.5 h-1.5 rounded-full ${isDark ? 'bg-emerald-400' : 'bg-emerald-500'} animate-pulse`} title="Available for Architectural Roles" />
               </div>
-              <span className={`text-[10px] sm:text-[11px] font-mono tracking-wider uppercase whitespace-nowrap transition-colors ${
+              <span className={`text-[9px] sm:text-[10px] font-mono tracking-wider uppercase whitespace-nowrap transition-colors ${
                 isDark ? 'text-slate-400' : 'text-stone-500'
               }`}>
                 Java Full Stack Architect
@@ -161,7 +163,7 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
           </a>
 
           {/* Desktop Navigation Links with Animated Active Indicator */}
-          <nav className={`hidden lg:flex items-center gap-1 p-1 rounded-full border backdrop-blur-md transition-colors ${
+          <nav className={`hidden lg:flex items-center gap-0.5 xl:gap-1 p-1 rounded-full border backdrop-blur-md transition-colors ${
             isDark
               ? 'bg-aurora-card/40 border-white/5'
               : 'bg-stone-100/80 border-stone-200/80'
@@ -173,7 +175,7 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
                   key={link.id}
                   href={`#${link.id}`}
                   onClick={() => celestialAudio.playChime('chime')}
-                  className={`relative px-4 py-1.5 rounded-full text-xs font-mono font-medium tracking-wide transition-colors duration-200 select-none ${
+                  className={`relative px-2.5 xl:px-4 py-1.5 rounded-full text-xs font-mono font-medium tracking-wide transition-colors duration-200 select-none ${
                     isActive
                       ? isDark
                         ? 'text-white font-semibold'
@@ -201,12 +203,12 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
           </nav>
 
           {/* Desktop Right Actions Area (Consistent heights, balanced spacing) */}
-          <div className="hidden sm:flex items-center gap-2 shrink-0">
+          <div className="hidden sm:flex items-center gap-1.5 xl:gap-2 shrink-0">
             
             {/* Warp <-> Unwrap Mode Toggle */}
             <button
               onClick={handleWarpTrigger}
-              className={`h-9 px-3 rounded-lg border text-xs font-mono font-semibold transition-all flex items-center gap-1.5 ${
+              className={`h-9 px-2.5 xl:px-3 rounded-lg border text-xs font-mono font-semibold transition-all flex items-center gap-1.5 ${
                 isWarped
                   ? 'bg-emerald-500/20 border-emerald-400 text-emerald-300 shadow-glow-emerald'
                   : isDark
@@ -218,12 +220,12 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
               {isWarped ? (
                 <>
                   <ZapOff className="w-3.5 h-3.5 text-emerald-400" />
-                  <span className="text-[11px]">UNWRAP</span>
+                  <span className="text-[11px] hidden xl:inline">UNWRAP</span>
                 </>
               ) : (
                 <>
                   <Zap className="w-3.5 h-3.5 text-amber-400" />
-                  <span className="text-[11px]">WARP</span>
+                  <span className="text-[11px] hidden xl:inline">WARP</span>
                 </>
               )}
             </button>
@@ -251,7 +253,7 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
             </button>
 
             {/* Theme Switcher Toggle */}
-            <ThemeToggle className="h-9 px-3 rounded-lg" />
+            <ThemeToggle className="h-9 px-2.5 xl:px-3 rounded-lg" />
 
             {/* Interactive Terminal Button */}
             <button
@@ -259,7 +261,7 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
                 celestialAudio.playChime('chime');
                 if (onOpenTerminal) onOpenTerminal();
               }}
-              className={`h-9 px-3 rounded-lg border font-mono text-xs font-semibold transition-all flex items-center gap-1.5 ${
+              className={`h-9 px-2.5 xl:px-3 rounded-lg border font-mono text-xs font-semibold transition-all flex items-center gap-1.5 ${
                 isDark
                   ? 'bg-aurora-card/60 border-white/10 text-slate-300 hover:border-aurora-violet hover:text-white'
                   : 'bg-white border-stone-200 text-stone-700 hover:border-stone-300 hover:text-stone-900 shadow-sm'
@@ -267,7 +269,7 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
               title="Launch Cyber HUD Terminal (Ctrl+K or `)"
             >
               <Terminal className="w-3.5 h-3.5" />
-              <span className="text-[11px]">TERMINAL</span>
+              <span className="text-[11px] hidden xl:inline">TERMINAL</span>
             </button>
 
             {/* Primary Resume Download Button */}
@@ -276,7 +278,7 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
                 celestialAudio.playChime('affirm');
                 if (onOpenResume) onOpenResume();
               }}
-              className={`h-9 px-3.5 rounded-lg border text-xs font-mono font-bold transition-all flex items-center gap-1.5 shadow-sm group ${
+              className={`h-9 px-3 sm:px-3.5 rounded-lg border text-xs font-mono font-bold transition-all flex items-center gap-1.5 shadow-sm group shrink-0 ${
                 isDark
                   ? 'bg-emerald-950/40 border-emerald-500/50 text-emerald-300 hover:bg-emerald-900/60 hover:border-emerald-300 shadow-glow-emerald'
                   : 'bg-emerald-600 border-emerald-700 text-white hover:bg-emerald-700 shadow-md'
@@ -327,7 +329,7 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
                   : 'bg-white/95 border-stone-200 shadow-xl'
               }`}
             >
-              <div className="px-4 py-5 space-y-4 max-w-[1320px] w-full mx-auto">
+              <div className="px-4 py-5 space-y-4 max-w-[1280px] w-full mx-auto">
                 
                 {/* Prominent Full-Width Resume Download CTA */}
                 <button

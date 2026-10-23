@@ -37,13 +37,13 @@ export default function HeroSection({ onWarp, isWarped, onOpenResume, onOpenTerm
   return (
     <section
       id="hero"
-      className="relative min-h-[calc(100vh-4.5rem)] flex flex-col justify-between pt-2 sm:pt-4 pb-2 sm:pb-4 px-4 sm:px-6 lg:px-8 max-w-[1320px] w-full mx-auto overflow-visible"
+      className="relative min-h-[calc(100vh-4.5rem)] flex flex-col justify-start pt-3 sm:pt-6 pb-6 px-4 sm:px-6 lg:px-8 max-w-[1280px] w-full mx-auto overflow-visible"
     >
-      <div className="w-full my-auto py-2 sm:py-3">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center overflow-visible">
+      <div className="w-full py-2 sm:py-3">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 xl:gap-10 items-center overflow-visible">
           
-          {/* Left Column: Architectural Dossier (55% proportion) */}
-          <div className="col-span-1 lg:col-span-7 flex flex-col gap-3 sm:gap-3.5 z-10 w-full min-w-0">
+          {/* Left Column: Architectural Dossier (Balanced proportion) */}
+          <div className="col-span-1 lg:col-span-6 flex flex-col gap-3 sm:gap-3.5 z-10 w-full min-w-0">
             
             {/* Real Status Badge */}
             <div className="flex items-center gap-2">
@@ -203,8 +203,8 @@ export default function HeroSection({ onWarp, isWarped, onOpenResume, onOpenTerm
 
           </div>
 
-          {/* Right Column: Celestial Portal 3D Monolith (45% proportion) */}
-          <div className="col-span-1 lg:col-span-5 flex justify-center items-center relative overflow-visible py-2 w-full">
+          {/* Right Column: Celestial Portal 3D Monolith (Balanced 50% proportion) */}
+          <div className="col-span-1 lg:col-span-6 flex justify-center items-center relative overflow-visible py-2 w-full lg:-translate-x-14 xl:translate-x-0">
             <CelestialPortal3D
               onSupernova={() => {
                 celestialAudio.playChime('supernova');

@@ -434,4 +434,15 @@
       transform: none !important;
     }
   }
+
+  /* Netlify Badge non-intrusive positioning */
+  #netlify-badge,
+  .netlify-badge,
+  iframe[src*="netlify"],
+  [style*="netlify"] {
+    bottom: 8px !important;
+    right: 8px !important;
+    z-index: 25 !important;
+  }
 }
+
