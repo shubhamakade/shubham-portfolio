@@ -287,7 +287,7 @@ export default function CelestialPortal3D({ onSupernova }) {
           className={`relative z-20 w-44 sm:w-48 xl:w-52 h-60 sm:h-64 xl:h-72 rounded-2xl sm:rounded-3xl overflow-hidden border-2 transition-transform duration-200 ease-out shadow-2xl backdrop-blur-2xl hud-border ${
             isDark 
               ? 'bg-aurora-card/85 border-aurora-violet/50 shadow-glow-violet' 
-              : 'bg-white/90 border-atelier-violet/40 shadow-glow-atelier'
+              : 'bg-white/95 border-slate-200/90 shadow-[0_16px_40px_rgba(0,0,0,0.08)]'
           }`}
           style={{
             transform: `rotateX(${tilt.y}deg) rotateY(${tilt.x}deg) translateZ(30px)`,
@@ -298,7 +298,7 @@ export default function CelestialPortal3D({ onSupernova }) {
           <div 
             className="absolute inset-0 pointer-events-none z-30 opacity-60 mix-blend-overlay transition-opacity duration-300"
             style={{
-              background: `radial-gradient(circle at ${50 + tilt.x * 2}% ${50 + tilt.y * 2}%, rgba(255,255,255,0.7) 0%, rgba(255,255,255) 65%)`
+              background: `radial-gradient(circle at ${50 + tilt.x * 2}% ${50 + tilt.y * 2}%, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 65%)`
             }}
           />
 
@@ -353,10 +353,10 @@ export default function CelestialPortal3D({ onSupernova }) {
                 className={`flex items-center gap-2 px-2.5 py-1.5 rounded-xl border backdrop-blur-2xl shadow-xl transition-all ${sat.borderColor} ${
                   isDark 
                     ? 'bg-white/[0.08] hover:bg-white/[0.15] border-t-white/30 text-white' 
-                    : 'bg-white/95 shadow-lg border-stone-200'
+                    : 'bg-white/95 shadow-md border-slate-200 text-slate-900'
                 }`}
               >
-                <div className={`p-1.5 rounded-lg shrink-0 ${isDark ? 'bg-white/[0.08] border border-white/15' : 'bg-stone-100'}`}>
+                <div className={`p-1.5 rounded-lg shrink-0 ${isDark ? 'bg-white/[0.08] border border-white/15' : 'bg-slate-100 border border-slate-200/80'}`}>
                   <AnimatedIcon
                     icon={IconComponent}
                     variant="float"
@@ -371,11 +371,15 @@ export default function CelestialPortal3D({ onSupernova }) {
                     <span className={`font-mono text-[10px] xl:text-[11px] font-bold tracking-tight leading-none whitespace-nowrap ${sat.textColor}`}>
                       {sat.label}
                     </span>
-                    <span className="px-1 py-0.2 rounded text-[7px] font-mono font-bold tracking-wider bg-white/10 border border-white/15 text-white/90 shrink-0">
+                    <span className={`px-1 py-0.2 rounded text-[7px] font-mono font-bold tracking-wider border shrink-0 ${
+                      isDark ? 'bg-white/10 border-white/15 text-white/90' : 'bg-slate-100 border-slate-200 text-slate-700 font-semibold'
+                    }`}>
                       {sat.metric}
                     </span>
                   </div>
-                  <div className="font-mono text-[7px] sm:text-[8px] opacity-70 uppercase tracking-wider mt-0.5 leading-none text-slate-300 whitespace-nowrap">
+                  <div className={`font-mono text-[7px] sm:text-[8px] uppercase tracking-wider mt-0.5 leading-none whitespace-nowrap ${
+                    isDark ? 'text-slate-300 opacity-75' : 'text-slate-600 font-semibold'
+                  }`}>
                     {sat.sublabel}
                   </div>
                 </div>
@@ -398,13 +402,13 @@ export default function CelestialPortal3D({ onSupernova }) {
           return (
             <div
               key={`mob-${sat.id}`}
-              className={`flex items-center gap-2 px-2.5 py-1.5 rounded-xl border backdrop-blur-xl shadow-md ${sat.borderColor} ${
+              className={`flex items-center gap-2 px-2.5 py-1.5 rounded-xl border backdrop-blur-xl shadow-sm ${sat.borderColor} ${
                 isDark 
                   ? 'bg-white/[0.08] text-white' 
-                  : 'bg-white/95 text-stone-900 border-stone-200'
+                  : 'bg-white/95 text-slate-900 border-slate-200'
               }`}
             >
-              <div className={`p-1 rounded-md shrink-0 ${isDark ? 'bg-white/[0.08]' : 'bg-stone-100'}`}>
+              <div className={`p-1 rounded-md shrink-0 ${isDark ? 'bg-white/[0.08]' : 'bg-slate-100 border border-slate-200/60'}`}>
                 <AnimatedIcon
                   icon={IconComponent}
                   variant="float"
@@ -418,7 +422,9 @@ export default function CelestialPortal3D({ onSupernova }) {
                 <span className={`font-mono text-[10px] font-bold tracking-tight leading-none truncate ${sat.textColor}`}>
                   {sat.label}
                 </span>
-                <span className="font-mono text-[8px] opacity-70 uppercase tracking-wider mt-0.5 leading-none text-slate-300 truncate">
+                <span className={`font-mono text-[8px] uppercase tracking-wider mt-0.5 leading-none truncate ${
+                  isDark ? 'text-slate-300 opacity-75' : 'text-slate-600 font-semibold'
+                }`}>
                   {sat.metric}
                 </span>
               </div>

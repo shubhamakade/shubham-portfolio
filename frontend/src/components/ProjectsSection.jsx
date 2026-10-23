@@ -132,8 +132,8 @@ export default function ProjectsSection() {
                 }`}>
                   {trunkProject.badge}
                 </span>
-                <span className="font-mono text-xs opacity-80 text-slate-300">
-                  CODEBASE: <code className="font-semibold text-white">epps-trunk-suite (Maven Multi-Module)</code>
+                <span className={`font-mono text-xs ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                  CODEBASE: <code className={`font-semibold ${isDark ? 'text-white' : 'text-slate-900 font-bold'}`}>epps-trunk-suite (Maven Multi-Module)</code>
                 </span>
               </div>
               <div className={`flex items-center gap-2 text-xs font-mono px-3.5 py-1.5 rounded-full border backdrop-blur-xl ${
@@ -739,8 +739,8 @@ export default function ProjectsSection() {
                 }`}>
                   {mobileProject.badge}
                 </span>
-                <span className="font-mono text-xs opacity-80 text-slate-300">
-                  CODEBASE: <code className="font-semibold text-white">smart-erp-mobile (GraphQL & REST)</code>
+                <span className={`font-mono text-xs ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                  CODEBASE: <code className={`font-semibold ${isDark ? 'text-white' : 'text-slate-900 font-bold'}`}>smart-erp-mobile (GraphQL & REST)</code>
                 </span>
               </div>
               <div className={`flex items-center gap-2 text-xs font-mono px-3.5 py-1.5 rounded-full border backdrop-blur-xl ${
@@ -1201,8 +1201,8 @@ export default function ProjectsSection() {
                     <div key={mIdx} className={`p-3 rounded-xl border font-mono transition-all duration-200 ${
                       isDark ? 'bg-white/[0.04] border-white/10 hover:border-white/20' : 'bg-stone-50 border-stone-200'
                     }`}>
-                      <div className="text-[10px] text-cyan-300 font-bold uppercase tracking-wider">{m.label}</div>
-                      <div className="font-display font-black text-lg text-white mt-0.5">{m.val}</div>
+                      <div className={`text-[10px] font-bold uppercase tracking-wider ${isDark ? 'text-cyan-300' : 'text-sky-700'}`}>{m.label}</div>
+                      <div className={`font-display font-black text-lg mt-0.5 ${isDark ? 'text-white' : 'text-slate-900'}`}>{m.val}</div>
                     </div>
                   ))}
                 </div>

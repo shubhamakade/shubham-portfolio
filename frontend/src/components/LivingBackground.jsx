@@ -138,8 +138,8 @@ export default function LivingBackground() {
           rayGrad.addColorStop(0.4, `rgba(56, 189, 248, ${rayAlpha * 1.3})`);
           rayGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
         } else {
-          rayGrad.addColorStop(0, `rgba(251, 191, 36, ${rayAlpha * 1.7})`);
-          rayGrad.addColorStop(0.4, `rgba(139, 92, 246, ${rayAlpha * 0.95})`);
+          rayGrad.addColorStop(0, `rgba(124, 58, 237, ${rayAlpha * 1.2})`);
+          rayGrad.addColorStop(0.4, `rgba(56, 189, 248, ${rayAlpha * 0.8})`);
           rayGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
         }
 
@@ -164,9 +164,9 @@ export default function LivingBackground() {
             { xR: 0.5, yR: 0.85, r: 430, col: `rgba(45, 212, 191, ${0.028 + breath})`, sp: 0.0007, ph: 4 },
           ]
         : [
-            { xR: 0.25, yR: 0.2, r: 460, col: `rgba(251, 191, 36, ${0.038 + breath})`, sp: 0.0006, ph: 0 },
-            { xR: 0.75, yR: 0.6, r: 510, col: `rgba(124, 58, 237, ${0.028 + breath})`, sp: 0.0005, ph: 2 },
-            { xR: 0.45, yR: 0.8, r: 410, col: `rgba(244, 63, 94, ${0.022 + breath})`, sp: 0.0007, ph: 4 },
+            { xR: 0.25, yR: 0.2, r: 460, col: `rgba(124, 58, 237, ${0.032 + breath})`, sp: 0.0006, ph: 0 },
+            { xR: 0.75, yR: 0.6, r: 510, col: `rgba(56, 189, 248, ${0.024 + breath})`, sp: 0.0005, ph: 2 },
+            { xR: 0.45, yR: 0.8, r: 410, col: `rgba(16, 185, 129, ${0.018 + breath})`, sp: 0.0007, ph: 4 },
           ];
 
       orbs.forEach((orb) => {

@@ -178,28 +178,28 @@ public class AccountsPayableGraphQLController {
                 <div className={`p-3.5 rounded-2xl border backdrop-blur-xl flex items-center gap-3 transition-all ${
                   isDark 
                     ? 'bg-gradient-to-r from-emerald-950/40 via-white/[0.06] to-emerald-950/20 border-emerald-400/30 text-slate-100 shadow-[0_4px_20px_rgba(16,185,129,0.15)]' 
-                    : 'bg-stone-50 border-stone-200 text-stone-800'
+                    : 'bg-white/90 border-slate-200/90 text-slate-800 shadow-sm'
                 }`}>
-                  <div className="p-2 rounded-xl bg-emerald-500/20 border border-emerald-400/30">
+                  <div className={`p-2 rounded-xl border ${isDark ? 'bg-emerald-500/20 border-emerald-400/30' : 'bg-emerald-50 border-emerald-200'}`}>
                     <AnimatedIcon icon={Briefcase} variant="bounce" color="emerald" size="sm" badge={false} />
                   </div>
                   <div>
-                    <div className="text-[10px] opacity-70 uppercase font-semibold text-emerald-300">Current Organization</div>
-                    <div className="font-bold text-xs mt-0.5 text-white">EPPS Infotech Ltd. (Jul 2025 — Present)</div>
+                    <div className={`text-[10px] uppercase font-semibold ${isDark ? 'text-emerald-300 opacity-80' : 'text-emerald-700 font-bold'}`}>Current Organization</div>
+                    <div className={`font-bold text-xs mt-0.5 ${isDark ? 'text-white' : 'text-slate-900'}`}>EPPS Infotech Ltd. (Jul 2025 — Present)</div>
                   </div>
                 </div>
 
                 <div className={`p-3.5 rounded-2xl border backdrop-blur-xl flex items-center gap-3 transition-all ${
                   isDark 
                     ? 'bg-gradient-to-r from-cyan-950/40 via-white/[0.06] to-sky-950/20 border-cyan-400/30 text-slate-100 shadow-[0_4px_20px_rgba(56,189,248,0.15)]' 
-                    : 'bg-stone-50 border-stone-200 text-stone-800'
+                    : 'bg-white/90 border-slate-200/90 text-slate-800 shadow-sm'
                 }`}>
-                  <div className="p-2 rounded-xl bg-cyan-500/20 border border-cyan-400/30">
+                  <div className={`p-2 rounded-xl border ${isDark ? 'bg-cyan-500/20 border-cyan-400/30' : 'bg-sky-50 border-sky-200'}`}>
                     <AnimatedIcon icon={GraduationCap} variant="float" color="cyan" size="sm" badge={false} />
                   </div>
                   <div>
-                    <div className="text-[10px] opacity-70 uppercase font-semibold text-cyan-300">Degree & College</div>
-                    <div className="font-bold text-xs mt-0.5 text-white">B.E. Computer Engineering, GCOE Chandrapur ('23)</div>
+                    <div className={`text-[10px] uppercase font-semibold ${isDark ? 'text-cyan-300 opacity-80' : 'text-sky-700 font-bold'}`}>Degree & College</div>
+                    <div className={`font-bold text-xs mt-0.5 ${isDark ? 'text-white' : 'text-slate-900'}`}>B.E. Computer Engineering, GCOE Chandrapur ('23)</div>
                   </div>
                 </div>
               </div>

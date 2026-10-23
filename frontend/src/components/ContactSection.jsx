@@ -284,7 +284,9 @@ export default function ContactSection() {
             ) : (
               <form onSubmit={handleFormSubmit} className="space-y-4 font-mono text-xs">
                 <div>
-                  <label className="block text-slate-300 uppercase text-[11px] mb-1.5 font-bold tracking-wider">
+                  <label className={`block uppercase text-[11px] mb-1.5 font-bold tracking-wider ${
+                    isDark ? 'text-slate-300' : 'text-slate-700'
+                  }`}>
                     Your Name / Organization
                   </label>
                   <input
@@ -296,13 +298,15 @@ export default function ContactSection() {
                     className={`w-full px-4 py-3 rounded-xl border transition-all outline-none ${
                       isDark
                         ? 'bg-white/[0.06] border-white/15 text-white placeholder-slate-400 focus:border-cyan-400 focus:bg-white/[0.1] shadow-inner'
-                        : 'bg-stone-50 border-stone-200 text-stone-900 focus:border-atelier-violet'
+                        : 'bg-white border-slate-200 text-slate-900 placeholder-slate-400 focus:border-violet-600 focus:ring-1 focus:ring-violet-500 shadow-sm'
                     }`}
                   />
                 </div>
 
                 <div>
-                  <label className="block text-slate-300 uppercase text-[11px] mb-1.5 font-bold tracking-wider">
+                  <label className={`block uppercase text-[11px] mb-1.5 font-bold tracking-wider ${
+                    isDark ? 'text-slate-300' : 'text-slate-700'
+                  }`}>
                     Your Email Address (Sender)
                   </label>
                   <input
@@ -314,13 +318,15 @@ export default function ContactSection() {
                     className={`w-full px-4 py-3 rounded-xl border transition-all outline-none ${
                       isDark
                         ? 'bg-white/[0.06] border-white/15 text-white placeholder-slate-400 focus:border-cyan-400 focus:bg-white/[0.1] shadow-inner'
-                        : 'bg-stone-50 border-stone-200 text-stone-900 focus:border-atelier-violet'
+                        : 'bg-white border-slate-200 text-slate-900 placeholder-slate-400 focus:border-violet-600 focus:ring-1 focus:ring-violet-500 shadow-sm'
                     }`}
                   />
                 </div>
 
                 <div>
-                  <label className="block text-slate-300 uppercase text-[11px] mb-1.5 font-bold tracking-wider">
+                  <label className={`block uppercase text-[11px] mb-1.5 font-bold tracking-wider ${
+                    isDark ? 'text-slate-300' : 'text-slate-700'
+                  }`}>
                     Project Scope / Role Specification
                   </label>
                   <textarea
@@ -332,7 +338,7 @@ export default function ContactSection() {
                     className={`w-full px-4 py-3 rounded-xl border transition-all resize-none outline-none ${
                       isDark
                         ? 'bg-white/[0.06] border-white/15 text-white placeholder-slate-400 focus:border-cyan-400 focus:bg-white/[0.1] shadow-inner'
-                        : 'bg-stone-50 border-stone-200 text-stone-900 focus:border-atelier-violet'
+                        : 'bg-white border-slate-200 text-slate-900 placeholder-slate-400 focus:border-violet-600 focus:ring-1 focus:ring-violet-500 shadow-sm'
                     }`}
                   />
                 </div>

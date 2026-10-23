@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-const GLYPHS = '✦◈⬡⟁01⬢⟐XYZΩΔ';
+const GLYPHS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_#@';
 
 export default function DecryptedText({ 
   text, 
   className = "", 
-  speed = 38,
-  maxIterations = 10,
+  speed = 32,
+  maxIterations = 8,
   sequential = true,
-  replayEveryMs = 4500 
+  replayEveryMs = 0 
 }) {
   const [displayText, setDisplayText] = useState(text);
   const timerRef = useRef(null);
