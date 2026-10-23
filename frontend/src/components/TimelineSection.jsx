@@ -116,28 +116,32 @@ export default function TimelineSection() {
                           ACTIVE PRODUCTION ROLE
                         </span>
                       )}
-                      <span className="font-mono text-xs opacity-75 flex items-center gap-1.5 text-slate-300">
-                        <MapPin className="w-3.5 h-3.5 text-rose-400" />
+                      <span className={`font-mono text-xs flex items-center gap-1.5 ${
+                        isDark ? 'text-slate-300 opacity-80' : 'text-slate-600 font-semibold'
+                      }`}>
+                        <MapPin className="w-3.5 h-3.5 text-rose-500" />
                         {item.location}
                       </span>
                     </div>
 
-                    <div className="font-mono text-[11px] flex items-center gap-2 px-3 py-1 rounded-lg border bg-white/[0.04] border-white/10 text-cyan-300">
-                      <GitBranch className="w-3.5 h-3.5 text-emerald-400" />
+                    <div className={`font-mono text-[11px] flex items-center gap-2 px-3 py-1 rounded-lg border ${
+                      isDark ? 'bg-white/[0.04] border-white/10 text-cyan-300' : 'bg-slate-100 border-slate-200 text-slate-700 font-medium'
+                    }`}>
+                      <GitBranch className="w-3.5 h-3.5 text-emerald-500" />
                       <span className="font-bold">{commit.hash}</span>
-                      <span className="opacity-60 text-slate-400">[{commit.ref}]</span>
+                      <span className={isDark ? 'opacity-60 text-slate-400' : 'text-slate-500'}>[{commit.ref}]</span>
                     </div>
                   </div>
 
                   {/* Role & Entity */}
                   <div className="mt-5 mb-3">
                     <h3 className={`font-display font-extrabold text-2xl sm:text-3xl tracking-tight ${
-                      isDark ? 'text-white' : 'text-stone-900'
+                      isDark ? 'text-white' : 'text-slate-900'
                     }`}>
                       {item.role}
                     </h3>
                     <div className={`font-mono text-xs sm:text-sm font-semibold mt-1.5 flex items-center gap-2 ${
-                      isDark ? 'text-cyan-300' : 'text-atelier-violet'
+                      isDark ? 'text-cyan-300' : 'text-violet-700'
                     }`}>
                       <Terminal className="w-3.5 h-3.5" />
                       <span>{item.entity}</span>
@@ -145,15 +149,17 @@ export default function TimelineSection() {
                   </div>
 
                   <p className={`font-sans text-sm sm:text-base leading-relaxed mb-6 ${
-                    isDark ? 'text-slate-200' : 'text-stone-600'
+                    isDark ? 'text-slate-200' : 'text-slate-600'
                   }`}>
                     {item.summary}
                   </p>
 
                   {/* Key Deliverables */}
                   <div className="space-y-2 mb-6">
-                    <div className="font-mono text-[11px] text-cyan-300 uppercase tracking-wider font-bold mb-2 flex items-center gap-1.5">
-                      <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                    <div className={`font-mono text-[11px] uppercase tracking-wider font-bold mb-2 flex items-center gap-1.5 ${
+                      isDark ? 'text-cyan-300' : 'text-violet-700'
+                    }`}>
+                      <Sparkles className="w-3.5 h-3.5 text-amber-500" />
                       KEY ARCHITECTURAL DELIVERABLES:
                     </div>
                     {item.keyDeliverables.map((deliv, dIdx) => (

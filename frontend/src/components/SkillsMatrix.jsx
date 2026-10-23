@@ -202,9 +202,11 @@ export default function SkillsMatrix() {
                   </span>
 
                   {isActive ? (
-                    <span className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-white/10 border border-white/20 text-[9px] font-mono font-bold">
+                    <span className={`flex items-center gap-1.5 px-2 py-0.5 rounded-full border text-[9px] font-mono font-bold ${
+                      isDark ? 'bg-white/10 border-white/20' : 'bg-slate-100 border-slate-200'
+                    }`}>
                       <span className={`w-1.5 h-1.5 rounded-full ${domainMeta.activeIndicator} animate-pulse`} />
-                      <span className={isDark ? 'text-white' : 'text-stone-900'}>ACTIVE</span>
+                      <span className={isDark ? 'text-white' : 'text-slate-900'}>ACTIVE</span>
                     </span>
                   ) : (
                     <span className="w-1.5 h-1.5 rounded-full bg-white/20 opacity-40 group-hover:opacity-80" />
@@ -215,8 +217,8 @@ export default function SkillsMatrix() {
                 <div className="flex items-center gap-3 relative z-10 min-w-0 mb-2">
                   <div className={`p-2 rounded-xl shrink-0 transition-colors ${
                     isActive 
-                      ? 'bg-white/15 border border-white/25 shadow-md' 
-                      : 'bg-white/[0.06] border border-white/10'
+                      ? isDark ? 'bg-white/15 border border-white/25 shadow-md' : 'bg-slate-100 border border-slate-200/90 shadow-sm'
+                      : isDark ? 'bg-white/[0.06] border border-white/10' : 'bg-slate-50 border border-slate-200/60'
                   }`}>
                     <AnimatedIcon
                       icon={Icon}
@@ -228,7 +230,7 @@ export default function SkillsMatrix() {
                   </div>
                   <div className="min-w-0 flex-1">
                     <div className={`font-display font-extrabold text-sm sm:text-base tracking-tight truncate ${
-                      isActive ? 'text-white' : isDark ? 'text-slate-100' : 'text-stone-900'
+                      isActive ? (isDark ? 'text-white' : 'text-slate-900 font-black') : isDark ? 'text-slate-100' : 'text-slate-800 font-bold'
                     }`}>
                       {domainMeta.title}
                     </div>
@@ -239,8 +241,8 @@ export default function SkillsMatrix() {
                 <div className="relative z-10 pt-2 border-t border-current/10 w-full">
                   <div className={`text-[11px] font-mono tracking-tight truncate ${
                     isActive
-                      ? isDark ? 'text-slate-200 font-medium' : 'text-stone-800 font-semibold'
-                      : isDark ? 'text-slate-400' : 'text-stone-600'
+                      ? isDark ? 'text-slate-200 font-medium' : 'text-slate-700 font-semibold'
+                      : isDark ? 'text-slate-400' : 'text-slate-500'
                   }`}>
                     {domainMeta.subtitle}
                   </div>
@@ -439,28 +441,28 @@ export default function SkillsMatrix() {
 
                 <div className="space-y-4 mb-6 text-xs font-mono">
                   <div className={`p-4 rounded-xl border ${
-                    isDark ? 'bg-white/[0.04] border-white/10' : 'bg-stone-50 border-stone-200'
+                    isDark ? 'bg-white/[0.04] border-white/10' : 'bg-slate-50 border-slate-200'
                   }`}>
-                    <div className="text-[10px] text-cyan-300 font-bold uppercase mb-1 tracking-wider">PRODUCTION APPLICATION</div>
-                    <div className="leading-relaxed text-slate-200 font-normal">
+                    <div className={`text-[10px] font-bold uppercase mb-1 tracking-wider ${isDark ? 'text-cyan-300' : 'text-sky-700'}`}>PRODUCTION APPLICATION</div>
+                    <div className={`leading-relaxed font-normal ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>
                       {activeSkillData.highlight}
                     </div>
                   </div>
 
                   <div className={`p-4 rounded-xl border ${
-                    isDark ? 'bg-white/[0.04] border-white/10' : 'bg-stone-50 border-stone-200'
+                    isDark ? 'bg-white/[0.04] border-white/10' : 'bg-slate-50 border-slate-200'
                   }`}>
-                    <div className="text-[10px] text-cyan-300 font-bold uppercase mb-1 tracking-wider">APPLIED IN ENTERPRISE SYSTEMS</div>
-                    <div className="text-slate-200 leading-relaxed font-normal">
+                    <div className={`text-[10px] font-bold uppercase mb-1 tracking-wider ${isDark ? 'text-cyan-300' : 'text-sky-700'}`}>APPLIED IN ENTERPRISE SYSTEMS</div>
+                    <div className={`leading-relaxed font-normal ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>
                       MMS Mess Management ERP, High-Throughput Inventory Ledger, Mobile Approvals Microservices.
                     </div>
                   </div>
 
                   {/* Interactive Connected Architectural Nodes */}
                   <div className={`p-4 rounded-xl border ${
-                    isDark ? 'bg-white/[0.04] border-white/10' : 'bg-stone-50 border-stone-200'
+                    isDark ? 'bg-white/[0.04] border-white/10' : 'bg-slate-50 border-slate-200'
                   }`}>
-                    <div className="text-[10px] text-cyan-300 uppercase mb-2.5 flex items-center gap-1.5 font-bold tracking-wider">
+                    <div className={`text-[10px] uppercase mb-2.5 flex items-center gap-1.5 font-bold tracking-wider ${isDark ? 'text-cyan-300' : 'text-sky-700'}`}>
                       <Network className="w-3.5 h-3.5 text-cyan-400" />
                       CONNECTED ARCHITECTURAL NODES
                     </div>
