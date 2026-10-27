@@ -154,7 +154,7 @@ export default function CelestialWarpOverlay({ active, onToggle }) {
           className={`px-6 py-2.5 rounded-full font-mono text-xs tracking-widest uppercase font-bold backdrop-blur-2xl border shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 flex items-center gap-2 cursor-pointer ${
             isDark 
               ? 'bg-aurora-night/90 border-aurora-violet text-aurora-lavender shadow-glow-violet hover:border-white' 
-              : 'bg-white/95 border-atelier-violet text-atelier-violet shadow-glow-atelier hover:border-stone-900'
+              : 'bg-white/95 border-atelier-violet text-atelier-violet shadow-glow-atelier hover:border-slate-900'
           }`}
           title="Click to collapse warp and restore standard universe"
         >

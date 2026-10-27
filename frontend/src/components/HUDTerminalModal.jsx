@@ -180,7 +180,7 @@ LOC  : Pune, Maharashtra, India [18.5204° N, 73.8567° E]`,
         className={`w-full max-w-3xl rounded-xl border shadow-2xl overflow-hidden flex flex-col font-mono text-xs transition-all ${
           isDark
             ? 'bg-slate-950/95 border-aurora-violet/50 text-slate-200 shadow-glow-violet'
-            : 'bg-stone-900/95 border-stone-600 text-stone-200 shadow-2xl'
+            : 'bg-slate-950/95 border-slate-700 text-slate-200 shadow-2xl'
         }`}
         style={{ height: '520px' }}
       >

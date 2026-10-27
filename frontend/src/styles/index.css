@@ -26,20 +26,20 @@
   html[data-theme="ivory"] {
     --bg-base: #F8FAFC;
     --bg-surface: #FFFFFF;
-    --bg-card: rgba(255, 255, 255, 0.85);
-    --bg-card-hover: #FFFFFF;
+    --bg-card: #FFFFFF;
+    --bg-card-hover: #F8FAFC;
     --border-subtle: rgba(15, 23, 42, 0.08);
     --border-prominent: rgba(124, 58, 237, 0.35);
     --text-primary: #0F172A;
     --text-secondary: #334155;
-    --text-muted: #64748B;
+    --text-muted: #475569;
     --accent-primary: #7C3AED;
     --accent-secondary: #0284C7;
     --accent-tertiary: #059669;
     --accent-highlight: #D946EF;
     --badge-bg: rgba(124, 58, 237, 0.08);
     --badge-border: rgba(124, 58, 237, 0.20);
-    --hud-glow: 0 10px 30px -4px rgba(124, 58, 237, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
+    --hud-glow: 0 10px 30px -4px rgba(124, 58, 237, 0.10), 0 2px 10px rgba(15, 23, 42, 0.04);
     color-scheme: light;
   }
 

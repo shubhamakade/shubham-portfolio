@@ -44,7 +44,7 @@ export default function FloatingActionDock({ onOpenResume, onWarp, isWarped, onO
           <div className={`flex items-center gap-1.5 px-1 py-0.5 rounded-xl border ${
             isDark 
               ? 'bg-aurora-night/90 border-aurora-violet/30 shadow-glow-violet' 
-              : 'bg-white/95 border-stone-300 shadow-xl'
+              : 'bg-white/95 border-slate-300 shadow-xl'
           }`}>
 
             {/* 1. Resume Download Button */}
@@ -82,7 +82,7 @@ export default function FloatingActionDock({ onOpenResume, onWarp, isWarped, onO
                   ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-400/50 shadow-glow-emerald animate-pulse'
                   : isDark
                   ? 'text-amber-400 hover:bg-aurora-violet/20 hover:text-white'
-                  : 'text-amber-600 hover:bg-stone-100 hover:text-stone-900'
+                  : 'text-amber-600 hover:bg-slate-100 hover:text-slate-900'
               }`}
               title={isWarped ? 'Click to Unwrap Reality' : 'Engage Celestial Warp'}
             >
@@ -104,7 +104,7 @@ export default function FloatingActionDock({ onOpenResume, onWarp, isWarped, onO
               className={`p-2 rounded-lg transition-all ${
                 isDark 
                   ? 'text-slate-300 hover:text-white hover:bg-white/10' 
-                  : 'text-stone-700 hover:text-stone-900 hover:bg-stone-100'
+                  : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100'
               }`}
               title="Interactive Terminal (` or Ctrl+K)"
             >
@@ -120,7 +120,7 @@ export default function FloatingActionDock({ onOpenResume, onWarp, isWarped, onO
                     ? 'text-slate-500 hover:text-slate-300' 
                     : 'text-emerald-400 hover:bg-emerald-950/40' 
                   : isAudioMuted 
-                  ? 'text-stone-400 hover:text-stone-700' 
+                  ? 'text-slate-400 hover:text-slate-700' 
                   : 'text-emerald-600 hover:bg-emerald-50'
               }`}
               title={isAudioMuted ? 'Unmute Audio Chimes' : 'Mute Audio Chimes'}
@@ -147,7 +147,7 @@ export default function FloatingActionDock({ onOpenResume, onWarp, isWarped, onO
               className={`p-2 rounded-lg transition-all border ${
                 isDark
                   ? 'bg-aurora-card border-white/10 text-slate-300 hover:text-white hover:border-aurora-violet'
-                  : 'bg-stone-100 border-stone-200 text-stone-700 hover:text-stone-900'
+                  : 'bg-slate-100 border-slate-200 text-slate-700 hover:text-slate-900'
               }`}
               title="Return to Horizon (Scroll to Top)"
             >

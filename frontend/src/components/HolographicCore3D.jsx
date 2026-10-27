@@ -241,7 +241,7 @@ export default function HolographicCore3D({ className = "" }) {
       <div className={`absolute top-3 left-3 right-3 flex items-center justify-between font-mono text-[10px] tracking-wider px-3 py-1.5 rounded-lg border backdrop-blur-md transition-colors ${
         isDark
           ? 'bg-aurora-night/85 border-aurora-violet/20 text-slate-300'
-          : 'bg-white/85 border-stone-200 text-stone-700 shadow-sm'
+          : 'bg-white/85 border-slate-200 text-slate-700 shadow-sm'
       }`}>
         <div className={`flex items-center gap-2 font-bold ${isDark ? 'text-aurora-lavender' : 'text-atelier-violet'}`}>
           <span className={`w-1.5 h-1.5 rounded-full ${isDark ? 'bg-aurora-violet animate-ping' : 'bg-atelier-violet animate-ping'}`} />
@@ -256,7 +256,7 @@ export default function HolographicCore3D({ className = "" }) {
       <div className={`absolute bottom-3 left-3 right-3 flex items-center justify-between font-mono text-[10px] px-3 py-1.5 rounded-lg border backdrop-blur-md transition-colors ${
         isDark
           ? 'bg-aurora-night/70 border-white/5 text-slate-400'
-          : 'bg-white/70 border-stone-200 text-stone-600'
+          : 'bg-white/70 border-slate-200 text-slate-600'
       }`}>
         <div className="flex items-center gap-3">
           <span className="flex items-center gap-1.5">

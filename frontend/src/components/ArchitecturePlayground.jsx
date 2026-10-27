@@ -132,13 +132,13 @@ export default function ArchitecturePlayground() {
               [04] ARCHITECTURE KERNEL LAB
             </div>
             <h2 className={`font-display font-extrabold text-3xl sm:text-5xl tracking-tight uppercase ${
-              isDark ? 'text-white' : 'text-stone-900'
+              isDark ? 'text-white' : 'text-slate-900 font-black'
             }`}>
               TRANSACTION LIFECYCLE SIMULATOR.
             </h2>
           </div>
           <p className={`font-sans text-sm sm:text-base max-w-md ${
-            isDark ? 'text-slate-400' : 'text-stone-600'
+            isDark ? 'text-slate-400' : 'text-slate-600 font-medium'
           }`}>
             Step through an end-to-end Spring Boot request pipeline to inspect how security filters, transaction managers, and PostgreSQL row locks guarantee zero data loss.
           </p>
@@ -148,17 +148,17 @@ export default function ArchitecturePlayground() {
         <div className={`rounded-2xl border backdrop-blur-xl p-6 sm:p-8 shadow-2xl hud-border transition-colors ${
           isDark
             ? 'bg-aurora-night/80 border-aurora-violet/25'
-            : 'bg-white/95 border-stone-200 shadow-xl'
+            : 'bg-white border-slate-200 shadow-xl'
         }`}>
           
           {/* Top Control Bar */}
           <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-current/10">
             <div className="flex items-center gap-3">
-              <span className="font-mono text-xs opacity-60">TARGET ENDPOINT:</span>
-              <code className={`px-3 py-1 rounded-md font-mono text-xs font-semibold border ${
+              <span className="font-mono text-xs opacity-75 font-semibold">TARGET ENDPOINT:</span>
+              <code className={`px-3 py-1 rounded-md font-mono text-xs font-bold border ${
                 isDark
                   ? 'bg-aurora-card text-aurora-lavender border-aurora-violet/30'
-                  : 'bg-stone-100 text-atelier-violet border-stone-300'
+                  : 'bg-violet-50 text-violet-700 border-violet-200'
               }`}>
                 POST /api/v1/mms/material-transfer
               </code>
@@ -238,8 +238,8 @@ export default function ArchitecturePlayground() {
 
               <button
                 onClick={resetSimulation}
-                className={`p-2.5 rounded-lg border transition-all ${
-                  isDark ? 'bg-aurora-card border-white/10 text-slate-400 hover:text-white' : 'bg-stone-100 border-stone-200 text-stone-600 hover:text-stone-900'
+                className={`p-2.5 rounded-xl border transition-all ${
+                  isDark ? 'bg-aurora-card border-white/10 text-slate-400 hover:text-white' : 'bg-slate-100 border-slate-200 text-slate-700 hover:text-slate-950'
                 }`}
                 title="Reset simulation"
               >
@@ -265,10 +265,10 @@ export default function ArchitecturePlayground() {
                       : isDone
                       ? isDark
                         ? 'bg-aurora-card/60 border-emerald-500/40 text-slate-200'
-                        : 'bg-emerald-50/50 border-emerald-300 text-stone-900'
+                        : 'bg-emerald-50/80 border-emerald-300 text-slate-900 shadow-2xs'
                       : isDark
                       ? 'bg-aurora-night/50 border-white/5 opacity-60'
-                      : 'bg-stone-50 border-stone-200 opacity-60'
+                      : 'bg-slate-50 border-slate-200 opacity-60'
                   }`}
                 >
                   <div>
@@ -283,13 +283,13 @@ export default function ArchitecturePlayground() {
                         />
                         <span className={`font-semibold ${
                           isCurrent
-                            ? isDark ? 'text-aurora-lavender' : 'text-atelier-violet'
-                            : isDone ? 'text-emerald-500' : 'opacity-60'
+                            ? isDark ? 'text-aurora-lavender' : 'text-violet-700 font-bold'
+                            : isDone ? 'text-emerald-600 font-bold' : 'opacity-60'
                         }`}>
                           0{idx + 1}. {step.id}
                         </span>
                       </div>
-                      {isDone && <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />}
+                      {isDone && <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 font-bold" />}
                       {isCurrent && (
                         <span className="text-[10px] font-bold text-orange-400 flex items-center gap-1 px-1.5 py-0.5 rounded bg-orange-500/20 border border-orange-500/40 animate-pulse">
                           <Flame className="w-3 h-3 text-orange-400 animate-bounce" />
@@ -298,16 +298,16 @@ export default function ArchitecturePlayground() {
                       )}
                     </div>
 
-                    <h4 className="font-display font-bold text-sm mb-1">
+                    <h4 className={`font-display font-bold text-sm mb-1 ${isDark ? 'text-white' : 'text-slate-900'}`}>
                       {step.layer}
                     </h4>
                     <div className={`font-mono text-[10px] font-semibold mb-2 ${
-                      isDark ? 'text-aurora-lavender' : 'text-atelier-violet'
+                      isDark ? 'text-aurora-lavender' : 'text-violet-700'
                     }`}>
                       {step.component}
                     </div>
-                    <p className={`font-sans text-[11px] leading-normal ${
-                      isDark ? 'text-slate-400' : 'text-stone-600'
+                    <p className={`font-sans text-[11px] leading-normal font-medium ${
+                      isDark ? 'text-slate-400' : 'text-slate-600'
                     }`}>
                       {step.desc}
                     </p>

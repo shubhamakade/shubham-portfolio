@@ -81,7 +81,7 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
       <div className={`hidden md:flex justify-between items-center px-4 sm:px-6 lg:px-8 py-1 text-[11px] font-mono tracking-wider z-50 relative border-b transition-colors duration-300 ${
         isDark
           ? 'bg-aurora-night/95 border-white/5 text-slate-400'
-          : 'bg-atelier-cream/80 border-stone-200/60 text-stone-600'
+          : 'bg-slate-100/80 border-slate-200/60 text-slate-600'
       }`}>
         <div className="max-w-[1280px] w-full mx-auto flex justify-between items-center">
           <div className="flex items-center gap-3">
@@ -90,7 +90,7 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
               PUNE, INDIA // {personalInfo.coordinates}
             </span>
             <span className="opacity-30">•</span>
-            <span className={`font-medium ${isDark ? 'text-slate-300' : 'text-stone-700'}`}>{currentTime}</span>
+            <span className={`font-medium ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>{currentTime}</span>
           </div>
 
           <div className="flex items-center gap-3.5">
@@ -128,10 +128,10 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
           scrolled
             ? isDark
               ? 'bg-aurora-night/90 backdrop-blur-xl border-b border-aurora-violet/20 shadow-2xl py-2.5'
-              : 'bg-white/90 backdrop-blur-xl border-b border-stone-200/90 shadow-md py-2.5'
+              : 'bg-white/90 backdrop-blur-xl border-b border-slate-200/90 shadow-md py-2.5'
             : isDark
             ? 'bg-aurora-night/60 backdrop-blur-md border-b border-white/5 py-3'
-            : 'bg-atelier-ivory/80 backdrop-blur-md border-b border-stone-200/50 py-3'
+            : 'bg-atelier-ivory/80 backdrop-blur-md border-b border-slate-200/50 py-3'
         }`}
       >
         <div className="max-w-[1280px] w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-2 lg:gap-3 xl:gap-4">
@@ -141,21 +141,21 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
             <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center font-mono font-bold text-sm tracking-tight transition-all duration-300 shadow-sm ${
               isDark
                 ? 'bg-gradient-to-br from-aurora-card to-aurora-night border border-aurora-violet/40 text-aurora-lavender group-hover:border-aurora-violet group-hover:shadow-glow-violet'
-                : 'bg-gradient-to-br from-white to-stone-100 border border-stone-300 text-atelier-violet group-hover:border-atelier-violet group-hover:shadow-glow-atelier'
+                : 'bg-gradient-to-br from-white to-slate-100 border border-slate-300 text-atelier-violet group-hover:border-atelier-violet group-hover:shadow-glow-atelier'
             }`}>
               <span>SA</span>
             </div>
             <div className="flex flex-col">
               <div className="flex items-center gap-2">
                 <span className={`font-display font-extrabold text-sm sm:text-base tracking-tight whitespace-nowrap transition-colors ${
-                  isDark ? 'text-white group-hover:text-aurora-lavender' : 'text-stone-900 group-hover:text-atelier-violet'
+                  isDark ? 'text-white group-hover:text-aurora-lavender' : 'text-slate-900 group-hover:text-atelier-violet'
                 }`}>
                   SHUBHAM AKADE
                 </span>
                 <span className={`w-1.5 h-1.5 rounded-full ${isDark ? 'bg-emerald-400' : 'bg-emerald-500'} animate-pulse`} title="Available for Architectural Roles" />
               </div>
               <span className={`text-[9px] sm:text-[10px] font-mono tracking-wider uppercase whitespace-nowrap transition-colors ${
-                isDark ? 'text-slate-400' : 'text-stone-500'
+                isDark ? 'text-slate-400' : 'text-slate-500'
               }`}>
                 Java Full Stack Architect
               </span>
@@ -166,7 +166,7 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
           <nav className={`hidden lg:flex items-center gap-0.5 xl:gap-1 p-1 rounded-full border backdrop-blur-md transition-colors ${
             isDark
               ? 'bg-aurora-card/40 border-white/5'
-              : 'bg-stone-100/80 border-stone-200/80'
+              : 'bg-slate-100/80 border-slate-200/80'
           }`}>
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
@@ -179,10 +179,10 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
                     isActive
                       ? isDark
                         ? 'text-white font-semibold'
-                        : 'text-stone-900 font-semibold'
+                        : 'text-slate-900 font-semibold'
                       : isDark
                       ? 'text-slate-400 hover:text-slate-200'
-                      : 'text-stone-600 hover:text-stone-900'
+                      : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   {isActive && (
@@ -191,7 +191,7 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
                       className={`absolute inset-0 rounded-full ${
                         isDark
                           ? 'bg-aurora-card border border-aurora-violet/50 shadow-glow-violet'
-                          : 'bg-white border border-stone-300 shadow-sm'
+                          : 'bg-white border border-slate-300 shadow-sm'
                       }`}
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
@@ -213,7 +213,7 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
                   ? 'bg-emerald-500/20 border-emerald-400 text-emerald-300 shadow-glow-emerald'
                   : isDark
                   ? 'bg-aurora-card/60 border-white/10 text-slate-300 hover:border-aurora-violet hover:text-white'
-                  : 'bg-white border-stone-200 text-stone-700 hover:border-atelier-violet hover:text-stone-900 shadow-sm'
+                  : 'bg-white border-slate-200 text-slate-700 hover:border-atelier-violet hover:text-slate-900 shadow-sm'
               }`}
               title={isWarped ? 'Unwrap relativistic warp and restore standard universe' : 'Engage relativistic warp mode'}
             >
@@ -241,7 +241,7 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
                     ? 'bg-aurora-card/60 border-white/10 text-slate-400 hover:text-white hover:border-aurora-violet/40'
                     : 'bg-aurora-card border-aurora-violet/50 text-emerald-400 shadow-glow-violet'
                   : isAudioMuted
-                  ? 'bg-white border-stone-200 text-stone-500 hover:text-stone-900'
+                  ? 'bg-white border-slate-200 text-slate-500 hover:text-slate-900'
                   : 'bg-white border-atelier-violet/40 text-emerald-600 shadow-glow-atelier'
               }`}
             >
@@ -264,7 +264,7 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
               className={`h-9 px-2.5 xl:px-3 rounded-lg border font-mono text-xs font-semibold transition-all flex items-center gap-1.5 ${
                 isDark
                   ? 'bg-aurora-card/60 border-white/10 text-slate-300 hover:border-aurora-violet hover:text-white'
-                  : 'bg-white border-stone-200 text-stone-700 hover:border-stone-300 hover:text-stone-900 shadow-sm'
+                  : 'bg-white border-slate-200 text-slate-700 hover:border-slate-300 hover:text-slate-900 shadow-sm'
               }`}
               title="Launch Cyber HUD Terminal (Ctrl+K or `)"
             >
@@ -305,7 +305,7 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
               className={`h-9 w-9 rounded-lg border flex items-center justify-center transition-colors ${
                 isDark
                   ? 'bg-aurora-card border-white/10 text-slate-300 hover:text-white'
-                  : 'bg-white border-stone-200 text-stone-700 hover:text-stone-900'
+                  : 'bg-white border-slate-200 text-slate-700 hover:text-slate-900'
               }`}
               aria-label="Toggle Navigation Menu"
             >
@@ -326,7 +326,7 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
               className={`lg:hidden border-t overflow-hidden transition-colors ${
                 isDark
                   ? 'bg-aurora-night/95 border-aurora-violet/20'
-                  : 'bg-white/95 border-stone-200 shadow-xl'
+                  : 'bg-white/95 border-slate-200 shadow-xl'
               }`}
             >
               <div className="px-4 py-5 space-y-4 max-w-[1280px] w-full mx-auto">
@@ -364,10 +364,10 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
                           isActive
                             ? isDark
                               ? 'bg-aurora-card text-aurora-lavender border border-aurora-violet/30'
-                              : 'bg-stone-100 text-atelier-violet border border-stone-300'
+                              : 'bg-slate-100 text-atelier-violet border border-slate-300'
                             : isDark
                             ? 'text-slate-300 hover:bg-aurora-card/50'
-                            : 'text-stone-700 hover:bg-stone-50'
+                            : 'text-slate-700 hover:bg-slate-50'
                         }`}
                       >
                         <span>{link.label}</span>
@@ -391,7 +391,7 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
                         ? 'bg-emerald-500/20 border-emerald-400 text-emerald-300'
                         : isDark
                         ? 'bg-aurora-card border-white/10 text-slate-300'
-                        : 'bg-stone-100 border-stone-200 text-stone-800'
+                        : 'bg-slate-100 border-slate-200 text-slate-800'
                     }`}
                   >
                     {isWarped ? <ZapOff className="w-3.5 h-3.5 text-emerald-400" /> : <Zap className="w-3.5 h-3.5 text-amber-400" />}
@@ -404,7 +404,7 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
                       setMobileMenuOpen(false);
                     }}
                     className={`p-2.5 rounded-lg border text-center font-bold flex items-center justify-center gap-1.5 ${
-                      isDark ? 'bg-aurora-card border-white/10 text-slate-300' : 'bg-stone-100 border-stone-200 text-stone-800'
+                      isDark ? 'bg-aurora-card border-white/10 text-slate-300' : 'bg-slate-100 border-slate-200 text-slate-800'
                     }`}
                   >
                     <Terminal className="w-3.5 h-3.5" />

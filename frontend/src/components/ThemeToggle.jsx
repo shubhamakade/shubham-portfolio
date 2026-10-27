@@ -15,7 +15,7 @@ export default function ThemeToggle({ className = "" }) {
       className={`relative inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-lg border transition-all duration-300 font-mono text-xs select-none ${
         isDark
           ? 'bg-aurora-card/60 border-white/10 text-aurora-lavender hover:border-aurora-violet hover:shadow-glow-violet'
-          : 'bg-white border-stone-200 text-stone-800 hover:border-atelier-violet hover:shadow-glow-atelier'
+          : 'bg-white border-slate-200 text-slate-800 hover:border-atelier-violet hover:shadow-glow-atelier'
       } ${className}`}
     >
       <div className="relative w-4 h-4 flex items-center justify-center">

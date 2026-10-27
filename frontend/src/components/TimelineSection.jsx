@@ -33,7 +33,7 @@ export default function TimelineSection() {
             </h2>
           </div>
           <p className={`font-sans text-sm sm:text-base max-w-md ${
-            isDark ? 'text-slate-400' : 'text-stone-600'
+            isDark ? 'text-slate-400' : 'text-slate-600 font-medium'
           }`}>
             Chronological audit of enterprise ERP modules architected, microservices shipped, and foundational academic milestones.
           </p>
@@ -46,12 +46,12 @@ export default function TimelineSection() {
           <div className={`absolute left-3.5 sm:left-4 top-8 bottom-8 w-0.5 -translate-x-1/2 overflow-hidden ${
             isDark
               ? 'bg-gradient-to-b from-aurora-cyan/40 via-aurora-violet/40 to-aurora-cyan/20 shadow-[0_0_8px_rgba(56,189,248,0.4)]'
-              : 'bg-gradient-to-b from-atelier-violet/30 via-atelier-coral/40 to-atelier-violet/10'
+              : 'bg-gradient-to-b from-violet-500/30 via-indigo-500/40 to-violet-500/10'
           }`}>
             <div className={`w-full h-28 conduit-pulse-beam ${
               isDark
                 ? 'bg-gradient-to-b from-transparent via-aurora-cyan to-transparent shadow-[0_0_12px_#38BDF8]'
-                : 'bg-gradient-to-b from-transparent via-atelier-violet to-transparent'
+                : 'bg-gradient-to-b from-transparent via-violet-600 to-transparent'
             }`} />
           </div>
 
@@ -75,7 +75,7 @@ export default function TimelineSection() {
                   <div className={`relative rounded-full border-2 p-1.5 flex items-center justify-center transition-all ${
                     isDark
                       ? 'bg-aurora-night border-aurora-violet shadow-glow-violet'
-                      : 'bg-white border-atelier-violet shadow-glow-atelier'
+                      : 'bg-white border-violet-600 shadow-sm'
                   }`}>
                     {isActiveRole && (
                       <span className="absolute -inset-1.5 rounded-full bg-emerald-400 animate-ping opacity-35 pointer-events-none" />
@@ -95,24 +95,26 @@ export default function TimelineSection() {
                   className={`flex-1 p-6 sm:p-8 rounded-2xl border backdrop-blur-2xl transition-all duration-300 hud-border ambient-sheen-container ${floatClass} ${
                     isDark
                       ? 'bg-white/[0.05] border-white/15 group-hover:border-violet-400/40 group-hover:bg-white/[0.08] shadow-[0_12px_40px_rgba(0,0,0,0.35)] hover:shadow-[0_16px_50px_rgba(167,139,250,0.2)]'
-                      : 'bg-white/90 border-stone-200/90 group-hover:border-atelier-violet/50 shadow-sm hover:shadow-md'
+                      : 'bg-white border-slate-200/90 group-hover:border-violet-300 shadow-sm hover:shadow-md'
                   }`}
                   spotlightColor={isDark ? 'rgba(167, 139, 250, 0.22)' : 'rgba(109, 40, 217, 0.12)'}
                 >
                   
                   {/* Meta Header */}
-                  <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-white/10">
+                  <div className={`flex flex-wrap items-center justify-between gap-4 pb-4 border-b ${
+                    isDark ? 'border-white/10' : 'border-slate-200'
+                  }`}>
                     <div className="flex items-center gap-3 flex-wrap">
                       <span className={`font-mono text-xs px-3 py-1 rounded-lg font-bold border ${
                         isDark
                           ? 'bg-white/[0.08] text-violet-200 border-white/15 shadow-sm'
-                          : 'bg-purple-50 text-atelier-violet border-purple-200'
+                          : 'bg-violet-50 text-violet-700 border-violet-200'
                       }`}>
                         {item.period}
                       </span>
                       {isActiveRole && (
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 shadow-[0_0_12px_rgba(52,211,153,0.25)]">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_6px_#34d399]" />
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-400/40 shadow-xs">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                           ACTIVE PRODUCTION ROLE
                         </span>
                       )}
@@ -125,7 +127,7 @@ export default function TimelineSection() {
                     </div>
 
                     <div className={`font-mono text-[11px] flex items-center gap-2 px-3 py-1 rounded-lg border ${
-                      isDark ? 'bg-white/[0.04] border-white/10 text-cyan-300' : 'bg-slate-100 border-slate-200 text-slate-700 font-medium'
+                      isDark ? 'bg-white/[0.04] border-white/10 text-cyan-300' : 'bg-slate-50 border-slate-200 text-slate-700 font-semibold'
                     }`}>
                       <GitBranch className="w-3.5 h-3.5 text-emerald-500" />
                       <span className="font-bold">{commit.hash}</span>
@@ -136,11 +138,11 @@ export default function TimelineSection() {
                   {/* Role & Entity */}
                   <div className="mt-5 mb-3">
                     <h3 className={`font-display font-extrabold text-2xl sm:text-3xl tracking-tight ${
-                      isDark ? 'text-white' : 'text-slate-900'
+                      isDark ? 'text-white' : 'text-slate-900 font-black'
                     }`}>
                       {item.role}
                     </h3>
-                    <div className={`font-mono text-xs sm:text-sm font-semibold mt-1.5 flex items-center gap-2 ${
+                    <div className={`font-mono text-xs sm:text-sm font-bold mt-1.5 flex items-center gap-2 ${
                       isDark ? 'text-cyan-300' : 'text-violet-700'
                     }`}>
                       <Terminal className="w-3.5 h-3.5" />
@@ -148,7 +150,7 @@ export default function TimelineSection() {
                     </div>
                   </div>
 
-                  <p className={`font-sans text-sm sm:text-base leading-relaxed mb-6 ${
+                  <p className={`font-sans text-sm sm:text-base leading-relaxed mb-6 font-medium ${
                     isDark ? 'text-slate-200' : 'text-slate-600'
                   }`}>
                     {item.summary}
@@ -156,7 +158,7 @@ export default function TimelineSection() {
 
                   {/* Key Deliverables */}
                   <div className="space-y-2 mb-6">
-                    <div className={`font-mono text-[11px] uppercase tracking-wider font-bold mb-2 flex items-center gap-1.5 ${
+                    <div className={`font-mono text-[11px] uppercase tracking-wider font-extrabold mb-2 flex items-center gap-1.5 ${
                       isDark ? 'text-cyan-300' : 'text-violet-700'
                     }`}>
                       <Sparkles className="w-3.5 h-3.5 text-amber-500" />
@@ -168,26 +170,28 @@ export default function TimelineSection() {
                         className={`flex items-start gap-3 text-xs sm:text-sm p-3 rounded-xl border transition-all ${
                           isDark 
                             ? 'bg-white/[0.03] border-white/5 hover:border-white/15 hover:bg-white/[0.07] text-slate-200' 
-                            : 'bg-stone-50 border-stone-200 hover:bg-white text-stone-700'
+                            : 'bg-slate-50 border-slate-200 hover:bg-white text-slate-800 shadow-2xs'
                         }`}
                       >
                         <span className={`font-mono text-xs font-bold shrink-0 mt-0.5 ${
-                          isDark ? 'text-cyan-400' : 'text-atelier-violet'
+                          isDark ? 'text-cyan-400' : 'text-violet-700'
                         }`}>
                           0{dIdx + 1}.
                         </span>
-                        <span className="leading-relaxed">{deliv}</span>
+                        <span className="leading-relaxed font-medium">{deliv}</span>
                       </div>
                     ))}
                   </div>
 
                   {/* Tech Tags */}
-                  <div className="flex flex-wrap gap-2 pt-4 border-t border-white/10 font-mono text-[11px]">
+                  <div className={`flex flex-wrap gap-2 pt-4 border-t font-mono text-[11px] ${
+                    isDark ? 'border-white/10' : 'border-slate-200'
+                  }`}>
                     {item.tech.map((t, tIdx) => (
-                      <span key={tIdx} className={`px-2.5 py-1 rounded-lg border font-mono font-medium transition-all ${
+                      <span key={tIdx} className={`px-2.5 py-1 rounded-lg border font-mono font-semibold transition-all ${
                         isDark
                           ? 'bg-white/[0.06] border-white/10 text-slate-200 hover:border-violet-400/40 hover:text-white'
-                          : 'bg-stone-100 border-stone-200 text-stone-700 hover:border-stone-400'
+                          : 'bg-slate-50 border-slate-200 text-slate-700 hover:border-slate-300 hover:text-slate-900'
                       }`}>
                         {t}
                       </span>

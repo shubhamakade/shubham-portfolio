@@ -138,9 +138,9 @@ export default function LivingBackground() {
           rayGrad.addColorStop(0.4, `rgba(56, 189, 248, ${rayAlpha * 1.3})`);
           rayGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
         } else {
-          rayGrad.addColorStop(0, `rgba(124, 58, 237, ${rayAlpha * 1.2})`);
-          rayGrad.addColorStop(0.4, `rgba(56, 189, 248, ${rayAlpha * 0.8})`);
-          rayGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+          rayGrad.addColorStop(0, `rgba(124, 58, 237, ${rayAlpha * 0.85})`);
+          rayGrad.addColorStop(0.4, `rgba(2, 132, 199, ${rayAlpha * 0.55})`);
+          rayGrad.addColorStop(1, 'rgba(248, 250, 252, 0)');
         }
 
         ctx.beginPath();
@@ -156,7 +156,7 @@ export default function LivingBackground() {
       ctx.restore();
 
       // 2. Atmospheric Drifting Light Fields (Breathing Ethereal Glow)
-      const breath = Math.sin(time * 0.5) * 0.015;
+      const breath = Math.sin(time * 0.5) * 0.012;
       const orbs = isMidnight
         ? [
             { xR: 0.2, yR: 0.25, r: 490, col: `rgba(139, 92, 246, ${0.048 + breath})`, sp: 0.0006, ph: 0 },
@@ -164,9 +164,9 @@ export default function LivingBackground() {
             { xR: 0.5, yR: 0.85, r: 430, col: `rgba(45, 212, 191, ${0.028 + breath})`, sp: 0.0007, ph: 4 },
           ]
         : [
-            { xR: 0.25, yR: 0.2, r: 460, col: `rgba(124, 58, 237, ${0.032 + breath})`, sp: 0.0006, ph: 0 },
-            { xR: 0.75, yR: 0.6, r: 510, col: `rgba(56, 189, 248, ${0.024 + breath})`, sp: 0.0005, ph: 2 },
-            { xR: 0.45, yR: 0.8, r: 410, col: `rgba(16, 185, 129, ${0.018 + breath})`, sp: 0.0007, ph: 4 },
+            { xR: 0.25, yR: 0.2, r: 460, col: `rgba(124, 58, 237, ${0.022 + breath})`, sp: 0.0006, ph: 0 },
+            { xR: 0.75, yR: 0.6, r: 510, col: `rgba(2, 132, 199, ${0.016 + breath})`, sp: 0.0005, ph: 2 },
+            { xR: 0.45, yR: 0.8, r: 410, col: `rgba(5, 150, 105, ${0.012 + breath})`, sp: 0.0007, ph: 4 },
           ];
 
       orbs.forEach((orb) => {
@@ -210,7 +210,7 @@ export default function LivingBackground() {
 
       ctx.save();
       ctx.beginPath();
-      ctx.strokeStyle = isMidnight ? 'rgba(167, 139, 250, 0.045)' : 'rgba(28, 25, 23, 0.04)';
+      ctx.strokeStyle = isMidnight ? 'rgba(167, 139, 250, 0.045)' : 'rgba(15, 23, 42, 0.035)';
       ctx.lineWidth = 1;
 
       const vanishX = width / 2 + (mouse.x - width / 2) * 0.04;

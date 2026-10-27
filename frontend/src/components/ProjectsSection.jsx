@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { projects } from '../data/portfolioData';
 import { useTheme } from '../context/ThemeContext';
+import { motion, AnimatePresence } from 'framer-motion';
 import SpotlightCard from './SpotlightCard';
 import MagneticButton from './MagneticButton';
 import AnimatedIcon from './AnimatedIcon';
@@ -104,9 +105,9 @@ export default function ProjectsSection() {
             </h2>
           </div>
           <div className={`font-mono text-xs px-4 py-2 rounded-lg border ${
-            isDark ? 'bg-aurora-card border-white/10 text-slate-300' : 'bg-white border-stone-200 text-stone-700 shadow-sm'
+            isDark ? 'bg-aurora-card border-white/10 text-slate-300' : 'bg-white border-slate-200 text-slate-800 shadow-xs'
           }`}>
-            INSPECTED ENTITIES: <span className={`font-semibold ${isDark ? 'text-aurora-lavender' : 'text-atelier-violet'}`}>EPPS MMS DOMAIN REPO</span>
+            INSPECTED ENTITIES: <span className={`font-semibold ${isDark ? 'text-aurora-lavender' : 'text-violet-700 font-bold'}`}>EPPS MMS DOMAIN REPO</span>
           </div>
         </div>
 
@@ -116,41 +117,41 @@ export default function ProjectsSection() {
         <div className={`rounded-3xl border backdrop-blur-2xl shadow-2xl overflow-hidden mb-20 hud-border ambient-sheen-container card-breathing-aura transition-all ${
           isDark
             ? 'bg-white/[0.05] border-white/15 shadow-[0_12px_45px_rgba(0,0,0,0.5)]'
-            : 'bg-white/90 border-stone-200 shadow-xl'
+            : 'bg-white border-slate-200 shadow-xl'
         }`}>
           
           {/* Header Strip */}
           <div className={`p-6 sm:p-8 border-b ${
             isDark
               ? 'bg-white/[0.03] border-white/10'
-              : 'bg-gradient-to-r from-atelier-cream/80 via-white to-atelier-cream/80 border-stone-200'
+              : 'bg-gradient-to-r from-slate-50 via-white to-slate-50 border-slate-200/90'
           }`}>
             <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
               <div className="flex items-center gap-3">
                 <span className={`px-3 py-1 rounded-full font-mono text-xs font-bold tracking-wider uppercase ${
-                  isDark ? 'bg-violet-500/20 text-violet-300 border border-violet-400/40' : 'bg-atelier-violet text-white'
+                  isDark ? 'bg-violet-500/20 text-violet-300 border border-violet-400/40' : 'bg-violet-700 text-white'
                 }`}>
                   {trunkProject.badge}
                 </span>
-                <span className={`font-mono text-xs ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                <span className={`font-mono text-xs ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
                   CODEBASE: <code className={`font-semibold ${isDark ? 'text-white' : 'text-slate-900 font-bold'}`}>epps-trunk-suite (Maven Multi-Module)</code>
                 </span>
               </div>
               <div className={`flex items-center gap-2 text-xs font-mono px-3.5 py-1.5 rounded-full border backdrop-blur-xl ${
-                isDark ? 'bg-emerald-500/15 text-emerald-300 border-emerald-400/30 shadow-[0_0_15px_rgba(16,185,129,0.2)]' : 'bg-emerald-50 text-emerald-800 border-emerald-200'
+                isDark ? 'bg-emerald-500/15 text-emerald-300 border-emerald-400/30 shadow-[0_0_15px_rgba(16,185,129,0.2)]' : 'bg-emerald-50 text-emerald-800 border-emerald-300 shadow-xs'
               }`}>
-                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                 <span className="font-semibold">ENTERPRISE PRODUCTION ARCHITECTURE</span>
               </div>
             </div>
 
             <h3 className={`font-display font-extrabold text-2xl sm:text-4xl tracking-tight mb-2 ${
-              isDark ? 'text-white' : 'text-stone-900'
+              isDark ? 'text-white' : 'text-slate-900 font-black'
             }`}>
               {trunkProject.title}
             </h3>
             <p className={`font-sans text-base sm:text-lg max-w-4xl leading-relaxed mb-6 ${
-              isDark ? 'text-slate-200' : 'text-stone-600'
+              isDark ? 'text-slate-200' : 'text-slate-600 font-medium'
             }`}>
               {trunkProject.overview}
             </p>
@@ -161,16 +162,18 @@ export default function ProjectsSection() {
                 <SpotlightCard
                   key={idx}
                   className={`p-4 rounded-2xl border transition-all backdrop-blur-xl ${
-                    isDark ? 'bg-white/[0.07] hover:bg-white/[0.12] border-white/15 hover:border-violet-400/40 shadow-md' : 'bg-white border-stone-200 shadow-sm'
+                    isDark ? 'bg-white/[0.07] hover:bg-white/[0.12] border-white/15 hover:border-violet-400/40 shadow-md' : 'bg-white border-slate-200/90 shadow-sm hover:border-violet-300 hover:shadow-md'
                   }`}
                   spotlightColor={isDark ? 'rgba(167, 139, 250, 0.25)' : 'rgba(109, 40, 217, 0.12)'}
                 >
                   <div className={`font-display font-black text-2xl sm:text-3xl ${
-                    isDark ? 'text-white drop-shadow-sm' : 'text-atelier-violet'
+                    isDark ? 'text-white drop-shadow-sm' : 'text-violet-700'
                   }`}>
                     {m.val}
                   </div>
-                  <div className="font-mono text-[10px] font-semibold text-violet-300 uppercase mt-1">
+                  <div className={`font-mono text-[10px] font-semibold uppercase mt-1 ${
+                    isDark ? 'text-violet-300' : 'text-slate-600'
+                  }`}>
                     {m.label}
                   </div>
                 </SpotlightCard>
@@ -183,9 +186,13 @@ export default function ProjectsSection() {
             <div className="flex flex-col gap-6">
               
               {/* Console Navigation Tabs */}
-              <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-white/10 font-mono text-xs">
+              <div className={`flex flex-wrap items-center justify-between gap-4 pb-4 border-b font-mono text-xs ${
+                isDark ? 'border-white/10' : 'border-slate-200/90'
+              }`}>
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="opacity-70 font-bold mr-2 uppercase tracking-wider text-slate-300">
+                  <span className={`font-mono text-xs uppercase font-extrabold mr-2 tracking-wider ${
+                    isDark ? 'text-slate-300 opacity-80' : 'text-slate-900'
+                  }`}>
                     OPERATIONS CONSOLE:
                   </span>
                   
@@ -198,10 +205,10 @@ export default function ProjectsSection() {
                       activeMmsTab === 'menu'
                         ? isDark
                           ? 'bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-[0_4px_20px_rgba(139,92,246,0.35)] border-violet-400/50'
-                          : 'bg-atelier-violet text-white shadow-glow-atelier'
+                          : 'bg-violet-700 text-white shadow-md border-violet-700'
                         : isDark
                         ? 'bg-white/[0.06] hover:bg-white/[0.12] text-slate-200 border-white/10 hover:border-white/20'
-                        : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
+                        : 'bg-white text-slate-700 hover:text-slate-950 hover:bg-slate-50 border-slate-200 shadow-xs'
                     }`}
                   >
                     <AnimatedIcon icon={Utensils} variant={activeMmsTab === 'menu' ? 'bounce' : 'float'} color="emerald" size="sm" badge={false} />
@@ -217,10 +224,10 @@ export default function ProjectsSection() {
                       activeMmsTab === 'demand'
                         ? isDark
                           ? 'bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-[0_4px_20px_rgba(139,92,246,0.35)] border-violet-400/50'
-                          : 'bg-atelier-violet text-white shadow-glow-atelier'
+                          : 'bg-violet-700 text-white shadow-md border-violet-700'
                         : isDark
                         ? 'bg-white/[0.06] hover:bg-white/[0.12] text-slate-200 border-white/10 hover:border-white/20'
-                        : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
+                        : 'bg-white text-slate-700 hover:text-slate-950 hover:bg-slate-50 border-slate-200 shadow-xs'
                     }`}
                   >
                     <AnimatedIcon icon={Calculator} variant={activeMmsTab === 'demand' ? 'pulse' : 'radar'} color="cyan" size="sm" badge={false} />
@@ -236,10 +243,10 @@ export default function ProjectsSection() {
                       activeMmsTab === 'transfer'
                         ? isDark
                           ? 'bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-[0_4px_20px_rgba(139,92,246,0.35)] border-violet-400/50'
-                          : 'bg-atelier-violet text-white shadow-glow-atelier'
+                          : 'bg-violet-700 text-white shadow-md border-violet-700'
                         : isDark
                         ? 'bg-white/[0.06] hover:bg-white/[0.12] text-slate-200 border-white/10 hover:border-white/20'
-                        : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
+                        : 'bg-white text-slate-700 hover:text-slate-950 hover:bg-slate-50 border-slate-200 shadow-xs'
                     }`}
                   >
                     <AnimatedIcon icon={ArrowRightLeft} variant={activeMmsTab === 'transfer' ? 'wiggle' : 'float'} color="amber" size="sm" badge={false} />
@@ -255,10 +262,10 @@ export default function ProjectsSection() {
                       activeMmsTab === 'cost'
                         ? isDark
                           ? 'bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-[0_4px_20px_rgba(139,92,246,0.35)] border-violet-400/50'
-                          : 'bg-atelier-violet text-white shadow-glow-atelier'
+                          : 'bg-violet-700 text-white shadow-md border-violet-700'
                         : isDark
                         ? 'bg-white/[0.06] hover:bg-white/[0.12] text-slate-200 border-white/10 hover:border-white/20'
-                        : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
+                        : 'bg-white text-slate-700 hover:text-slate-950 hover:bg-slate-50 border-slate-200 shadow-xs'
                     }`}
                   >
                     <AnimatedIcon icon={DollarSign} variant={activeMmsTab === 'cost' ? 'pulse' : 'radar'} color="violet" size="sm" badge={false} />
@@ -266,451 +273,464 @@ export default function ProjectsSection() {
                   </button>
                 </div>
 
-                <div className="font-mono text-[11px] opacity-75 flex items-center gap-2">
+                <div className={`font-mono text-[11px] flex items-center gap-2 ${
+                  isDark ? 'text-slate-300 opacity-80' : 'text-slate-700 font-bold'
+                }`}>
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                   <span>ENGINE: EppsMmsKernel_3.1</span>
                 </div>
               </div>
 
-              {/* TAB 1: MENU CARD MATRIX */}
-              {activeMmsTab === 'menu' && (
-                <div className="space-y-6">
-                  <div className={`flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl border ${
-                    isDark ? 'bg-aurora-card/60 border-white/5' : 'bg-stone-50 border-stone-200'
-                  }`}>
-                    <div>
-                      <div className={`font-mono text-xs uppercase font-bold ${
-                        isDark ? 'text-aurora-lavender' : 'text-atelier-violet'
+              {/* Animated MMS Tabs Container */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeMmsTab}
+                  initial={{ opacity: 0, y: 12, scale: 0.995 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -12, scale: 0.995 }}
+                  transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  {/* TAB 1: MENU CARD MATRIX */}
+                  {activeMmsTab === 'menu' && (
+                    <div className="space-y-6">
+                      <div className={`flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 rounded-xl border ${
+                        isDark ? 'bg-aurora-card/60 border-white/5' : 'bg-slate-50/80 border-slate-200'
                       }`}>
-                        ENTITY: EppsMessMenuCardHdr.java & EppsMessMenuCardDtl.java
-                      </div>
-                      <div className={`font-sans text-sm ${isDark ? 'text-slate-300' : 'text-stone-600'}`}>
-                        Multi-day cyclical menu roster with automatic dietary balance and portion sizing.
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-center gap-2 font-mono text-xs">
-                      {['BREAKFAST', 'LUNCH', 'DINNER'].map((meal) => (
-                        <button
-                          key={meal}
-                          onClick={() => setSelectedMeal(meal)}
-                          className={`px-3 py-1.5 rounded-md transition-all font-semibold ${
-                            selectedMeal === meal
-                              ? isDark
-                                ? 'bg-aurora-lavender text-aurora-night'
-                                : 'bg-atelier-violet text-white'
-                              : isDark
-                              ? 'bg-aurora-card text-slate-300 hover:bg-aurora-cardHover'
-                              : 'bg-white text-stone-700 border border-stone-200 hover:bg-stone-100'
-                          }`}
-                        >
-                          {meal}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Menu Table */}
-                  <div className={`overflow-x-auto rounded-xl border ${
-                    isDark ? 'border-white/10 bg-aurora-night/40' : 'border-stone-200 bg-white'
-                  }`}>
-                    <table className="w-full text-left font-mono text-xs">
-                      <thead className={`border-b uppercase text-[10px] tracking-wider ${
-                        isDark ? 'bg-aurora-card text-slate-400 border-white/10' : 'bg-stone-100 text-stone-600 border-stone-200'
-                      }`}>
-                        <tr>
-                          <th className="py-3 px-4">Menu Card Item Code</th>
-                          <th className="py-3 px-4">Culinary Item Description</th>
-                          <th className="py-3 px-4">Standard Norm / Person</th>
-                          <th className="py-3 px-4">Caloric Target</th>
-                          <th className="py-3 px-4">Dietary Class</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-current/10">
-                        {selectedMeal === 'LUNCH' ? (
-                          <>
-                            <tr>
-                              <td className={`py-3 px-4 font-semibold ${isDark ? 'text-aurora-lavender' : 'text-atelier-violet'}`}>MMS-ITM-0104</td>
-                              <td className="py-3 px-4 font-bold">Shahi Paneer Masala</td>
-                              <td className="py-3 px-4 opacity-80">120 grams</td>
-                              <td className="py-3 px-4 opacity-80">240 kcal</td>
-                              <td className="py-3 px-4 text-emerald-500 font-semibold">Vegetarian High-Protein</td>
-                            </tr>
-                            <tr>
-                              <td className={`py-3 px-4 font-semibold ${isDark ? 'text-aurora-lavender' : 'text-atelier-violet'}`}>MMS-ITM-0211</td>
-                              <td className="py-3 px-4 font-bold">Steamed Jeera Basmati Rice</td>
-                              <td className="py-3 px-4 opacity-80">150 grams</td>
-                              <td className="py-3 px-4 opacity-80">190 kcal</td>
-                              <td className="py-3 px-4 text-emerald-500 font-semibold">Carbohydrate Base</td>
-                            </tr>
-                            <tr>
-                              <td className={`py-3 px-4 font-semibold ${isDark ? 'text-aurora-lavender' : 'text-atelier-violet'}`}>MMS-ITM-0309</td>
-                              <td className="py-3 px-4 font-bold">Tadka Dal Yellow Lentils</td>
-                              <td className="py-3 px-4 opacity-80">100 grams</td>
-                              <td className="py-3 px-4 opacity-80">130 kcal</td>
-                              <td className="py-3 px-4 text-emerald-500 font-semibold">Essential Legume</td>
-                            </tr>
-                            <tr>
-                              <td className={`py-3 px-4 font-semibold ${isDark ? 'text-aurora-lavender' : 'text-atelier-violet'}`}>MMS-ITM-0418</td>
-                              <td className="py-3 px-4 font-bold">Whole Wheat Tandoori Roti</td>
-                              <td className="py-3 px-4 opacity-80">3 units (90g)</td>
-                              <td className="py-3 px-4 opacity-80">210 kcal</td>
-                              <td className="py-3 px-4 text-emerald-500 font-semibold">Whole Grain Fiber</td>
-                            </tr>
-                          </>
-                        ) : selectedMeal === 'BREAKFAST' ? (
-                          <>
-                            <tr>
-                              <td className={`py-3 px-4 font-semibold ${isDark ? 'text-aurora-lavender' : 'text-atelier-violet'}`}>MMS-ITM-0012</td>
-                              <td className="py-3 px-4 font-bold">South Indian Idli Sambar & Chutney</td>
-                              <td className="py-3 px-4 opacity-80">4 units (160g)</td>
-                              <td className="py-3 px-4 opacity-80">260 kcal</td>
-                              <td className="py-3 px-4 text-emerald-500 font-semibold">Fermented Carbohydrate</td>
-                            </tr>
-                            <tr>
-                              <td className={`py-3 px-4 font-semibold ${isDark ? 'text-aurora-lavender' : 'text-atelier-violet'}`}>MMS-ITM-0044</td>
-                              <td className="py-3 px-4 font-bold">Sprouted Moong Salad</td>
-                              <td className="py-3 px-4 opacity-80">60 grams</td>
-                              <td className="py-3 px-4 opacity-80">90 kcal</td>
-                              <td className="py-3 px-4 text-emerald-500 font-semibold">Micro-Nutrient Vitality</td>
-                            </tr>
-                          </>
-                        ) : (
-                          <>
-                            <tr>
-                              <td className={`py-3 px-4 font-semibold ${isDark ? 'text-aurora-lavender' : 'text-atelier-violet'}`}>MMS-ITM-0512</td>
-                              <td className="py-3 px-4 font-bold">Mixed Vegetable Kadai</td>
-                              <td className="py-3 px-4 opacity-80">130 grams</td>
-                              <td className="py-3 px-4 opacity-80">180 kcal</td>
-                              <td className="py-3 px-4 text-emerald-500 font-semibold">Vegetarian</td>
-                            </tr>
-                            <tr>
-                              <td className={`py-3 px-4 font-semibold ${isDark ? 'text-aurora-lavender' : 'text-atelier-violet'}`}>MMS-ITM-0588</td>
-                              <td className="py-3 px-4 font-bold">Gulab Jamun Sweet Delicacy</td>
-                              <td className="py-3 px-4 opacity-80">2 units (70g)</td>
-                              <td className="py-3 px-4 opacity-80">280 kcal</td>
-                              <td className="py-3 px-4 text-amber-500 font-semibold">Special Weekend Supplement</td>
-                            </tr>
-                          </>
-                        )}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              )}
-
-              {/* TAB 2: HEADCOUNT DEMAND ORDER ENGINE */}
-              {activeMmsTab === 'demand' && (
-                <div className="space-y-6">
-                  <div className={`p-5 rounded-xl border ${
-                    isDark ? 'bg-aurora-card/60 border-white/10' : 'bg-stone-50 border-stone-200'
-                  }`}>
-                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6">
-                      <div>
-                        <div className={`font-mono text-xs uppercase font-bold flex items-center gap-2 ${
-                          isDark ? 'text-aurora-lavender' : 'text-atelier-violet'
-                        }`}>
-                          <Sliders className="w-4 h-4" />
-                          <span>LIVE DEMAND CALCULATOR: EppsDemandOrderHdr & Dtl</span>
-                        </div>
-                        <p className={`font-sans text-sm mt-1 ${isDark ? 'text-slate-300' : 'text-stone-600'}`}>
-                          Slide the projected headcount to watch the Java recipe explosion algorithm dynamically forecast pantry ingredients.
-                        </p>
-                      </div>
-
-                      <div className={`flex items-center gap-4 px-5 py-3 rounded-lg border ${
-                        isDark ? 'bg-aurora-night border-aurora-violet/30' : 'bg-white border-stone-300 shadow-sm'
-                      }`}>
-                        <div className="text-right">
-                          <div className="font-mono text-[10px] opacity-70 uppercase">PROJECTED HEADCOUNT</div>
-                          <div className={`font-display font-extrabold text-2xl ${
-                            isDark ? 'text-aurora-lavender' : 'text-atelier-violet'
+                        <div>
+                          <div className={`font-mono text-xs uppercase font-extrabold tracking-wider ${
+                            isDark ? 'text-aurora-lavender' : 'text-violet-700'
                           }`}>
-                            {headcount.toLocaleString()} <span className="text-xs font-mono opacity-70">DINERS</span>
+                            ENTITY: EppsMessMenuCardHdr.java & EppsMessMenuCardDtl.java
+                          </div>
+                          <div className={`font-sans text-sm mt-1 font-medium ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                            Multi-day cyclical menu roster with automatic dietary balance and portion sizing.
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-center gap-2 font-mono text-xs">
+                          {['BREAKFAST', 'LUNCH', 'DINNER'].map((meal) => (
+                            <button
+                              key={meal}
+                              onClick={() => setSelectedMeal(meal)}
+                              className={`px-3 py-1.5 rounded-lg transition-all font-semibold ${
+                                selectedMeal === meal
+                                  ? isDark
+                                    ? 'bg-aurora-lavender text-aurora-night shadow-sm'
+                                    : 'bg-violet-700 text-white shadow-xs'
+                                  : isDark
+                                  ? 'bg-aurora-card text-slate-300 hover:bg-aurora-cardHover'
+                                  : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 shadow-2xs'
+                              }`}
+                            >
+                              {meal}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Menu Table */}
+                      <div className={`overflow-x-auto rounded-xl border ${
+                        isDark ? 'border-white/10 bg-aurora-night/40' : 'border-slate-200 bg-white shadow-xs'
+                      }`}>
+                        <table className="w-full text-left font-mono text-xs">
+                          <thead className={`border-b uppercase text-[10px] tracking-wider font-bold ${
+                            isDark ? 'bg-aurora-card text-slate-300 border-white/10' : 'bg-slate-100/90 text-slate-700 border-slate-200'
+                          }`}>
+                            <tr>
+                              <th className="py-3 px-4">Menu Card Item Code</th>
+                              <th className="py-3 px-4">Culinary Item Description</th>
+                              <th className="py-3 px-4">Standard Norm / Person</th>
+                              <th className="py-3 px-4">Caloric Target</th>
+                              <th className="py-3 px-4">Dietary Class</th>
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-current/10">
+                            {selectedMeal === 'LUNCH' ? (
+                              <>
+                                <tr>
+                                  <td className={`py-3 px-4 font-bold ${isDark ? 'text-aurora-lavender' : 'text-violet-700'}`}>MMS-ITM-0104</td>
+                                  <td className={`py-3 px-4 font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Shahi Paneer Masala</td>
+                                  <td className={`py-3 px-4 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>120 grams</td>
+                                  <td className={`py-3 px-4 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>240 kcal</td>
+                                  <td className="py-3 px-4 text-emerald-600 font-semibold">Vegetarian High-Protein</td>
+                                </tr>
+                                <tr>
+                                  <td className={`py-3 px-4 font-bold ${isDark ? 'text-aurora-lavender' : 'text-violet-700'}`}>MMS-ITM-0211</td>
+                                  <td className={`py-3 px-4 font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Steamed Jeera Basmati Rice</td>
+                                  <td className={`py-3 px-4 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>150 grams</td>
+                                  <td className={`py-3 px-4 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>190 kcal</td>
+                                  <td className="py-3 px-4 text-emerald-600 font-semibold">Carbohydrate Base</td>
+                                </tr>
+                                <tr>
+                                  <td className={`py-3 px-4 font-bold ${isDark ? 'text-aurora-lavender' : 'text-violet-700'}`}>MMS-ITM-0309</td>
+                                  <td className={`py-3 px-4 font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Tadka Dal Yellow Lentils</td>
+                                  <td className={`py-3 px-4 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>100 grams</td>
+                                  <td className={`py-3 px-4 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>130 kcal</td>
+                                  <td className="py-3 px-4 text-emerald-600 font-semibold">Essential Legume</td>
+                                </tr>
+                                <tr>
+                                  <td className={`py-3 px-4 font-bold ${isDark ? 'text-aurora-lavender' : 'text-violet-700'}`}>MMS-ITM-0418</td>
+                                  <td className={`py-3 px-4 font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Whole Wheat Tandoori Roti</td>
+                                  <td className={`py-3 px-4 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>3 units (90g)</td>
+                                  <td className={`py-3 px-4 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>210 kcal</td>
+                                  <td className="py-3 px-4 text-emerald-600 font-semibold">Whole Grain Fiber</td>
+                                </tr>
+                              </>
+                            ) : selectedMeal === 'BREAKFAST' ? (
+                              <>
+                                <tr>
+                                  <td className={`py-3 px-4 font-bold ${isDark ? 'text-aurora-lavender' : 'text-violet-700'}`}>MMS-ITM-0012</td>
+                                  <td className={`py-3 px-4 font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>South Indian Idli Sambar & Chutney</td>
+                                  <td className={`py-3 px-4 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>4 units (160g)</td>
+                                  <td className={`py-3 px-4 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>260 kcal</td>
+                                  <td className="py-3 px-4 text-emerald-600 font-semibold">Fermented Carbohydrate</td>
+                                </tr>
+                                <tr>
+                                  <td className={`py-3 px-4 font-bold ${isDark ? 'text-aurora-lavender' : 'text-violet-700'}`}>MMS-ITM-0044</td>
+                                  <td className={`py-3 px-4 font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Sprouted Moong Salad</td>
+                                  <td className={`py-3 px-4 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>60 grams</td>
+                                  <td className={`py-3 px-4 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>90 kcal</td>
+                                  <td className="py-3 px-4 text-emerald-600 font-semibold">Micro-Nutrient Vitality</td>
+                                </tr>
+                              </>
+                            ) : (
+                              <>
+                                <tr>
+                                  <td className={`py-3 px-4 font-bold ${isDark ? 'text-aurora-lavender' : 'text-violet-700'}`}>MMS-ITM-0512</td>
+                                  <td className={`py-3 px-4 font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Mixed Vegetable Kadai</td>
+                                  <td className={`py-3 px-4 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>130 grams</td>
+                                  <td className={`py-3 px-4 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>180 kcal</td>
+                                  <td className="py-3 px-4 text-emerald-600 font-semibold">Vegetarian</td>
+                                </tr>
+                                <tr>
+                                  <td className={`py-3 px-4 font-bold ${isDark ? 'text-aurora-lavender' : 'text-violet-700'}`}>MMS-ITM-0588</td>
+                                  <td className={`py-3 px-4 font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Gulab Jamun Sweet Delicacy</td>
+                                  <td className={`py-3 px-4 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>2 units (70g)</td>
+                                  <td className={`py-3 px-4 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>280 kcal</td>
+                                  <td className="py-3 px-4 text-amber-600 font-semibold">Special Weekend Supplement</td>
+                                </tr>
+                              </>
+                            )}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* TAB 2: HEADCOUNT DEMAND ORDER ENGINE */}
+                  {activeMmsTab === 'demand' && (
+                    <div className="space-y-6">
+                      <div className={`p-5 rounded-xl border ${
+                        isDark ? 'bg-aurora-card/60 border-white/10' : 'bg-slate-50/80 border-slate-200'
+                      }`}>
+                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6">
+                          <div>
+                            <div className={`font-mono text-xs uppercase font-extrabold flex items-center gap-2 ${
+                              isDark ? 'text-aurora-lavender' : 'text-violet-700'
+                            }`}>
+                              <Sliders className="w-4 h-4" />
+                              <span>LIVE DEMAND CALCULATOR: EppsDemandOrderHdr & Dtl</span>
+                            </div>
+                            <p className={`font-sans text-sm mt-1 font-medium ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                              Slide the projected headcount to watch the Java recipe explosion algorithm dynamically forecast pantry ingredients.
+                            </p>
+                          </div>
+
+                          <div className={`flex items-center gap-4 px-5 py-3 rounded-xl border ${
+                            isDark ? 'bg-aurora-night border-aurora-violet/30' : 'bg-white border-slate-200 shadow-sm'
+                          }`}>
+                            <div className="text-right">
+                              <div className="font-mono text-[10px] opacity-70 uppercase font-semibold">PROJECTED HEADCOUNT</div>
+                              <div className={`font-display font-black text-2xl ${
+                                isDark ? 'text-aurora-lavender' : 'text-violet-700'
+                              }`}>
+                                {headcount.toLocaleString()} <span className="text-xs font-mono opacity-70">DINERS</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Interactive Animated Supply-Chain Flow Topology */}
+                        <div className={`grid grid-cols-2 md:grid-cols-5 gap-2.5 p-4 rounded-xl border backdrop-blur-xl mb-6 font-mono text-xs transition-colors ${
+                          isDark ? 'bg-black/20 border-white/10' : 'bg-slate-100/90 border-slate-200'
+                        }`}>
+                          <div className={`p-3 rounded-lg border flex flex-col justify-between card-alive-float-1 ${
+                            isDark ? 'bg-aurora-card/60 border-white/5' : 'bg-white border-slate-200 shadow-xs'
+                          }`}>
+                            <div className="text-[10px] opacity-70 uppercase font-bold text-slate-500">01. FORECAST</div>
+                            <div className={`font-bold text-sm my-0.5 ${isDark ? 'text-aurora-lavender' : 'text-violet-700'}`}>
+                              {headcount.toLocaleString()} DINERS
+                            </div>
+                            <div className="text-[9px] text-emerald-600 font-semibold flex items-center gap-1">
+                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                              <span>Active Demand</span>
+                            </div>
+                          </div>
+
+                          <div className={`p-3 rounded-lg border flex flex-col justify-between card-alive-float-2 ${
+                            isDark ? 'bg-aurora-card/60 border-white/5' : 'bg-white border-slate-200 shadow-xs'
+                          }`}>
+                            <div className="text-[10px] opacity-70 uppercase font-bold text-slate-500">02. NORM MATRIX</div>
+                            <div className={`font-bold text-sm my-0.5 ${isDark ? 'text-sky-400' : 'text-sky-700'}`}>6 Core Items</div>
+                            <div className="text-[9px] opacity-75 font-medium">Nutritional Rules</div>
+                          </div>
+
+                          <div className={`p-3 rounded-lg border flex flex-col justify-between card-alive-float-3 ${
+                            isDark ? 'bg-aurora-card/60 border-white/5' : 'bg-white border-slate-200 shadow-xs'
+                          }`}>
+                            <div className="text-[10px] opacity-70 uppercase font-bold text-slate-500">03. REQUISITION</div>
+                            <div className={`font-bold text-sm my-0.5 ${isDark ? 'text-amber-400' : 'text-amber-700'}`}>{(headcount * 0.14).toFixed(0)} KG RICE</div>
+                            <div className="text-[9px] text-amber-600 font-semibold">Dynamic Explode</div>
+                          </div>
+
+                          <div className={`p-3 rounded-lg border flex flex-col justify-between card-alive-float-1 ${
+                            isDark ? 'bg-aurora-card/60 border-white/5' : 'bg-white border-slate-200 shadow-xs'
+                          }`}>
+                            <div className="text-[10px] opacity-70 uppercase font-bold text-slate-500">04. CONCURRENCY</div>
+                            <div className={`font-bold text-sm my-0.5 ${isDark ? 'text-purple-400' : 'text-purple-700'}`}>PESSIMISTIC</div>
+                            <div className="text-[9px] text-emerald-600 font-semibold">Row-Level Lock</div>
+                          </div>
+
+                          <div className={`p-3 rounded-lg border flex flex-col justify-between col-span-2 md:col-span-1 card-alive-float-2 ${
+                            isDark ? 'bg-aurora-card/60 border-white/5' : 'bg-white border-slate-200 shadow-xs'
+                          }`}>
+                            <div className="text-[10px] opacity-70 uppercase font-bold text-slate-500">05. LEDGER</div>
+                            <div className="font-bold text-sm text-emerald-600 my-0.5">AUDIT VERIFIED</div>
+                            <div className="text-[9px] text-emerald-600 font-semibold">Zero Variance</div>
+                          </div>
+                        </div>
+
+                        {/* Interactive Range Slider */}
+                        <div className="space-y-2">
+                          <div className="flex justify-between font-mono text-[11px] opacity-75 font-medium">
+                            <span>MIN: 200 DINERS</span>
+                            <span className={`font-extrabold ${isDark ? 'text-aurora-lavender' : 'text-violet-700'}`}>
+                              DRAG SLIDER TO SCALE DEMAND
+                            </span>
+                            <span>MAX: 5,000 DINERS</span>
+                          </div>
+                          <input
+                            type="range"
+                            min="200"
+                            max="5000"
+                            step="50"
+                            value={headcount}
+                            onChange={(e) => setHeadcount(Number(e.target.value))}
+                            className={`w-full h-2 rounded-lg appearance-none cursor-pointer ${
+                              isDark ? 'bg-aurora-card accent-aurora-violet' : 'bg-slate-200 accent-violet-700'
+                            }`}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Calculated Raw Ingredient Ledger */}
+                      <div className={`overflow-x-auto rounded-xl border ${
+                        isDark ? 'border-white/10 bg-aurora-night/40' : 'border-slate-200 bg-white shadow-xs'
+                      }`}>
+                        <table className="w-full text-left font-mono text-xs">
+                          <thead className={`border-b uppercase text-[10px] tracking-wider font-bold ${
+                            isDark ? 'bg-aurora-card text-slate-300 border-white/10' : 'bg-slate-100/90 text-slate-700 border-slate-200'
+                          }`}>
+                            <tr>
+                              <th className="py-3 px-4">Raw Ingredient</th>
+                              <th className="py-3 px-4">Standard Recipe Norm</th>
+                              <th className={`py-3 px-4 font-extrabold ${isDark ? 'text-aurora-lavender' : 'text-violet-700'}`}>Total Requisition Demand</th>
+                              <th className="py-3 px-4">Pantry Inventory State</th>
+                              <th className="py-3 px-4">Allocation Status</th>
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-current/10">
+                            {calculateIngredients(headcount).map((row, idx) => (
+                              <tr key={idx} className="hover:bg-current/[0.02]">
+                                <td className={`py-3 px-4 font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>{row.item}</td>
+                                <td className={`py-3 px-4 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>{row.norm}</td>
+                                <td className={`py-3 px-4 font-bold ${isDark ? 'text-aurora-lavender' : 'text-violet-700'}`}>{row.total}</td>
+                                <td className="py-3 px-4 text-emerald-600 font-semibold flex items-center gap-1.5">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                  {row.stock}
+                                </td>
+                                <td className="py-3 px-4 font-mono text-[11px]">
+                                  <span className={`px-2 py-0.5 rounded border font-semibold ${
+                                    isDark ? 'bg-aurora-card border-white/5 text-slate-300' : 'bg-slate-100 border-slate-200 text-slate-700'
+                                  }`}>
+                                    {row.status}
+                                  </span>
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* TAB 3: STORE-TO-STORE REQUISITION */}
+                  {activeMmsTab === 'transfer' && (
+                    <div className="space-y-6">
+                      <div className={`p-5 rounded-xl border ${
+                        isDark ? 'bg-aurora-card/60 border-white/10' : 'bg-slate-50/80 border-slate-200'
+                      }`}>
+                        <div className={`font-mono text-xs uppercase font-extrabold mb-2 ${
+                          isDark ? 'text-aurora-lavender' : 'text-violet-700'
+                        }`}>
+                          ENTITY: EppsMaterialTransferHdr & EppsTempMmS2SDtl (Sub-Store Movement)
+                        </div>
+                        <p className={`font-sans text-sm mb-6 font-medium ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                          Simulate a high-concurrency stock movement between the Central Raw Goods Warehouse and the Main Dining Kitchen Sub-Store with pessimistic concurrency lock arbitration.
+                        </p>
+
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 font-mono text-xs">
+                          <div className={`p-4 rounded-xl border ${
+                            isDark ? 'bg-aurora-night border-white/5' : 'bg-white border-slate-200 shadow-xs'
+                          }`}>
+                            <div className="text-[10px] opacity-70 uppercase font-semibold text-slate-500">ORIGIN DISPATCH</div>
+                            <div className={`font-bold text-sm mt-1 ${isDark ? 'text-white' : 'text-slate-900'}`}>WH-CENTRAL-01</div>
+                            <div className={`text-[11px] mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>Central Bulk Silo Hub</div>
+                          </div>
+                          
+                          <div className={`p-4 rounded-xl border flex flex-col justify-center items-center text-center ${
+                            isDark ? 'bg-aurora-night border-aurora-violet/40' : 'bg-white border-violet-200 shadow-xs'
+                          }`}>
+                            <div className={`text-[10px] uppercase font-extrabold ${
+                              isDark ? 'text-aurora-lavender' : 'text-violet-700'
+                            }`}>REQUISITION BATCH</div>
+                            <div className={`font-bold text-sm mt-1 ${isDark ? 'text-white' : 'text-slate-900'}`}>500 KG Basmati Rice</div>
+                            <div className="text-emerald-600 font-semibold text-[11px] mt-0.5">Batch #MMS-TX-9042</div>
+                          </div>
+
+                          <div className={`p-4 rounded-xl border ${
+                            isDark ? 'bg-aurora-night border-white/5' : 'bg-white border-slate-200 shadow-xs'
+                          }`}>
+                            <div className="text-[10px] opacity-70 uppercase font-semibold text-slate-500">DESTINATION KITCHEN</div>
+                            <div className={`font-bold text-sm mt-1 ${isDark ? 'text-white' : 'text-slate-900'}`}>KP-NORTH-04</div>
+                            <div className={`text-[11px] mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>Sub-Pantry Active Line</div>
+                          </div>
+                        </div>
+
+                        <div className="flex flex-wrap items-center gap-4">
+                          <button
+                            onClick={handleSimulateTransfer}
+                            disabled={transferStatus === 'COMMITTED_SUCCESS' || transferStatus === 'LOCKING_STOCK'}
+                            className={`px-5 py-2.5 rounded-xl font-mono text-xs font-bold uppercase tracking-wider disabled:opacity-50 transition-all flex items-center gap-2 ${
+                              isDark
+                                ? 'bg-aurora-violet text-aurora-night hover:bg-white shadow-glow-violet'
+                                : 'bg-violet-700 text-white hover:bg-violet-800 shadow-md'
+                            }`}
+                          >
+                            <Play className="w-3.5 h-3.5" />
+                            <span>DISPATCH MATERIAL TRANSFER (TX)</span>
+                          </button>
+
+                          {transferStatus && (
+                            <button
+                              onClick={resetTransfer}
+                              className={`px-4 py-2.5 rounded-xl font-mono text-xs transition-all flex items-center gap-2 font-semibold ${
+                                isDark ? 'bg-aurora-card hover:bg-aurora-cardHover text-slate-300' : 'bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 shadow-2xs'
+                              }`}
+                            >
+                              <RotateCcw className="w-3.5 h-3.5" />
+                              <span>RESET PIPELINE</span>
+                            </button>
+                          )}
+
+                          {transferStatus === 'LOCKING_STOCK' && (
+                            <div className="font-mono text-xs text-amber-600 font-semibold flex items-center gap-2 animate-pulse">
+                              <Activity className="w-4 h-4" />
+                              <span>ACQUIRING PESSIMISTIC ROW LOCK (SELECT FOR UPDATE)...</span>
+                            </div>
+                          )}
+
+                          {transferStatus === 'PESSIMISTIC_LOCK_ACQUIRED' && (
+                            <div className={`font-mono text-xs font-semibold flex items-center gap-2 ${
+                              isDark ? 'text-aurora-lavender' : 'text-violet-700'
+                            }`}>
+                              <Activity className="w-4 h-4" />
+                              <span>EXECUTING DUAL-STORE LEDGER DECREMENT / INCREMENT...</span>
+                            </div>
+                          )}
+
+                          {transferStatus === 'COMMITTED_SUCCESS' && (
+                            <div className="font-mono text-xs text-emerald-600 font-bold flex items-center gap-2">
+                              <CheckCircle2 className="w-4 h-4" />
+                              <span>COMMIT TRANSACTION 200 OK — LEDGER BALANCES VERIFIED (0 CONFLICTS)</span>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* TAB 4: COST CENTER AUDITING */}
+                  {activeMmsTab === 'cost' && (
+                    <div className="space-y-6">
+                      <div className={`p-5 rounded-xl border ${
+                        isDark ? 'bg-aurora-card/60 border-white/10' : 'bg-slate-50/80 border-slate-200'
+                      }`}>
+                        <div className={`font-mono text-xs uppercase font-extrabold mb-2 ${
+                          isDark ? 'text-aurora-lavender' : 'text-violet-700'
+                        }`}>
+                          ENTITY: EppsIssueHdr.java & EppsIssueCostCenterDtl.java
+                        </div>
+                        <p className={`font-sans text-sm mb-6 font-medium ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                          Institutional accounting module attributing food materials to departmental cost centers with real-time wastage variance audits.
+                        </p>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 font-mono text-xs">
+                          <div className={`p-4 rounded-xl border ${
+                            isDark ? 'bg-aurora-night border-white/5' : 'bg-white border-slate-200 shadow-xs'
+                          }`}>
+                            <div className="opacity-70 text-[10px] uppercase font-bold text-slate-500">COST CENTER CODE</div>
+                            <div className={`font-bold text-base mt-1 ${isDark ? 'text-white' : 'text-slate-900'}`}>CC-ENG-RES-01</div>
+                            <div className={`mt-1 font-medium ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>Engineering Residential Dining</div>
+                            <div className={`font-extrabold mt-2 ${isDark ? 'text-aurora-lavender' : 'text-violet-700'}`}>
+                              ₹ 4,82,400 Monthly Allocation
+                            </div>
+                          </div>
+
+                          <div className={`p-4 rounded-xl border ${
+                            isDark ? 'bg-aurora-night border-white/5' : 'bg-white border-slate-200 shadow-xs'
+                          }`}>
+                            <div className="opacity-70 text-[10px] uppercase font-bold text-slate-500">COST CENTER CODE</div>
+                            <div className={`font-bold text-base mt-1 ${isDark ? 'text-white' : 'text-slate-900'}`}>CC-FAC-CAFE-03</div>
+                            <div className={`mt-1 font-medium ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>Faculty & Guest Executive Cafe</div>
+                            <div className={`font-extrabold mt-2 ${isDark ? 'text-aurora-lavender' : 'text-violet-700'}`}>
+                              ₹ 1,95,150 Monthly Allocation
+                            </div>
+                          </div>
+
+                          <div className={`p-4 rounded-xl border ${
+                            isDark ? 'bg-emerald-950/20 border-emerald-500/30' : 'bg-emerald-50/90 border-emerald-200 shadow-xs'
+                          }`}>
+                            <div className="text-emerald-700 text-[10px] uppercase font-extrabold">WASTAGE VARIANCE AUDIT</div>
+                            <div className="font-extrabold text-base mt-1 text-emerald-700">-38.4% WASTE DROP</div>
+                            <div className="font-medium text-emerald-800/80 mt-1">Saved ₹ 1.2M annually</div>
+                            <div className="text-emerald-700 font-extrabold mt-2">AUDIT STATUS: APPROVED</div>
                           </div>
                         </div>
                       </div>
                     </div>
-
-                    {/* Interactive Animated Supply-Chain Flow Topology */}
-                    <div className={`grid grid-cols-2 md:grid-cols-5 gap-2.5 p-4 rounded-xl border backdrop-blur-xl mb-6 font-mono text-xs transition-colors ${
-                      isDark ? 'bg-black/20 border-white/10' : 'bg-stone-100/80 border-stone-300'
-                    }`}>
-                      <div className={`p-3 rounded-lg border flex flex-col justify-between card-alive-float-1 ${
-                        isDark ? 'bg-aurora-card/60 border-white/5' : 'bg-white border-stone-200 shadow-sm'
-                      }`}>
-                        <div className="text-[10px] opacity-60 uppercase font-semibold">01. FORECAST</div>
-                        <div className={`font-bold text-sm my-0.5 ${isDark ? 'text-aurora-lavender' : 'text-atelier-violet'}`}>
-                          {headcount.toLocaleString()} DINERS
-                        </div>
-                        <div className="text-[9px] text-emerald-500 font-semibold flex items-center gap-1">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                          <span>Active Demand</span>
-                        </div>
-                      </div>
-
-                      <div className={`p-3 rounded-lg border flex flex-col justify-between card-alive-float-2 ${
-                        isDark ? 'bg-aurora-card/60 border-white/5' : 'bg-white border-stone-200 shadow-sm'
-                      }`}>
-                        <div className="text-[10px] opacity-60 uppercase font-semibold">02. NORM MATRIX</div>
-                        <div className="font-bold text-sm text-sky-400 my-0.5">6 Core Items</div>
-                        <div className="text-[9px] opacity-75">Nutritional Rules</div>
-                      </div>
-
-                      <div className={`p-3 rounded-lg border flex flex-col justify-between card-alive-float-3 ${
-                        isDark ? 'bg-aurora-card/60 border-white/5' : 'bg-white border-stone-200 shadow-sm'
-                      }`}>
-                        <div className="text-[10px] opacity-60 uppercase font-semibold">03. REQUISITION</div>
-                        <div className="font-bold text-sm text-amber-400 my-0.5">{(headcount * 0.14).toFixed(0)} KG RICE</div>
-                        <div className="text-[9px] text-amber-500 font-semibold">Dynamic Explode</div>
-                      </div>
-
-                      <div className={`p-3 rounded-lg border flex flex-col justify-between card-alive-float-1 ${
-                        isDark ? 'bg-aurora-card/60 border-white/5' : 'bg-white border-stone-200 shadow-sm'
-                      }`}>
-                        <div className="text-[10px] opacity-60 uppercase font-semibold">04. CONCURRENCY</div>
-                        <div className="font-bold text-sm text-purple-400 my-0.5">PESSIMISTIC</div>
-                        <div className="text-[9px] text-emerald-500 font-semibold">Row-Level Lock</div>
-                      </div>
-
-                      <div className={`p-3 rounded-lg border flex flex-col justify-between col-span-2 md:col-span-1 card-alive-float-2 ${
-                        isDark ? 'bg-aurora-card/60 border-white/5' : 'bg-white border-stone-200 shadow-sm'
-                      }`}>
-                        <div className="text-[10px] opacity-60 uppercase font-semibold">05. LEDGER</div>
-                        <div className="font-bold text-sm text-emerald-400 my-0.5">AUDIT VERIFIED</div>
-                        <div className="text-[9px] text-emerald-500 font-semibold">Zero Variance</div>
-                      </div>
-                    </div>
-
-                    {/* Interactive Range Slider */}
-                    <div className="space-y-2">
-                      <div className="flex justify-between font-mono text-[11px] opacity-75">
-                        <span>MIN: 200 DINERS</span>
-                        <span className={`font-bold ${isDark ? 'text-aurora-lavender' : 'text-atelier-violet'}`}>
-                          DRAG SLIDER TO SCALE DEMAND
-                        </span>
-                        <span>MAX: 5,000 DINERS</span>
-                      </div>
-                      <input
-                        type="range"
-                        min="200"
-                        max="5000"
-                        step="50"
-                        value={headcount}
-                        onChange={(e) => setHeadcount(Number(e.target.value))}
-                        className={`w-full h-2 rounded-lg appearance-none cursor-pointer ${
-                          isDark ? 'bg-aurora-card accent-aurora-violet' : 'bg-stone-200 accent-atelier-violet'
-                        }`}
-                      />
-                    </div>
-                  </div>
-
-                  {/* Calculated Raw Ingredient Ledger */}
-                  <div className={`overflow-x-auto rounded-xl border ${
-                    isDark ? 'border-white/10 bg-aurora-night/40' : 'border-stone-200 bg-white'
-                  }`}>
-                    <table className="w-full text-left font-mono text-xs">
-                      <thead className={`border-b uppercase text-[10px] tracking-wider ${
-                        isDark ? 'bg-aurora-card text-slate-400 border-white/10' : 'bg-stone-100 text-stone-600 border-stone-200'
-                      }`}>
-                        <tr>
-                          <th className="py-3 px-4">Raw Ingredient</th>
-                          <th className="py-3 px-4">Standard Recipe Norm</th>
-                          <th className={`py-3 px-4 font-bold ${isDark ? 'text-aurora-lavender' : 'text-atelier-violet'}`}>Total Requisition Demand</th>
-                          <th className="py-3 px-4">Pantry Inventory State</th>
-                          <th className="py-3 px-4">Allocation Status</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-current/10">
-                        {calculateIngredients(headcount).map((row, idx) => (
-                          <tr key={idx} className="hover:bg-current/[0.02]">
-                            <td className="py-3 px-4 font-bold">{row.item}</td>
-                            <td className="py-3 px-4 opacity-75">{row.norm}</td>
-                            <td className={`py-3 px-4 font-bold ${isDark ? 'text-aurora-lavender' : 'text-atelier-violet'}`}>{row.total}</td>
-                            <td className="py-3 px-4 text-emerald-500 font-semibold flex items-center gap-1.5">
-                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                              {row.stock}
-                            </td>
-                            <td className="py-3 px-4 font-mono text-[11px]">
-                              <span className={`px-2 py-0.5 rounded border ${
-                                isDark ? 'bg-aurora-card border-white/5 text-slate-300' : 'bg-stone-100 border-stone-200 text-stone-700'
-                              }`}>
-                                {row.status}
-                              </span>
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              )}
-
-              {/* TAB 3: STORE-TO-STORE REQUISITION */}
-              {activeMmsTab === 'transfer' && (
-                <div className="space-y-6">
-                  <div className={`p-5 rounded-xl border ${
-                    isDark ? 'bg-aurora-card/60 border-white/10' : 'bg-stone-50 border-stone-200'
-                  }`}>
-                    <div className={`font-mono text-xs uppercase font-bold mb-2 ${
-                      isDark ? 'text-aurora-lavender' : 'text-atelier-violet'
-                    }`}>
-                      ENTITY: EppsMaterialTransferHdr & EppsTempMmS2SDtl (Sub-Store Movement)
-                    </div>
-                    <p className={`font-sans text-sm mb-6 ${isDark ? 'text-slate-300' : 'text-stone-600'}`}>
-                      Simulate a high-concurrency stock movement between the Central Raw Goods Warehouse and the Main Dining Kitchen Sub-Store with pessimistic concurrency lock arbitration.
-                    </p>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 font-mono text-xs">
-                      <div className={`p-4 rounded-lg border ${
-                        isDark ? 'bg-aurora-night border-white/5' : 'bg-white border-stone-200 shadow-sm'
-                      }`}>
-                        <div className="text-[10px] opacity-60 uppercase">ORIGIN DISPATCH</div>
-                        <div className="font-bold text-sm mt-1">WH-CENTRAL-01</div>
-                        <div className="opacity-75 text-[11px] mt-0.5">Central Bulk Silo Hub</div>
-                      </div>
-                      
-                      <div className={`p-4 rounded-lg border flex flex-col justify-center items-center text-center ${
-                        isDark ? 'bg-aurora-night border-aurora-violet/40' : 'bg-white border-atelier-violet/30 shadow-sm'
-                      }`}>
-                        <div className={`text-[10px] uppercase font-bold ${
-                          isDark ? 'text-aurora-lavender' : 'text-atelier-violet'
-                        }`}>REQUISITION BATCH</div>
-                        <div className="font-bold text-sm mt-1">500 KG Basmati Rice</div>
-                        <div className="text-emerald-500 font-semibold text-[11px] mt-0.5">Batch #MMS-TX-9042</div>
-                      </div>
-
-                      <div className={`p-4 rounded-lg border ${
-                        isDark ? 'bg-aurora-night border-white/5' : 'bg-white border-stone-200 shadow-sm'
-                      }`}>
-                        <div className="text-[10px] opacity-60 uppercase">DESTINATION KITCHEN</div>
-                        <div className="font-bold text-sm mt-1">KP-NORTH-04</div>
-                        <div className="opacity-75 text-[11px] mt-0.5">Sub-Pantry Active Line</div>
-                      </div>
-                    </div>
-
-                    <div className="flex flex-wrap items-center gap-4">
-                      <button
-                        onClick={handleSimulateTransfer}
-                        disabled={transferStatus === 'COMMITTED_SUCCESS' || transferStatus === 'LOCKING_STOCK'}
-                        className={`px-5 py-2.5 rounded-lg font-mono text-xs font-bold uppercase tracking-wider disabled:opacity-50 transition-all flex items-center gap-2 ${
-                          isDark
-                            ? 'bg-aurora-violet text-aurora-night hover:bg-white shadow-glow-violet'
-                            : 'bg-atelier-violet text-white hover:bg-stone-900 shadow-glow-atelier'
-                        }`}
-                      >
-                        <Play className="w-3.5 h-3.5" />
-                        <span>DISPATCH MATERIAL TRANSFER (TX)</span>
-                      </button>
-
-                      {transferStatus && (
-                        <button
-                          onClick={resetTransfer}
-                          className={`px-4 py-2.5 rounded-lg font-mono text-xs transition-all flex items-center gap-2 ${
-                            isDark ? 'bg-aurora-card hover:bg-aurora-cardHover text-slate-300' : 'bg-stone-200 hover:bg-stone-300 text-stone-800'
-                          }`}
-                        >
-                          <RotateCcw className="w-3.5 h-3.5" />
-                          <span>RESET PIPELINE</span>
-                        </button>
-                      )}
-
-                      {transferStatus === 'LOCKING_STOCK' && (
-                        <div className="font-mono text-xs text-amber-500 flex items-center gap-2 animate-pulse">
-                          <Activity className="w-4 h-4" />
-                          <span>ACQUIRING PESSIMISTIC ROW LOCK (SELECT FOR UPDATE)...</span>
-                        </div>
-                      )}
-
-                      {transferStatus === 'PESSIMISTIC_LOCK_ACQUIRED' && (
-                        <div className={`font-mono text-xs flex items-center gap-2 ${
-                          isDark ? 'text-aurora-lavender' : 'text-atelier-violet'
-                        }`}>
-                          <Activity className="w-4 h-4" />
-                          <span>EXECUTING DUAL-STORE LEDGER DECREMENT / INCREMENT...</span>
-                        </div>
-                      )}
-
-                      {transferStatus === 'COMMITTED_SUCCESS' && (
-                        <div className="font-mono text-xs text-emerald-500 font-semibold flex items-center gap-2">
-                          <CheckCircle2 className="w-4 h-4" />
-                          <span>COMMIT TRANSACTION 200 OK — LEDGER BALANCES VERIFIED (0 CONFLICTS)</span>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* TAB 4: COST CENTER AUDITING */}
-              {activeMmsTab === 'cost' && (
-                <div className="space-y-6">
-                  <div className={`p-5 rounded-xl border ${
-                    isDark ? 'bg-aurora-card/60 border-white/10' : 'bg-stone-50 border-stone-200'
-                  }`}>
-                    <div className={`font-mono text-xs uppercase font-bold mb-2 ${
-                      isDark ? 'text-aurora-lavender' : 'text-atelier-violet'
-                    }`}>
-                      ENTITY: EppsIssueHdr.java & EppsIssueCostCenterDtl.java
-                    </div>
-                    <p className={`font-sans text-sm mb-6 ${isDark ? 'text-slate-300' : 'text-stone-600'}`}>
-                      Institutional accounting module attributing food materials to departmental cost centers with real-time wastage variance audits.
-                    </p>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 font-mono text-xs">
-                      <div className={`p-4 rounded-lg border ${
-                        isDark ? 'bg-aurora-night border-white/5' : 'bg-white border-stone-200 shadow-sm'
-                      }`}>
-                        <div className="opacity-60 text-[10px] uppercase">COST CENTER CODE</div>
-                        <div className="font-bold text-base mt-1">CC-ENG-RES-01</div>
-                        <div className="opacity-75 mt-1">Engineering Residential Dining</div>
-                        <div className={`font-bold mt-2 ${isDark ? 'text-aurora-lavender' : 'text-atelier-violet'}`}>
-                          ₹ 4,82,400 Monthly Allocation
-                        </div>
-                      </div>
-
-                      <div className={`p-4 rounded-lg border ${
-                        isDark ? 'bg-aurora-night border-white/5' : 'bg-white border-stone-200 shadow-sm'
-                      }`}>
-                        <div className="opacity-60 text-[10px] uppercase">COST CENTER CODE</div>
-                        <div className="font-bold text-base mt-1">CC-FAC-CAFE-03</div>
-                        <div className="opacity-75 mt-1">Faculty & Guest Executive Cafe</div>
-                        <div className={`font-bold mt-2 ${isDark ? 'text-aurora-lavender' : 'text-atelier-violet'}`}>
-                          ₹ 1,95,150 Monthly Allocation
-                        </div>
-                      </div>
-
-                      <div className={`p-4 rounded-lg border ${
-                        isDark ? 'bg-emerald-950/20 border-emerald-500/30' : 'bg-emerald-50 border-emerald-200'
-                      }`}>
-                        <div className="text-emerald-500 text-[10px] uppercase font-bold">WASTAGE VARIANCE AUDIT</div>
-                        <div className="font-bold text-base mt-1 text-emerald-500">-38.4% WASTE DROP</div>
-                        <div className="opacity-75 mt-1">Saved ₹ 1.2M annually</div>
-                        <div className="text-emerald-500 font-bold mt-2">AUDIT STATUS: APPROVED</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
+                  )}
+                </motion.div>
+              </AnimatePresence>
 
             </div>
           </div>
 
           {/* Footer Verified Entities for Trunk ERP */}
           <div className={`p-6 border-t flex flex-wrap items-center justify-between gap-4 font-mono text-xs ${
-            isDark ? 'bg-aurora-card/60 border-white/10 text-slate-400' : 'bg-stone-50 border-stone-200 text-stone-600'
+            isDark ? 'bg-aurora-card/60 border-white/10 text-slate-400' : 'bg-slate-50/80 border-slate-200 text-slate-700'
           }`}>
             <div className="flex flex-wrap items-center gap-3">
-              <span className="font-bold">VERIFIED TRUNK DOMAIN ENTITIES:</span>
+              <span className="font-extrabold text-slate-900 dark:text-slate-200">VERIFIED TRUNK DOMAIN ENTITIES:</span>
               {trunkProject.verifiedEntities.map((e, idx) => (
-                <span key={idx} className={`px-2 py-0.5 rounded border ${
-                  isDark ? 'bg-aurora-night border-white/10 text-slate-300' : 'bg-white border-stone-300 text-stone-800'
+                <span key={idx} className={`px-2 py-0.5 rounded-md border font-semibold ${
+                  isDark ? 'bg-aurora-night border-white/10 text-slate-300' : 'bg-white border-slate-200 text-slate-800 shadow-2xs'
                 }`}>
                   {e.name}
                 </span>
               ))}
             </div>
-            <div className={`font-semibold ${isDark ? 'text-aurora-lavender' : 'text-atelier-violet'}`}>
+            <div className={`font-bold ${isDark ? 'text-aurora-lavender' : 'text-violet-700'}`}>
               TRUNK REPOSITORY VERIFIED
             </div>
           </div>
@@ -723,41 +743,41 @@ export default function ProjectsSection() {
         <div className={`rounded-3xl border backdrop-blur-2xl shadow-2xl overflow-hidden mb-20 hud-border ambient-sheen-container card-breathing-aura transition-all ${
           isDark
             ? 'bg-white/[0.05] border-white/15 shadow-[0_12px_45px_rgba(0,0,0,0.5)]'
-            : 'bg-white/90 border-stone-200 shadow-xl'
+            : 'bg-white border-slate-200 shadow-xl'
         }`}>
           
           {/* Header Strip */}
           <div className={`p-6 sm:p-8 border-b ${
             isDark
               ? 'bg-white/[0.03] border-white/10'
-              : 'bg-gradient-to-r from-atelier-cream/80 via-white to-atelier-cream/80 border-stone-200'
+              : 'bg-gradient-to-r from-slate-50 via-white to-slate-50 border-slate-200/90'
           }`}>
             <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
               <div className="flex items-center gap-3">
                 <span className={`px-3 py-1 rounded-full font-mono text-xs font-bold tracking-wider uppercase ${
-                  isDark ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-400/40' : 'bg-atelier-violet text-white'
+                  isDark ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-400/40' : 'bg-violet-700 text-white'
                 }`}>
                   {mobileProject.badge}
                 </span>
-                <span className={`font-mono text-xs ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                <span className={`font-mono text-xs ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
                   CODEBASE: <code className={`font-semibold ${isDark ? 'text-white' : 'text-slate-900 font-bold'}`}>smart-erp-mobile (GraphQL & REST)</code>
                 </span>
               </div>
               <div className={`flex items-center gap-2 text-xs font-mono px-3.5 py-1.5 rounded-full border backdrop-blur-xl ${
-                isDark ? 'bg-emerald-500/15 text-emerald-300 border-emerald-400/30 shadow-[0_0_15px_rgba(16,185,129,0.2)]' : 'bg-emerald-50 text-emerald-800 border-emerald-200'
+                isDark ? 'bg-emerald-500/15 text-emerald-300 border-emerald-400/30 shadow-[0_0_15px_rgba(16,185,129,0.2)]' : 'bg-emerald-50 text-emerald-800 border-emerald-300 shadow-xs'
               }`}>
-                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                 <span className="font-semibold">SUB-40MS MOBILE SLA VERIFIED</span>
               </div>
             </div>
 
             <h3 className={`font-display font-extrabold text-2xl sm:text-4xl tracking-tight mb-2 ${
-              isDark ? 'text-white' : 'text-stone-900'
+              isDark ? 'text-white' : 'text-slate-900 font-black'
             }`}>
               {mobileProject.title}
             </h3>
             <p className={`font-sans text-base sm:text-lg max-w-4xl leading-relaxed mb-6 ${
-              isDark ? 'text-slate-200' : 'text-stone-600'
+              isDark ? 'text-slate-200' : 'text-slate-600 font-medium'
             }`}>
               {mobileProject.overview}
             </p>
@@ -766,14 +786,16 @@ export default function ProjectsSection() {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 pt-4 border-t border-white/10">
               {mobileProject.metrics.map((m, idx) => (
                 <div key={idx} className={`p-4 rounded-2xl border transition-all backdrop-blur-xl ${
-                  isDark ? 'bg-white/[0.07] hover:bg-white/[0.12] border-white/15 shadow-md' : 'bg-white border-stone-200 shadow-sm'
+                  isDark ? 'bg-white/[0.07] hover:bg-white/[0.12] border-white/15 shadow-md' : 'bg-white border-slate-200/90 shadow-sm hover:border-violet-300 hover:shadow-md'
                 }`}>
                   <div className={`font-display font-black text-2xl sm:text-3xl ${
-                    isDark ? 'text-white drop-shadow-sm' : 'text-atelier-violet'
+                    isDark ? 'text-white drop-shadow-sm' : 'text-violet-700'
                   }`}>
                     {m.val}
                   </div>
-                  <div className="font-mono text-[10px] font-semibold text-cyan-300 uppercase mt-1">
+                  <div className={`font-mono text-[10px] font-semibold uppercase mt-1 ${
+                    isDark ? 'text-cyan-300' : 'text-slate-600'
+                  }`}>
                     {m.label}
                   </div>
                 </div>
@@ -786,9 +808,13 @@ export default function ProjectsSection() {
             <div className="flex flex-col gap-6">
               
               {/* Console Navigation Tabs */}
-              <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-white/10 font-mono text-xs">
+              <div className={`flex flex-wrap items-center justify-between gap-4 pb-4 border-b font-mono text-xs ${
+                isDark ? 'border-white/10' : 'border-slate-200/90'
+              }`}>
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="opacity-70 font-bold mr-2 uppercase tracking-wider text-slate-300">
+                  <span className={`font-mono text-xs uppercase font-extrabold mr-2 tracking-wider ${
+                    isDark ? 'text-slate-300 opacity-80' : 'text-slate-900'
+                  }`}>
                     MOBILE ENDPOINT TESTER:
                   </span>
                   
@@ -801,10 +827,10 @@ export default function ProjectsSection() {
                       activeMobileTab === 'graphql-fas'
                         ? isDark
                           ? 'bg-gradient-to-r from-cyan-600 to-sky-600 text-white shadow-[0_4px_20px_rgba(56,189,248,0.35)] border-cyan-400/50'
-                          : 'bg-atelier-violet text-white shadow-glow-atelier'
+                          : 'bg-violet-700 text-white shadow-md border-violet-700'
                         : isDark
                         ? 'bg-white/[0.06] hover:bg-white/[0.12] text-slate-200 border-white/10 hover:border-white/20'
-                        : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
+                        : 'bg-white text-slate-700 hover:text-slate-950 hover:bg-slate-50 border-slate-200 shadow-xs'
                     }`}
                   >
                     <AnimatedIcon icon={Database} variant={activeMobileTab === 'graphql-fas' ? 'bounce' : 'float'} color="cyan" size="sm" badge={false} />
@@ -820,10 +846,10 @@ export default function ProjectsSection() {
                       activeMobileTab === 'rest-sdms'
                         ? isDark
                           ? 'bg-gradient-to-r from-cyan-600 to-sky-600 text-white shadow-[0_4px_20px_rgba(56,189,248,0.35)] border-cyan-400/50'
-                          : 'bg-atelier-violet text-white shadow-glow-atelier'
+                          : 'bg-violet-700 text-white shadow-md border-violet-700'
                         : isDark
                         ? 'bg-white/[0.06] hover:bg-white/[0.12] text-slate-200 border-white/10 hover:border-white/20'
-                        : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
+                        : 'bg-white text-slate-700 hover:text-slate-950 hover:bg-slate-50 border-slate-200 shadow-xs'
                     }`}
                   >
                     <AnimatedIcon icon={Smartphone} variant={activeMobileTab === 'rest-sdms' ? 'wiggle' : 'pulse'} color="emerald" size="sm" badge={false} />
@@ -839,10 +865,10 @@ export default function ProjectsSection() {
                       activeMobileTab === 'hrms-claim'
                         ? isDark
                           ? 'bg-gradient-to-r from-cyan-600 to-sky-600 text-white shadow-[0_4px_20px_rgba(56,189,248,0.35)] border-cyan-400/50'
-                          : 'bg-atelier-violet text-white shadow-glow-atelier'
+                          : 'bg-violet-700 text-white shadow-md border-violet-700'
                         : isDark
                         ? 'bg-white/[0.06] hover:bg-white/[0.12] text-slate-200 border-white/10 hover:border-white/20'
-                        : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
+                        : 'bg-white text-slate-700 hover:text-slate-950 hover:bg-slate-50 border-slate-200 shadow-xs'
                     }`}
                   >
                     <AnimatedIcon icon={FileText} variant={activeMobileTab === 'hrms-claim' ? 'float' : 'radar'} color="amber" size="sm" badge={false} />
@@ -858,10 +884,10 @@ export default function ProjectsSection() {
                       activeMobileTab === 'mms-po'
                         ? isDark
                           ? 'bg-gradient-to-r from-cyan-600 to-sky-600 text-white shadow-[0_4px_20px_rgba(56,189,248,0.35)] border-cyan-400/50'
-                          : 'bg-atelier-violet text-white shadow-glow-atelier'
+                          : 'bg-violet-700 text-white shadow-md border-violet-700'
                         : isDark
                         ? 'bg-white/[0.06] hover:bg-white/[0.12] text-slate-200 border-white/10 hover:border-white/20'
-                        : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
+                        : 'bg-white text-slate-700 hover:text-slate-950 hover:bg-slate-50 border-slate-200 shadow-xs'
                     }`}
                   >
                     <AnimatedIcon icon={CheckCircle2} variant={activeMobileTab === 'mms-po' ? 'pulse' : 'float'} color="emerald" size="sm" badge={false} />
@@ -869,53 +895,62 @@ export default function ProjectsSection() {
                   </button>
                 </div>
 
-                <div className="font-mono text-[11px] opacity-75 flex items-center gap-2">
+                <div className={`font-mono text-[11px] flex items-center gap-2 ${
+                  isDark ? 'text-slate-300 opacity-80' : 'text-slate-700 font-bold'
+                }`}>
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                   <span>ENGINE: SpringBoot3_GraphQL</span>
                 </div>
               </div>
 
-              {/* TAB 1: GRAPHQL: FINANCIAL AGING */}
-              {activeMobileTab === 'graphql-fas' && (
-                <div className="space-y-6">
-                  <div className={`p-5 rounded-xl border ${
-                    isDark ? 'bg-aurora-card/60 border-white/10' : 'bg-stone-50 border-stone-200'
-                  }`}>
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
-                      <div>
-                        <div className={`font-mono text-xs uppercase font-bold ${
-                          isDark ? 'text-aurora-lavender' : 'text-atelier-violet'
-                        }`}>
-                          RESOLVER: AccountsPayableGraphQLController.java (@QueryMapping)
-                        </div>
-                        <div className={`font-sans text-xs ${isDark ? 'text-slate-300' : 'text-stone-600'}`}>
-                          Executes single-roundtrip GraphQL query aggregating outstanding vendor liabilities across aging brackets.
-                        </div>
-                      </div>
-
-                      <button
-                        onClick={handleExecuteMobileGraphQL}
-                        disabled={mobileQueryExecuting}
-                        className={`px-4 py-2 rounded-lg font-mono text-xs font-bold uppercase transition-all flex items-center gap-2 ${
-                          isDark
-                            ? 'bg-aurora-violet text-aurora-night hover:bg-white shadow-glow-violet'
-                            : 'bg-atelier-violet text-white hover:bg-stone-900 shadow-glow-atelier'
-                        }`}
-                      >
-                        <Zap className="w-3.5 h-3.5" />
-                        <span>{mobileQueryExecuting ? 'RESOLVING GRAPHQL...' : 'RUN GRAPHQL QUERY'}</span>
-                      </button>
-                    </div>
-
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 font-mono text-xs">
-                      {/* Query Editor Preview */}
-                      <div className={`p-4 rounded-xl border ${
-                        isDark ? 'bg-black/60 border-white/10 text-slate-300' : 'bg-white border-stone-300 text-stone-800'
+              {/* Animated Mobile ERP Tabs Container */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeMobileTab}
+                  initial={{ opacity: 0, y: 12, scale: 0.995 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -12, scale: 0.995 }}
+                  transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  {/* TAB 1: GRAPHQL: FINANCIAL AGING */}
+                  {activeMobileTab === 'graphql-fas' && (
+                    <div className="space-y-6">
+                      <div className={`p-5 rounded-xl border ${
+                        isDark ? 'bg-aurora-card/60 border-white/10' : 'bg-slate-50/80 border-slate-200'
                       }`}>
-                        <div className="text-[10px] opacity-60 uppercase mb-2 text-aurora-lavender font-bold">
-                          # CLIENT GRAPHQL QUERY PAYLOAD
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+                          <div>
+                            <div className={`font-mono text-xs uppercase font-extrabold ${
+                              isDark ? 'text-aurora-lavender' : 'text-violet-700'
+                            }`}>
+                              RESOLVER: AccountsPayableGraphQLController.java (@QueryMapping)
+                            </div>
+                            <div className={`font-sans text-xs mt-1 font-medium ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                              Executes single-roundtrip GraphQL query aggregating outstanding vendor liabilities across aging brackets.
+                            </div>
+                          </div>
+
+                          <button
+                            onClick={handleExecuteMobileGraphQL}
+                            disabled={mobileQueryExecuting}
+                            className={`px-4 py-2 rounded-xl font-mono text-xs font-bold uppercase transition-all flex items-center gap-2 ${
+                              isDark
+                                ? 'bg-aurora-violet text-aurora-night hover:bg-white shadow-glow-violet'
+                                : 'bg-violet-700 text-white hover:bg-violet-800 shadow-md'
+                            }`}
+                          >
+                            <Zap className="w-3.5 h-3.5" />
+                            <span>{mobileQueryExecuting ? 'RESOLVING GRAPHQL...' : 'RUN GRAPHQL QUERY'}</span>
+                          </button>
                         </div>
-                        <pre className="text-[11px] leading-relaxed text-sky-400">
+
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 font-mono text-xs">
+                          {/* Query Editor Preview */}
+                          <div className="p-4 rounded-xl border bg-slate-950 border-slate-800 text-slate-200 shadow-inner">
+                            <div className="text-[10px] font-mono uppercase mb-2 text-cyan-400 font-extrabold tracking-wider">
+                              # CLIENT GRAPHQL QUERY PAYLOAD
+                            </div>
+                            <pre className="text-[11px] leading-relaxed text-sky-300 font-mono">
 {`query GetCreditorAging {
   creditorAgingSummary(companyCode: "EPPS_IND", divisionCode: "DIV_PUNE_01") {
     bucket
@@ -924,223 +959,225 @@ export default function ProjectsSection() {
     status
   }
 }`}
-                        </pre>
-                      </div>
+                            </pre>
+                          </div>
 
-                      {/* Response Terminal */}
-                      <div className={`p-4 rounded-xl border ${
-                        isDark ? 'bg-black/60 border-white/10 text-slate-200' : 'bg-stone-900 border-stone-800 text-white'
-                      }`}>
-                        <div className="flex items-center justify-between mb-2 pb-1.5 border-b border-white/10 text-[10px]">
-                          <span className="text-emerald-400 font-bold uppercase flex items-center gap-1.5">
-                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                            <span>RESOLVER TELEMETRY</span>
-                          </span>
-                          <span className={`px-2 py-0.5 rounded text-[10px] font-bold flex items-center gap-1.5 ${mobileQueryResult ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' : 'bg-white/10 text-slate-400'}`}>
-                            {mobileQueryResult && (
-                              <span className="flex items-end gap-0.5 h-3 px-0.5" title="Live GraphQL Data Pipe">
-                                <span className="w-[2px] rounded-full bg-emerald-400 waveform-bar-1" />
-                                <span className="w-[2px] rounded-full bg-sky-400 waveform-bar-2" />
-                                <span className="w-[2px] rounded-full bg-emerald-400 waveform-bar-3" />
+                          {/* Response Terminal */}
+                          <div className="p-4 rounded-xl border bg-slate-950 border-slate-800 text-white shadow-inner">
+                            <div className="flex items-center justify-between mb-2 pb-1.5 border-b border-white/10 text-[10px]">
+                              <span className="text-emerald-400 font-bold uppercase flex items-center gap-1.5">
+                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                                <span>RESOLVER TELEMETRY</span>
                               </span>
-                            )}
-                            <span>{mobileQueryResult ? `⚡ ${mobileQueryResult.executionTimeMs}ms • 200 OK • DATALOADER BATCHED` : 'STATUS: READY'}</span>
-                          </span>
-                        </div>
+                              <span className={`px-2 py-0.5 rounded text-[10px] font-bold flex items-center gap-1.5 ${mobileQueryResult ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' : 'bg-white/10 text-slate-400'}`}>
+                                {mobileQueryResult && (
+                                  <span className="flex items-end gap-0.5 h-3 px-0.5" title="Live GraphQL Data Pipe">
+                                    <span className="w-[2px] rounded-full bg-emerald-400 waveform-bar-1" />
+                                    <span className="w-[2px] rounded-full bg-sky-400 waveform-bar-2" />
+                                    <span className="w-[2px] rounded-full bg-emerald-400 waveform-bar-3" />
+                                  </span>
+                                )}
+                                <span>{mobileQueryResult ? `⚡ ${mobileQueryResult.executionTimeMs}ms • 200 OK • DATALOADER BATCHED` : 'STATUS: READY'}</span>
+                              </span>
+                            </div>
 
-                        {mobileQueryResult ? (
-                          <div className="space-y-2 mt-2">
-                            {mobileQueryResult.buckets.map((b, bIdx) => (
-                              <div key={bIdx} className="flex items-center justify-between p-2 rounded bg-white/5 text-xs">
-                                <div>
-                                  <span className="font-bold text-white">{b.bucket}</span>
-                                  <span className="text-[10px] opacity-60 ml-2">({b.vendorCount} Vendors)</span>
-                                </div>
-                                <div className="text-right">
-                                  <span className="font-bold text-emerald-400">{b.amount}</span>
-                                  <span className="ml-2 text-[10px] px-1.5 py-0.5 rounded bg-white/10 text-slate-300">{b.status}</span>
-                                </div>
+                            {mobileQueryResult ? (
+                              <div className="space-y-2 mt-2">
+                                {mobileQueryResult.buckets.map((b, bIdx) => (
+                                  <div key={bIdx} className="flex items-center justify-between p-2 rounded bg-white/5 text-xs">
+                                    <div>
+                                      <span className="font-bold text-white">{b.bucket}</span>
+                                      <span className="text-[10px] opacity-60 ml-2">({b.vendorCount} Vendors)</span>
+                                    </div>
+                                    <div className="text-right">
+                                      <span className="font-bold text-emerald-400">{b.amount}</span>
+                                      <span className="ml-2 text-[10px] px-1.5 py-0.5 rounded bg-white/10 text-slate-300">{b.status}</span>
+                                    </div>
+                                  </div>
+                                ))}
                               </div>
-                            ))}
+                            ) : (
+                              <div className="py-8 text-center text-slate-400 font-mono text-xs">
+                                Click [RUN GRAPHQL QUERY] to simulate mobile resolver execution...
+                              </div>
+                            )}
                           </div>
-                        ) : (
-                          <div className="py-8 text-center text-slate-500 font-mono text-xs">
-                            Click [RUN GRAPHQL QUERY] to simulate mobile resolver execution...
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* TAB 2: REST: MOBILE SALES ORDER */}
+                  {activeMobileTab === 'rest-sdms' && (
+                    <div className="space-y-6">
+                      <div className={`p-5 rounded-xl border ${
+                        isDark ? 'bg-aurora-card/60 border-white/10' : 'bg-slate-50/80 border-slate-200'
+                      }`}>
+                        <div className={`font-mono text-xs uppercase font-extrabold mb-2 ${
+                          isDark ? 'text-aurora-lavender' : 'text-violet-700'
+                        }`}>
+                          CONTROLLER: SalesOrderMobileController.java (POST /api/v1/mobile/sdms/orders)
+                        </div>
+                        <p className={`font-sans text-sm mb-4 font-medium ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                          Mobile sales dispatch pipeline with real-time inventory reservation, buyer credit limit validation, and automated tax calculations.
+                        </p>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 font-mono text-xs">
+                          <div className={`p-4 rounded-xl border ${
+                            isDark ? 'bg-aurora-night border-white/5' : 'bg-white border-slate-200 shadow-xs'
+                          }`}>
+                            <div className="text-[10px] opacity-70 uppercase font-semibold text-slate-500">CUSTOMER ACCOUNT</div>
+                            <div className={`font-bold text-sm mt-1 ${isDark ? 'text-white' : 'text-slate-900'}`}>APEX IND_902</div>
+                            <div className="text-emerald-600 text-[11px] mt-0.5 font-bold">Credit Limit: ₹ 25,00,000</div>
+                            <div className={`text-[10px] mt-1 font-medium ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>Utilized: 42% (Approved)</div>
                           </div>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
 
-              {/* TAB 2: REST: MOBILE SALES ORDER */}
-              {activeMobileTab === 'rest-sdms' && (
-                <div className="space-y-6">
-                  <div className={`p-5 rounded-xl border ${
-                    isDark ? 'bg-aurora-card/60 border-white/10' : 'bg-stone-50 border-stone-200'
-                  }`}>
-                    <div className={`font-mono text-xs uppercase font-bold mb-2 ${
-                      isDark ? 'text-aurora-lavender' : 'text-atelier-violet'
-                    }`}>
-                      CONTROLLER: SalesOrderMobileController.java (POST /api/v1/mobile/sdms/orders)
-                    </div>
-                    <p className={`font-sans text-sm mb-4 ${isDark ? 'text-slate-300' : 'text-stone-600'}`}>
-                      Mobile sales dispatch pipeline with real-time inventory reservation, buyer credit limit validation, and automated tax calculations.
-                    </p>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 font-mono text-xs">
-                      <div className={`p-4 rounded-lg border ${
-                        isDark ? 'bg-aurora-night border-white/5' : 'bg-white border-stone-200 shadow-sm'
-                      }`}>
-                        <div className="opacity-60 text-[10px] uppercase">CUSTOMER ACCOUNT</div>
-                        <div className="font-bold text-sm mt-1">APEX IND_902</div>
-                        <div className="text-emerald-500 text-[11px] mt-0.5 font-semibold">Credit Limit: ₹ 25,00,000</div>
-                        <div className="opacity-75 text-[10px] mt-1">Utilized: 42% (Approved)</div>
-                      </div>
-
-                      <div className={`p-4 rounded-lg border ${
-                        isDark ? 'bg-aurora-night border-white/5' : 'bg-white border-stone-200 shadow-sm'
-                      }`}>
-                        <div className="opacity-60 text-[10px] uppercase">PRODUCT SKU DISPATCH</div>
-                        <div className="font-bold text-sm mt-1">EPPS-IND-MOTOR-5HP</div>
-                        <div className={`font-bold mt-0.5 ${isDark ? 'text-aurora-lavender' : 'text-atelier-violet'}`}>Quantity: 25 Units</div>
-                        <div className="text-emerald-500 text-[10px] mt-1 font-semibold">Warehouse Stock: 140 Units (Allocated)</div>
-                      </div>
-
-                      <div className={`p-4 rounded-lg border flex flex-col justify-between ${
-                        isDark ? 'bg-emerald-950/20 border-emerald-500/30' : 'bg-emerald-50 border-emerald-200'
-                      }`}>
-                        <div>
-                          <div className="text-emerald-500 text-[10px] uppercase font-bold">PIPELINE VERIFICATION</div>
-                          <div className="font-bold text-sm mt-1 text-emerald-500">HTTP 201 CREATED</div>
-                          <div className="opacity-75 text-[10px] mt-0.5">Order #SO-MBL-8840 Generated</div>
-                        </div>
-                        <div className="text-[10px] font-mono text-emerald-400 font-semibold mt-2">
-                          LATENCY: 34ms (WITHIN SLA)
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* TAB 3: HRMS: EXPENSE WORKFLOW */}
-              {activeMobileTab === 'hrms-claim' && (
-                <div className="space-y-6">
-                  <div className={`p-5 rounded-xl border ${
-                    isDark ? 'bg-aurora-card/60 border-white/10' : 'bg-stone-50 border-stone-200'
-                  }`}>
-                    <div className={`font-mono text-xs uppercase font-bold mb-2 ${
-                      isDark ? 'text-aurora-lavender' : 'text-atelier-violet'
-                    }`}>
-                      WORKFLOW: HrmsExpenseClaimWorkflow.java (State Machine: SUBMITTED → AUDITED → APPROVED)
-                    </div>
-                    <p className={`font-sans text-sm mb-4 ${isDark ? 'text-slate-300' : 'text-stone-600'}`}>
-                      Mobile employee claim management with policy ceiling verification, image voucher attachment hash checks, and hierarchical multi-tier manager authorizations.
-                    </p>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 font-mono text-xs">
-                      <div className={`p-4 rounded-lg border ${
-                        isDark ? 'bg-aurora-night border-white/5' : 'bg-white border-stone-200 shadow-sm'
-                      }`}>
-                        <div className="opacity-60 text-[10px] uppercase">EXPENSE TYPE</div>
-                        <div className="font-bold text-sm mt-1">Inter-City Client Travel</div>
-                        <div className="opacity-75 text-[11px] mt-0.5">Pune ⇄ Mumbai Depot</div>
-                        <div className={`font-bold mt-1 ${isDark ? 'text-aurora-lavender' : 'text-atelier-violet'}`}>Amount: ₹ 4,250.00</div>
-                      </div>
-
-                      <div className={`p-4 rounded-lg border ${
-                        isDark ? 'bg-aurora-night border-white/5' : 'bg-white border-stone-200 shadow-sm'
-                      }`}>
-                        <div className="opacity-60 text-[10px] uppercase">POLICY VERIFICATION</div>
-                        <div className="font-bold text-sm mt-1 text-emerald-500">POLICY COMPLIANT</div>
-                        <div className="opacity-75 text-[11px] mt-0.5">Ceiling: ₹ 6,000 / day</div>
-                        <div className="text-[10px] opacity-75 mt-1">Voucher Attachment: Verified</div>
-                      </div>
-
-                      <div className={`p-4 rounded-lg border flex flex-col justify-between ${
-                        isDark ? 'bg-emerald-950/20 border-emerald-500/30' : 'bg-emerald-50 border-emerald-200'
-                      }`}>
-                        <div>
-                          <div className="text-emerald-500 text-[10px] uppercase font-bold">APPROVAL STAGE</div>
-                          <div className="font-bold text-sm mt-1 text-emerald-500">STAGE 2 APPROVED</div>
-                          <div className="opacity-75 text-[10px] mt-0.5">Disbursed to Payroll Ledger</div>
-                        </div>
-                        <div className="text-[10px] font-mono text-emerald-400 font-semibold mt-2">
-                          PAYROLL SYNC: READY
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* TAB 4: MMS: MOBILE PO APPROVAL */}
-              {activeMobileTab === 'mms-po' && (
-                <div className="space-y-6">
-                  <div className={`p-5 rounded-xl border ${
-                    isDark ? 'bg-aurora-card/60 border-white/10' : 'bg-stone-50 border-stone-200'
-                  }`}>
-                    <div className={`font-mono text-xs uppercase font-bold mb-2 ${
-                      isDark ? 'text-aurora-lavender' : 'text-atelier-violet'
-                    }`}>
-                      SERVICE: PurchaseOrderApprovalService.java (Executive One-Touch Authorization)
-                    </div>
-                    <p className={`font-sans text-sm mb-4 ${isDark ? 'text-slate-300' : 'text-stone-600'}`}>
-                      Authorizing high-value institutional procurement orders on mobile devices with automated vendor quote comparison and budget threshold validation.
-                    </p>
-
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-lg border mb-4 font-mono text-xs bg-current/[0.03]">
-                      <div>
-                        <div className="font-bold text-sm">PO #EPPS-PO-2025-9012</div>
-                        <div className="opacity-75 text-[11px] mt-0.5">Vendor: Shri Agro Bulk Suppliers // Value: ₹ 3,45,000</div>
-                      </div>
-
-                      <div className="flex items-center gap-3">
-                        {poApprovalStatus === 'APPROVED' ? (
-                          <div className="px-3.5 py-1.5 rounded-lg bg-emerald-500 text-black font-bold text-xs flex items-center gap-1.5">
-                            <CheckCircle2 className="w-4 h-4" />
-                            <span>PO AUTHORIZED & DISPATCHED</span>
+                          <div className={`p-4 rounded-xl border ${
+                            isDark ? 'bg-aurora-night border-white/5' : 'bg-white border-slate-200 shadow-xs'
+                          }`}>
+                            <div className="text-[10px] opacity-70 uppercase font-semibold text-slate-500">PRODUCT SKU DISPATCH</div>
+                            <div className={`font-bold text-sm mt-1 ${isDark ? 'text-white' : 'text-slate-900'}`}>EPPS-IND-MOTOR-5HP</div>
+                            <div className={`font-bold mt-0.5 ${isDark ? 'text-aurora-lavender' : 'text-violet-700'}`}>Quantity: 25 Units</div>
+                            <div className="text-emerald-600 text-[10px] mt-1 font-bold">Warehouse Stock: 140 Units (Allocated)</div>
                           </div>
-                        ) : (
-                          <button
-                            onClick={handleApprovePO}
-                            disabled={poApprovalStatus === 'AUTHORIZING'}
-                            className={`px-4 py-2 rounded-lg font-bold uppercase transition-all flex items-center gap-2 ${
-                              isDark
-                                ? 'bg-aurora-violet text-aurora-night hover:bg-white shadow-glow-violet'
-                                : 'bg-atelier-violet text-white hover:bg-stone-900 shadow-glow-atelier'
-                            }`}
-                          >
-                            <CheckCircle2 className="w-4 h-4" />
-                            <span>{poApprovalStatus === 'AUTHORIZING' ? 'DIGITALLY SIGNING...' : 'AUTHORIZE PO (EXECUTIVE)'}</span>
-                          </button>
-                        )}
+
+                          <div className={`p-4 rounded-xl border flex flex-col justify-between ${
+                            isDark ? 'bg-emerald-950/20 border-emerald-500/30' : 'bg-emerald-50/90 border-emerald-200 shadow-xs'
+                          }`}>
+                            <div>
+                              <div className="text-emerald-700 text-[10px] uppercase font-extrabold">PIPELINE VERIFICATION</div>
+                              <div className="font-extrabold text-sm mt-1 text-emerald-700">HTTP 201 CREATED</div>
+                              <div className="text-emerald-800/80 text-[10px] mt-0.5 font-medium">Order #SO-MBL-8840 Generated</div>
+                            </div>
+                            <div className="text-[10px] font-mono text-emerald-600 font-bold mt-2">
+                              LATENCY: 34ms (WITHIN SLA)
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-              )}
+                  )}
+
+                  {/* TAB 3: HRMS: EXPENSE WORKFLOW */}
+                  {activeMobileTab === 'hrms-claim' && (
+                    <div className="space-y-6">
+                      <div className={`p-5 rounded-xl border ${
+                        isDark ? 'bg-aurora-card/60 border-white/10' : 'bg-slate-50/80 border-slate-200'
+                      }`}>
+                        <div className={`font-mono text-xs uppercase font-extrabold mb-2 ${
+                          isDark ? 'text-aurora-lavender' : 'text-violet-700'
+                        }`}>
+                          WORKFLOW: HrmsExpenseClaimWorkflow.java (State Machine: SUBMITTED → AUDITED → APPROVED)
+                        </div>
+                        <p className={`font-sans text-sm mb-4 font-medium ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                          Mobile employee claim management with policy ceiling verification, image voucher attachment hash checks, and hierarchical multi-tier manager authorizations.
+                        </p>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 font-mono text-xs">
+                          <div className={`p-4 rounded-xl border ${
+                            isDark ? 'bg-aurora-night border-white/5' : 'bg-white border-slate-200 shadow-xs'
+                          }`}>
+                            <div className="text-[10px] opacity-70 uppercase font-semibold text-slate-500">EXPENSE TYPE</div>
+                            <div className={`font-bold text-sm mt-1 ${isDark ? 'text-white' : 'text-slate-900'}`}>Inter-City Client Travel</div>
+                            <div className={`text-[11px] mt-0.5 font-medium ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>Pune ⇄ Mumbai Depot</div>
+                            <div className={`font-bold mt-1 ${isDark ? 'text-aurora-lavender' : 'text-violet-700'}`}>Amount: ₹ 4,250.00</div>
+                          </div>
+
+                          <div className={`p-4 rounded-xl border ${
+                            isDark ? 'bg-aurora-night border-white/5' : 'bg-white border-slate-200 shadow-xs'
+                          }`}>
+                            <div className="text-[10px] opacity-70 uppercase font-semibold text-slate-500">POLICY VERIFICATION</div>
+                            <div className="font-bold text-sm mt-1 text-emerald-600">POLICY COMPLIANT</div>
+                            <div className={`text-[11px] mt-0.5 font-medium ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>Ceiling: ₹ 6,000 / day</div>
+                            <div className="text-[10px] text-emerald-600 font-semibold mt-1">Voucher Attachment: Verified</div>
+                          </div>
+
+                          <div className={`p-4 rounded-xl border flex flex-col justify-between ${
+                            isDark ? 'bg-emerald-950/20 border-emerald-500/30' : 'bg-emerald-50/90 border-emerald-200 shadow-xs'
+                          }`}>
+                            <div>
+                              <div className="text-emerald-700 text-[10px] uppercase font-extrabold">APPROVAL STAGE</div>
+                              <div className="font-extrabold text-sm mt-1 text-emerald-700">STAGE 2 APPROVED</div>
+                              <div className="text-emerald-800/80 text-[10px] mt-0.5 font-medium">Disbursed to Payroll Ledger</div>
+                            </div>
+                            <div className="text-[10px] font-mono text-emerald-600 font-bold mt-2">
+                              PAYROLL SYNC: READY
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* TAB 4: MMS: MOBILE PO APPROVAL */}
+                  {activeMobileTab === 'mms-po' && (
+                    <div className="space-y-6">
+                      <div className={`p-5 rounded-xl border ${
+                        isDark ? 'bg-aurora-card/60 border-white/10' : 'bg-slate-50/80 border-slate-200'
+                      }`}>
+                        <div className={`font-mono text-xs uppercase font-extrabold mb-2 ${
+                          isDark ? 'text-aurora-lavender' : 'text-violet-700'
+                        }`}>
+                          SERVICE: PurchaseOrderApprovalService.java (Executive One-Touch Authorization)
+                        </div>
+                        <p className={`font-sans text-sm mb-4 font-medium ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                          Authorizing high-value institutional procurement orders on mobile devices with automated vendor quote comparison and budget threshold validation.
+                        </p>
+
+                        <div className={`flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl border mb-4 font-mono text-xs ${
+                          isDark ? 'bg-current/[0.03] border-white/10' : 'bg-white border-slate-200 shadow-xs'
+                        }`}>
+                          <div>
+                            <div className={`font-bold text-sm ${isDark ? 'text-white' : 'text-slate-900'}`}>PO #EPPS-PO-2025-9012</div>
+                            <div className={`text-[11px] mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>Vendor: Shri Agro Bulk Suppliers // Value: ₹ 3,45,000</div>
+                          </div>
+
+                          <div className="flex items-center gap-3">
+                            {poApprovalStatus === 'APPROVED' ? (
+                              <div className="px-3.5 py-1.5 rounded-lg bg-emerald-500 text-black font-bold text-xs flex items-center gap-1.5 shadow-sm">
+                                <CheckCircle2 className="w-4 h-4" />
+                                <span>PO AUTHORIZED & DISPATCHED</span>
+                              </div>
+                            ) : (
+                              <button
+                                onClick={handleApprovePO}
+                                disabled={poApprovalStatus === 'AUTHORIZING'}
+                                className={`px-4 py-2 rounded-xl font-bold uppercase transition-all flex items-center gap-2 ${
+                                  isDark
+                                    ? 'bg-aurora-violet text-aurora-night hover:bg-white shadow-glow-violet'
+                                    : 'bg-violet-700 text-white hover:bg-violet-800 shadow-md'
+                                }`}
+                              >
+                                <CheckCircle2 className="w-4 h-4" />
+                                <span>{poApprovalStatus === 'AUTHORIZING' ? 'DIGITALLY SIGNING...' : 'AUTHORIZE PO (EXECUTIVE)'}</span>
+                              </button>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </motion.div>
+              </AnimatePresence>
 
             </div>
           </div>
 
           {/* Footer Verified Entities for Mobile ERP */}
           <div className={`p-6 border-t flex flex-wrap items-center justify-between gap-4 font-mono text-xs ${
-            isDark ? 'bg-aurora-card/60 border-white/10 text-slate-400' : 'bg-stone-50 border-stone-200 text-stone-600'
+            isDark ? 'bg-aurora-card/60 border-white/10 text-slate-400' : 'bg-slate-50/80 border-slate-200 text-slate-700'
           }`}>
             <div className="flex flex-wrap items-center gap-3">
-              <span className="font-bold">VERIFIED MOBILE DOMAIN ENDPOINTS:</span>
+              <span className="font-extrabold text-slate-900 dark:text-slate-200">VERIFIED MOBILE DOMAIN ENDPOINTS:</span>
               {mobileProject.verifiedEntities.map((e, idx) => (
-                <span key={idx} className={`px-2 py-0.5 rounded border ${
-                  isDark ? 'bg-aurora-night border-white/10 text-slate-300' : 'bg-white border-stone-300 text-stone-800'
+                <span key={idx} className={`px-2 py-0.5 rounded-md border font-semibold ${
+                  isDark ? 'bg-aurora-night border-white/10 text-slate-300' : 'bg-white border-slate-200 text-slate-800 shadow-2xs'
                 }`}>
                   {e.name}
                 </span>
               ))}
             </div>
-            <div className={`font-semibold ${isDark ? 'text-aurora-lavender' : 'text-atelier-violet'}`}>
+            <div className={`font-bold ${isDark ? 'text-aurora-lavender' : 'text-violet-700'}`}>
               MOBILE REPOSITORY VERIFIED
             </div>
           </div>
@@ -1151,11 +1188,11 @@ export default function ProjectsSection() {
             ADDITIONAL PRODUCTION WORKLOADS
             ======================================================== */}
         <div className="mb-8">
-          <div className="font-mono text-xs uppercase tracking-widest opacity-60 mb-2">
+          <div className="font-mono text-xs uppercase tracking-widest text-slate-500 font-bold mb-2">
             SECONDARY PRODUCTION WORKLOADS
           </div>
-          <h3 className={`font-display font-extrabold text-2xl sm:text-3xl uppercase tracking-tight ${
-            isDark ? 'text-white' : 'text-stone-900'
+          <h3 className={`font-display font-black text-2xl sm:text-3xl uppercase tracking-tight ${
+            isDark ? 'text-white' : 'text-slate-900'
           }`}>
             DEEP SPACE OBSERVATORY & ATOMIC STOCKS.
           </h3>
@@ -1168,30 +1205,30 @@ export default function ProjectsSection() {
               className={`rounded-2xl border backdrop-blur-2xl p-7 flex flex-col justify-between transition-all duration-300 group hud-border ambient-sheen-container ${
                 isDark
                   ? 'bg-white/[0.05] border-white/15 hover:border-violet-400/40 hover:bg-white/[0.08] shadow-[0_12px_40px_rgba(0,0,0,0.4)]'
-                  : 'bg-white/90 border-stone-200 hover:border-atelier-violet/40 hover:bg-white shadow-md'
+                  : 'bg-white border-slate-200/90 hover:border-violet-300 hover:shadow-lg shadow-md'
               }`}
-              spotlightColor={isDark ? 'rgba(167, 139, 250, 0.22)' : 'rgba(109, 40, 217, 0.15)'}
+              spotlightColor={isDark ? 'rgba(167, 139, 250, 0.22)' : 'rgba(109, 40, 217, 0.12)'}
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <span className={`px-3 py-1 rounded-full font-mono text-[10px] font-bold tracking-wider uppercase border flex items-center gap-1.5 shadow-sm ${
-                    isDark ? 'bg-violet-950/40 text-violet-200 border-violet-500/30' : 'bg-stone-50 text-atelier-violet border-stone-200'
+                  <span className={`px-3 py-1 rounded-full font-mono text-[10px] font-bold tracking-wider uppercase border flex items-center gap-1.5 shadow-xs ${
+                    isDark ? 'bg-violet-950/40 text-violet-200 border-violet-500/30' : 'bg-violet-50 text-violet-700 border-violet-200'
                   }`}>
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
                     {p.badge}
                   </span>
-                  <span className="font-mono text-[10px] uppercase font-bold tracking-widest text-slate-400">
+                  <span className="font-mono text-[10px] uppercase font-bold tracking-widest text-slate-500">
                     {p.role}
                   </span>
                 </div>
 
-                <h4 className={`font-display font-extrabold text-2xl mb-2 transition-colors ${
-                  isDark ? 'text-white group-hover:text-cyan-300' : 'text-stone-900 group-hover:text-atelier-violet'
+                <h4 className={`font-display font-black text-2xl mb-2 transition-colors ${
+                  isDark ? 'text-white group-hover:text-cyan-300' : 'text-slate-900 group-hover:text-violet-700'
                 }`}>
                   {p.title}
                 </h4>
-                <p className={`font-sans text-xs sm:text-sm leading-relaxed mb-6 font-normal ${
-                  isDark ? 'text-slate-200' : 'text-stone-600'
+                <p className={`font-sans text-xs sm:text-sm leading-relaxed mb-6 font-medium ${
+                  isDark ? 'text-slate-200' : 'text-slate-600'
                 }`}>
                   {p.overview}
                 </p>
@@ -1199,9 +1236,9 @@ export default function ProjectsSection() {
                 <div className="grid grid-cols-2 gap-3 mb-6">
                   {p.metrics.map((m, mIdx) => (
                     <div key={mIdx} className={`p-3 rounded-xl border font-mono transition-all duration-200 ${
-                      isDark ? 'bg-white/[0.04] border-white/10 hover:border-white/20' : 'bg-stone-50 border-stone-200'
+                      isDark ? 'bg-white/[0.04] border-white/10 hover:border-white/20' : 'bg-slate-50/90 border-slate-200/90'
                     }`}>
-                      <div className={`text-[10px] font-bold uppercase tracking-wider ${isDark ? 'text-cyan-300' : 'text-sky-700'}`}>{m.label}</div>
+                      <div className={`text-[10px] font-bold uppercase tracking-wider ${isDark ? 'text-cyan-300' : 'text-slate-600'}`}>{m.label}</div>
                       <div className={`font-display font-black text-lg mt-0.5 ${isDark ? 'text-white' : 'text-slate-900'}`}>{m.val}</div>
                     </div>
                   ))}
@@ -1209,10 +1246,12 @@ export default function ProjectsSection() {
               </div>
 
               <div>
-                <div className="flex flex-wrap gap-2 pt-4 border-t border-white/10 font-mono text-[11px]">
+                <div className={`flex flex-wrap gap-2 pt-4 border-t font-mono text-[11px] ${
+                  isDark ? 'border-white/10' : 'border-slate-200'
+                }`}>
                   {p.stack.map((tech, tIdx) => (
-                    <span key={tIdx} className={`px-2.5 py-1 rounded-lg border font-medium transition-all ${
-                      isDark ? 'bg-white/[0.06] border-white/10 text-slate-200 hover:border-violet-400/40 hover:text-white' : 'bg-stone-50 border-stone-200 text-stone-700'
+                    <span key={tIdx} className={`px-2.5 py-1 rounded-lg border font-semibold transition-all ${
+                      isDark ? 'bg-white/[0.06] border-white/10 text-slate-200 hover:border-violet-400/40 hover:text-white' : 'bg-slate-50 border-slate-200 text-slate-700 hover:text-slate-900 hover:border-slate-300'
                     }`}>
                       {tech}
                     </span>

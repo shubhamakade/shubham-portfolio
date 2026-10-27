@@ -55,13 +55,13 @@ Java 17, Spring Boot 3, Spring Data JPA, Hibernate, PostgreSQL, MySQL, GraphQL, 
         className={`w-full max-w-2xl rounded-2xl border shadow-2xl overflow-hidden transition-all duration-300 ${
           isDark
             ? 'bg-aurora-night/95 border-aurora-violet/40 text-slate-100 shadow-glow-violet'
-            : 'bg-white/95 border-stone-300 text-stone-900 shadow-2xl'
+            : 'bg-white/95 border-slate-300 text-slate-900 shadow-2xl'
         }`}
       >
         {/* Modal Top Ribbon Header */}
         <div
           className={`flex items-center justify-between px-6 py-4 border-b ${
-            isDark ? 'bg-aurora-card/60 border-white/10' : 'bg-stone-50 border-stone-200'
+            isDark ? 'bg-aurora-card/60 border-white/10' : 'bg-slate-50 border-slate-200'
           }`}
         >
           <div className="flex items-center gap-3">
@@ -89,7 +89,7 @@ Java 17, Spring Boot 3, Spring Data JPA, Hibernate, PostgreSQL, MySQL, GraphQL, 
               onClose();
             }}
             className={`p-1.5 rounded-lg border transition-colors ${
-              isDark ? 'border-white/10 text-slate-400 hover:text-white hover:bg-white/5' : 'border-stone-200 text-stone-500 hover:text-stone-900 hover:bg-stone-100'
+              isDark ? 'border-white/10 text-slate-400 hover:text-white hover:bg-white/5' : 'border-slate-200 text-slate-500 hover:text-slate-900 hover:bg-slate-100'
             }`}
             aria-label="Close Resume Modal"
           >
@@ -102,7 +102,7 @@ Java 17, Spring Boot 3, Spring Data JPA, Hibernate, PostgreSQL, MySQL, GraphQL, 
           {/* Quick Header Identity Card */}
           <div
             className={`p-4 rounded-xl border flex flex-col sm:flex-row sm:items-center justify-between gap-4 ${
-              isDark ? 'bg-aurora-card/40 border-white/10' : 'bg-stone-50 border-stone-200'
+              isDark ? 'bg-aurora-card/40 border-white/10' : 'bg-slate-50 border-slate-200'
             }`}
           >
             <div className="flex items-center gap-3.5">
@@ -130,14 +130,14 @@ Java 17, Spring Boot 3, Spring Data JPA, Hibernate, PostgreSQL, MySQL, GraphQL, 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono text-xs">
             <div
               className={`p-3.5 rounded-xl border ${
-                isDark ? 'bg-aurora-card/30 border-white/5' : 'bg-white border-stone-200'
+                isDark ? 'bg-aurora-card/30 border-white/5' : 'bg-white border-slate-200'
               }`}
             >
               <div className="flex items-center gap-2 font-bold mb-1.5 text-aurora-lavender">
                 <Briefcase className="w-4 h-4 text-aurora-violet" />
                 <span>EXPERIENCE</span>
               </div>
-              <p className="font-semibold text-slate-200">EPPS Infotech Ltd. (Jul 2025 - Present)</p>
+              <p className={`font-semibold ${isDark ? 'text-slate-200' : 'text-slate-900'}`}>EPPS Infotech Ltd. (Jul 2025 - Present)</p>
               <p className="opacity-70 text-[11px] mt-0.5">
                 Core Java Developer on Multi-module ERP (MMS, FAMS, PQMS) & Spring Boot 3 GraphQL mobile microservices.
               </p>
@@ -145,14 +145,14 @@ Java 17, Spring Boot 3, Spring Data JPA, Hibernate, PostgreSQL, MySQL, GraphQL, 
 
             <div
               className={`p-3.5 rounded-xl border ${
-                isDark ? 'bg-aurora-card/30 border-white/5' : 'bg-white border-stone-200'
+                isDark ? 'bg-aurora-card/30 border-white/5' : 'bg-white border-slate-200'
               }`}
             >
               <div className="flex items-center gap-2 font-bold mb-1.5 text-sky-400">
                 <GraduationCap className="w-4 h-4 text-sky-400" />
                 <span>EDUCATION</span>
               </div>
-              <p className="font-semibold text-slate-200">B.E. Computer Engineering (2019 - 2023)</p>
+              <p className={`font-semibold ${isDark ? 'text-slate-200' : 'text-slate-900'}`}>B.E. Computer Engineering (2019 - 2023)</p>
               <p className="opacity-70 text-[11px] mt-0.5">
                 Government College of Engineering, Chandrapur (GCOE Chandrapur).
               </p>
@@ -187,7 +187,7 @@ Java 17, Spring Boot 3, Spring Data JPA, Hibernate, PostgreSQL, MySQL, GraphQL, 
                   className={`px-2.5 py-1 rounded-md border ${
                     isDark
                       ? 'bg-aurora-card border-aurora-violet/20 text-slate-300'
-                      : 'bg-stone-100 border-stone-200 text-stone-700'
+                      : 'bg-slate-100 border-slate-200 text-slate-700'
                   }`}
                 >
                   {skill}
@@ -200,7 +200,7 @@ Java 17, Spring Boot 3, Spring Data JPA, Hibernate, PostgreSQL, MySQL, GraphQL, 
         {/* Modal Action Footer */}
         <div
           className={`flex flex-col sm:flex-row items-center justify-between gap-3 px-6 py-4 border-t ${
-            isDark ? 'bg-aurora-card/60 border-white/10' : 'bg-stone-50 border-stone-200'
+            isDark ? 'bg-aurora-card/60 border-white/10' : 'bg-slate-50 border-slate-200'
           }`}
         >
           <div className="flex items-center gap-2 w-full sm:w-auto">
@@ -209,7 +209,7 @@ Java 17, Spring Boot 3, Spring Data JPA, Hibernate, PostgreSQL, MySQL, GraphQL, 
               className={`flex-1 sm:flex-none px-3 py-2 rounded-lg font-mono text-xs font-semibold border transition-all flex items-center justify-center gap-1.5 ${
                 isDark
                   ? 'bg-aurora-card border-white/10 text-slate-300 hover:text-white'
-                  : 'bg-white border-stone-300 text-stone-700 hover:text-stone-900'
+                  : 'bg-white border-slate-300 text-slate-700 hover:text-slate-900'
               }`}
             >
               {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
@@ -224,7 +224,7 @@ Java 17, Spring Boot 3, Spring Data JPA, Hibernate, PostgreSQL, MySQL, GraphQL, 
               className={`flex-1 sm:flex-none px-3 py-2 rounded-lg font-mono text-xs font-semibold border transition-all flex items-center justify-center gap-1.5 ${
                 isDark
                   ? 'bg-aurora-card border-white/10 text-slate-300 hover:text-white'
-                  : 'bg-white border-stone-300 text-stone-700 hover:text-stone-900'
+                  : 'bg-white border-slate-300 text-slate-700 hover:text-slate-900'
               }`}
             >
               <ExternalLink className="w-3.5 h-3.5" />

@@ -25,7 +25,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-current/10">
           <div className="flex items-center gap-3">
             <div className={`w-9 h-9 rounded-xl flex items-center justify-center font-mono font-bold text-sm card-alive-float-1 ${
-              isDark ? 'bg-aurora-card border border-aurora-violet/40 text-aurora-lavender shadow-glow-violet' : 'bg-white border border-stone-300 text-atelier-violet shadow-sm'
+              isDark ? 'bg-aurora-card border border-aurora-violet/40 text-aurora-lavender shadow-glow-violet' : 'bg-white border border-slate-300 text-atelier-violet shadow-sm'
             }`}>
               SA
             </div>
@@ -53,7 +53,7 @@ export default function Footer() {
             className={`px-4 py-2.5 rounded-xl border transition-all flex items-center gap-2.5 font-mono text-xs w-fit group ${
               isDark
                 ? 'bg-aurora-card border-white/10 text-slate-300 hover:text-white hover:border-aurora-violet/60 hover:shadow-glow-violet'
-                : 'bg-white border-stone-200 text-stone-700 hover:border-atelier-violet/60 hover:text-stone-900 shadow-sm hover:shadow-glow-atelier'
+                : 'bg-white border-slate-200 text-slate-700 hover:border-atelier-violet/60 hover:text-slate-900 shadow-sm hover:shadow-glow-atelier'
             }`}
             title="Return to top of document"
           >

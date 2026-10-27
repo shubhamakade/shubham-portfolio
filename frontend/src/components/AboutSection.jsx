@@ -113,7 +113,7 @@ public class AccountsPayableGraphQLController {
         <div className={`p-8 sm:p-10 rounded-3xl border backdrop-blur-2xl shadow-2xl mb-20 hud-border ambient-sheen-container card-breathing-aura transition-all ${
           isDark
             ? 'bg-white/[0.05] border-white/15 shadow-[0_12px_45px_rgba(0,0,0,0.5)]'
-            : 'bg-white/90 border-stone-200 shadow-xl'
+            : 'bg-white border-slate-200 shadow-xl'
         }`}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
@@ -121,10 +121,10 @@ public class AccountsPayableGraphQLController {
             <div className="lg:col-span-4 flex flex-col items-center">
               <div className="relative group">
                 <div className={`absolute -inset-1.5 rounded-3xl blur-xl opacity-75 group-hover:opacity-100 transition duration-500 ${
-                  isDark ? 'bg-gradient-to-r from-violet-500 via-sky-400 to-emerald-400' : 'bg-gradient-to-r from-atelier-violet via-purple-400 to-rose-400'
+                  isDark ? 'bg-gradient-to-r from-violet-500 via-sky-400 to-emerald-400' : 'bg-gradient-to-r from-violet-600 via-purple-400 to-rose-400'
                 }`} />
                 <div className={`relative w-48 h-48 sm:w-56 sm:h-56 rounded-3xl overflow-hidden border-2 shadow-2xl ${
-                  isDark ? 'border-violet-400/60 bg-aurora-night' : 'border-atelier-violet/50 bg-stone-100'
+                  isDark ? 'border-violet-400/60 bg-aurora-night' : 'border-violet-400/50 bg-slate-100'
                 }`}>
                   <img
                     src={personalInfo.avatar}
@@ -140,9 +140,9 @@ public class AccountsPayableGraphQLController {
 
               {/* Status Indicator */}
               <div className={`mt-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full font-mono text-[11px] font-semibold border backdrop-blur-xl ${
-                isDark ? 'bg-emerald-500/15 text-emerald-300 border-emerald-400/40 shadow-[0_0_15px_rgba(16,185,129,0.25)]' : 'bg-emerald-50 text-emerald-800 border-emerald-200'
+                isDark ? 'bg-emerald-500/15 text-emerald-300 border-emerald-400/40 shadow-[0_0_15px_rgba(16,185,129,0.25)]' : 'bg-emerald-50 text-emerald-800 border-emerald-300 shadow-xs'
               }`}>
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                 <span>EPPS INFOTECH LTD. // ACTIVE</span>
               </div>
             </div>
@@ -150,10 +150,10 @@ public class AccountsPayableGraphQLController {
             {/* Right: Authentic Profile Narrative & Verified Credentials */}
             <div className="lg:col-span-8 flex flex-col justify-center">
               
-              <div className={`font-mono text-xs uppercase tracking-widest font-bold mb-2 flex items-center gap-2 ${
-                isDark ? 'text-violet-300' : 'text-atelier-violet'
+              <div className={`font-mono text-xs uppercase tracking-widest font-extrabold mb-2 flex items-center gap-2 ${
+                isDark ? 'text-violet-300' : 'text-violet-700'
               }`}>
-                <span className={`w-2 h-2 rounded-full ${isDark ? 'bg-violet-400' : 'bg-atelier-violet'} animate-ping`} />
+                <span className={`w-2 h-2 rounded-full ${isDark ? 'bg-violet-400' : 'bg-violet-600'} animate-ping`} />
                 [01] VERIFIED PROFESSIONAL PROFILE
               </div>
 
@@ -161,14 +161,14 @@ public class AccountsPayableGraphQLController {
                 SHUBHAM AKADE
               </h2>
 
-              <p className={`font-mono text-xs sm:text-sm font-semibold mb-4 ${
-                isDark ? 'text-violet-300' : 'text-atelier-violet'
+              <p className={`font-mono text-xs sm:text-sm font-bold mb-4 ${
+                isDark ? 'text-violet-300' : 'text-violet-700'
               }`}>
                 Java Full Stack Developer & Systems Engineer
               </p>
 
-              <p className={`font-sans text-sm sm:text-base leading-relaxed mb-6 ${
-                isDark ? 'text-slate-200' : 'text-stone-700'
+              <p className={`font-sans text-sm sm:text-base leading-relaxed mb-6 font-medium ${
+                isDark ? 'text-slate-200' : 'text-slate-600'
               }`}>
                 Graduated with a <strong>Bachelor of Engineering in Computer Engineering</strong> from <strong>Government College of Engineering, Chandrapur (GCOE Chandrapur) in 2023</strong>. Currently engineering core enterprise ERP backend solutions and high-performance mobile services at <strong>EPPS Infotech Ltd.</strong> in Pune, Maharashtra. Specialized in architecting multi-module Maven suites in Java 17, Spring Boot 3, and Spring Data JPA—spanning Mess Management (MMS), Fixed Assets (FAMS), and Quality Assurance (PQMS)—coupled with surgical GraphQL & REST APIs and reactive React frontends.
               </p>
@@ -178,7 +178,7 @@ public class AccountsPayableGraphQLController {
                 <div className={`p-3.5 rounded-2xl border backdrop-blur-xl flex items-center gap-3 transition-all ${
                   isDark 
                     ? 'bg-gradient-to-r from-emerald-950/40 via-white/[0.06] to-emerald-950/20 border-emerald-400/30 text-slate-100 shadow-[0_4px_20px_rgba(16,185,129,0.15)]' 
-                    : 'bg-white/90 border-slate-200/90 text-slate-800 shadow-sm'
+                    : 'bg-white border-slate-200/90 text-slate-800 shadow-xs'
                 }`}>
                   <div className={`p-2 rounded-xl border ${isDark ? 'bg-emerald-500/20 border-emerald-400/30' : 'bg-emerald-50 border-emerald-200'}`}>
                     <AnimatedIcon icon={Briefcase} variant="bounce" color="emerald" size="sm" badge={false} />
@@ -192,7 +192,7 @@ public class AccountsPayableGraphQLController {
                 <div className={`p-3.5 rounded-2xl border backdrop-blur-xl flex items-center gap-3 transition-all ${
                   isDark 
                     ? 'bg-gradient-to-r from-cyan-950/40 via-white/[0.06] to-sky-950/20 border-cyan-400/30 text-slate-100 shadow-[0_4px_20px_rgba(56,189,248,0.15)]' 
-                    : 'bg-white/90 border-slate-200/90 text-slate-800 shadow-sm'
+                    : 'bg-white border-slate-200/90 text-slate-800 shadow-xs'
                 }`}>
                   <div className={`p-2 rounded-xl border ${isDark ? 'bg-cyan-500/20 border-cyan-400/30' : 'bg-sky-50 border-sky-200'}`}>
                     <AnimatedIcon icon={GraduationCap} variant="float" color="cyan" size="sm" badge={false} />
@@ -212,7 +212,7 @@ public class AccountsPayableGraphQLController {
                     className={`px-3.5 py-2.5 rounded-xl border backdrop-blur-xl transition-all flex items-center gap-2 ${
                       isDark 
                         ? 'bg-white/[0.08] hover:bg-white/[0.15] text-white border-white/20 hover:border-sky-400 shadow-md' 
-                        : 'bg-white hover:bg-stone-100 text-stone-800 border-stone-300 shadow-sm'
+                        : 'bg-white hover:bg-slate-50 text-slate-800 border-slate-200 shadow-xs'
                     }`}
                   >
                     {copiedEmail ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Mail className="w-3.5 h-3.5 text-sky-400" />}
@@ -221,7 +221,7 @@ public class AccountsPayableGraphQLController {
                 </MagneticButton>
 
                 <div className={`px-3.5 py-2.5 rounded-xl border backdrop-blur-xl flex items-center gap-2 ${
-                  isDark ? 'bg-white/[0.08] text-white border-white/20' : 'bg-white text-stone-800 border-stone-300 shadow-sm'
+                  isDark ? 'bg-white/[0.08] text-white border-white/20' : 'bg-white text-slate-800 border-slate-200 shadow-xs'
                 }`}>
                   <Phone className="w-3.5 h-3.5 text-emerald-400" />
                   <span>{personalInfo.social.phone}</span>
@@ -273,7 +273,7 @@ public class AccountsPayableGraphQLController {
             </h2>
           </div>
           <p className={`font-sans text-sm sm:text-base max-w-md ${
-            isDark ? 'text-slate-400' : 'text-stone-600'
+            isDark ? 'text-slate-300' : 'text-slate-600 font-medium'
           }`}>
             In enterprise supply chains and culinary ERPs, software failure isn't a glitch—it's thousands of missing meals and corrupted inventory balance sheets.
           </p>
@@ -300,16 +300,16 @@ public class AccountsPayableGraphQLController {
                     isSelected
                       ? isDark
                         ? 'bg-white/[0.12] border-2 border-violet-400 shadow-[0_8px_32px_rgba(167,139,250,0.35)]'
-                        : 'bg-white border-2 border-atelier-violet shadow-glow-atelier'
+                        : 'bg-white border-2 border-violet-600 shadow-md ring-1 ring-violet-500/20'
                       : isDark
                       ? 'bg-white/[0.05] hover:bg-white/[0.10] border-white/10 hover:border-white/25 shadow-md'
-                      : 'bg-white/80 border-stone-200 hover:border-stone-300 hover:bg-white shadow-sm'
+                      : 'bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 shadow-xs'
                   }`}
                   spotlightColor={isDark ? 'rgba(167, 139, 250, 0.25)' : 'rgba(109, 40, 217, 0.12)'}
                 >
                   <div className="flex items-start justify-between mb-2">
                     <div className="flex items-center gap-3">
-                      <div className={`p-1.5 rounded-xl ${isDark ? 'bg-white/[0.08] border border-white/10' : 'bg-stone-100'}`}>
+                      <div className={`p-1.5 rounded-xl ${isDark ? 'bg-white/[0.08] border border-white/10' : 'bg-slate-100 border border-slate-200'}`}>
                         <AnimatedIcon
                           icon={Icon}
                           variant={idx === 0 ? 'radar' : idx === 1 ? 'float' : idx === 2 ? 'wiggle' : 'pulse'}
@@ -319,7 +319,7 @@ public class AccountsPayableGraphQLController {
                         />
                       </div>
                       <span className={`font-mono text-xs font-bold ${
-                        isDark ? 'text-violet-300' : 'text-atelier-violet'
+                        isDark ? 'text-violet-300' : 'text-violet-700'
                       }`}>
                         PILLAR_{pillar.code}
                       </span>
@@ -327,19 +327,19 @@ public class AccountsPayableGraphQLController {
                     <span className={`font-mono text-[10px] uppercase px-2 py-0.5 rounded-full ${
                       isSelected 
                         ? 'bg-violet-500/20 text-violet-300 border border-violet-400/40 font-bold' 
-                        : 'opacity-60 text-slate-400'
+                        : isDark ? 'opacity-60 text-slate-400' : 'text-slate-500 font-bold'
                     }`}>
                       {isSelected ? '● AUDITING' : 'INSPECT'}
                     </span>
                   </div>
 
-                  <h3 className={`font-display font-bold text-lg mb-1 ${
-                    isDark ? 'text-white' : 'text-stone-900'
+                  <h3 className={`font-display font-black text-lg mb-1 ${
+                    isDark ? 'text-white' : 'text-slate-900'
                   }`}>
                     {pillar.title}
                   </h3>
-                  <p className={`font-sans text-xs leading-relaxed mb-3 ${
-                    isDark ? 'text-slate-200' : 'text-stone-600'
+                  <p className={`font-sans text-xs leading-relaxed mb-3 font-medium ${
+                    isDark ? 'text-slate-200' : 'text-slate-600'
                   }`}>
                     {pillar.description}
                   </p>
@@ -348,10 +348,10 @@ public class AccountsPayableGraphQLController {
                     {pillar.tags.map((tag, tIdx) => (
                       <span
                         key={tIdx}
-                        className={`px-2 py-0.5 rounded font-mono text-[10px] border ${
+                        className={`px-2 py-0.5 rounded font-mono text-[10px] border font-semibold ${
                           isDark
                             ? 'bg-white/[0.08] text-slate-200 border-white/10'
-                            : 'bg-stone-50 text-stone-700 border-stone-200'
+                            : 'bg-slate-50 text-slate-700 border-slate-200'
                         }`}
                       >
                         {tag}
@@ -366,7 +366,7 @@ public class AccountsPayableGraphQLController {
           {/* Right Column: Code & Architecture Blueprint Inspector */}
           <div className="lg:col-span-7 sticky top-28">
             <div className={`rounded-2xl border overflow-hidden shadow-2xl backdrop-blur-2xl transition-all ${
-              isDark ? 'bg-white/[0.05] border-white/15 shadow-[0_12px_45px_rgba(0,0,0,0.6)]' : 'bg-stone-900 border-stone-800 text-white'
+              isDark ? 'bg-white/[0.05] border-white/15 shadow-[0_12px_45px_rgba(0,0,0,0.6)]' : 'bg-slate-950 border-slate-800 text-white shadow-2xl'
             }`}>
               
               {/* Terminal Window Bar */}

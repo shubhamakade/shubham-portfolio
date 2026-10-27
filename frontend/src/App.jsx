@@ -45,7 +45,7 @@ function PortfolioContent() {
     <div className={`min-h-screen relative overflow-x-hidden transition-colors duration-500 ${
       isDark
         ? 'bg-aurora-night text-slate-100 selection:bg-aurora-violet/30 selection:text-white'
-        : 'bg-atelier-ivory text-stone-900 selection:bg-atelier-violet/20 selection:text-atelier-violet'
+        : 'bg-atelier-ivory text-slate-900 selection:bg-atelier-violet/20 selection:text-atelier-violet'
     }`}>
       {/* Fullscreen Relativistic Celestial Warp <-> Unwrap Engine */}
       <CelestialWarpOverlay active={isWarped} onToggle={handleToggleWarp} />

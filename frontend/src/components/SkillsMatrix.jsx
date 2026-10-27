@@ -86,7 +86,7 @@ export default function SkillsMatrix() {
             </AnimatePresence>
           </div>
           <p className={`font-sans text-sm sm:text-base max-w-md ${
-            isDark ? 'text-slate-400' : 'text-stone-600'
+            isDark ? 'text-slate-300' : 'text-slate-600 font-medium'
           }`}>
             Audited engineering proficiencies across backend execution engines, transactional database clusters, and reactive client interfaces.
           </p>
@@ -107,10 +107,10 @@ export default function SkillsMatrix() {
                 tagClass: isDark ? 'text-violet-200 bg-violet-500/30 border-violet-300/40' : 'text-violet-700 bg-violet-100 border-violet-200',
                 activeBg: isDark
                   ? 'bg-gradient-to-br from-violet-600/45 via-purple-600/30 to-indigo-600/35 border-2 border-violet-300 shadow-[0_12px_36px_rgba(167,139,250,0.4)]'
-                  : 'bg-gradient-to-br from-violet-100/90 via-white to-purple-50/80 border-2 border-violet-500 shadow-lg text-stone-900',
+                  : 'bg-gradient-to-br from-violet-100/90 via-white to-purple-50/80 border-2 border-violet-600 shadow-lg text-slate-900',
                 inactiveBg: isDark
                   ? 'bg-gradient-to-br from-violet-950/30 via-white/[0.08] to-indigo-950/20 hover:from-violet-900/40 hover:via-white/[0.12] hover:to-indigo-900/30 border border-white/20 hover:border-violet-300/60 text-slate-100'
-                  : 'bg-white/90 hover:bg-white border border-stone-200 hover:border-violet-300 shadow-sm text-stone-700',
+                  : 'bg-white hover:bg-slate-50 border border-slate-200 hover:border-violet-300 shadow-xs text-slate-700',
                 glowColor: 'rgba(167, 139, 250, 0.45)',
                 activeIndicator: 'bg-violet-300 shadow-[0_0_12px_#C4B5FD]'
               },
@@ -123,10 +123,10 @@ export default function SkillsMatrix() {
                 tagClass: isDark ? 'text-cyan-200 bg-cyan-500/30 border-cyan-300/40' : 'text-cyan-700 bg-cyan-100 border-cyan-200',
                 activeBg: isDark
                   ? 'bg-gradient-to-br from-cyan-600/45 via-sky-600/30 to-blue-600/35 border-2 border-cyan-300 shadow-[0_12px_36px_rgba(56,189,248,0.4)]'
-                  : 'bg-gradient-to-br from-cyan-100/90 via-white to-sky-50/80 border-2 border-cyan-500 shadow-lg text-stone-900',
+                  : 'bg-gradient-to-br from-cyan-100/90 via-white to-sky-50/80 border-2 border-cyan-600 shadow-lg text-slate-900',
                 inactiveBg: isDark
                   ? 'bg-gradient-to-br from-cyan-950/30 via-white/[0.08] to-sky-950/20 hover:from-cyan-900/40 hover:via-white/[0.12] hover:to-sky-900/30 border border-white/20 hover:border-cyan-300/60 text-slate-100'
-                  : 'bg-white/90 hover:bg-white border border-stone-200 hover:border-cyan-300 shadow-sm text-stone-700',
+                  : 'bg-white hover:bg-slate-50 border border-slate-200 hover:border-cyan-300 shadow-xs text-slate-700',
                 glowColor: 'rgba(56, 189, 248, 0.45)',
                 activeIndicator: 'bg-cyan-300 shadow-[0_0_12px_#7DD3FC]'
               },
@@ -139,10 +139,10 @@ export default function SkillsMatrix() {
                 tagClass: isDark ? 'text-rose-200 bg-rose-500/30 border-rose-300/40' : 'text-rose-700 bg-rose-100 border-rose-200',
                 activeBg: isDark
                   ? 'bg-gradient-to-br from-rose-600/45 via-pink-600/30 to-purple-600/35 border-2 border-rose-300 shadow-[0_12px_36px_rgba(244,63,94,0.4)]'
-                  : 'bg-gradient-to-br from-rose-100/90 via-white to-pink-50/80 border-2 border-rose-500 shadow-lg text-stone-900',
+                  : 'bg-gradient-to-br from-rose-100/90 via-white to-pink-50/80 border-2 border-rose-600 shadow-lg text-slate-900',
                 inactiveBg: isDark
                   ? 'bg-gradient-to-br from-rose-950/30 via-white/[0.08] to-pink-950/20 hover:from-rose-900/40 hover:via-white/[0.12] hover:to-pink-900/30 border border-white/20 hover:border-rose-300/60 text-slate-100'
-                  : 'bg-white/90 hover:bg-white border border-stone-200 hover:border-rose-300 shadow-sm text-stone-700',
+                  : 'bg-white hover:bg-slate-50 border border-slate-200 hover:border-rose-300 shadow-xs text-slate-700',
                 glowColor: 'rgba(244, 63, 94, 0.45)',
                 activeIndicator: 'bg-rose-300 shadow-[0_0_12px_#FDA4AF]'
               },
@@ -155,10 +155,10 @@ export default function SkillsMatrix() {
                 tagClass: isDark ? 'text-emerald-200 bg-emerald-500/30 border-emerald-300/40' : 'text-emerald-700 bg-emerald-100 border-emerald-200',
                 activeBg: isDark
                   ? 'bg-gradient-to-br from-emerald-600/45 via-teal-600/30 to-cyan-600/35 border-2 border-emerald-300 shadow-[0_12px_36px_rgba(16,185,129,0.4)]'
-                  : 'bg-gradient-to-br from-emerald-100/90 via-white to-teal-50/80 border-2 border-emerald-600 shadow-lg text-stone-900',
+                  : 'bg-gradient-to-br from-emerald-100/90 via-white to-teal-50/80 border-2 border-emerald-600 shadow-lg text-slate-900',
                 inactiveBg: isDark
                   ? 'bg-gradient-to-br from-emerald-950/30 via-white/[0.08] to-teal-950/20 hover:from-emerald-900/40 hover:via-white/[0.12] hover:to-teal-900/30 border border-white/20 hover:border-emerald-300/60 text-slate-100'
-                  : 'bg-white/90 hover:bg-white border border-stone-200 hover:border-emerald-300 shadow-sm text-stone-700',
+                  : 'bg-white hover:bg-slate-50 border border-slate-200 hover:border-emerald-300 shadow-xs text-slate-700',
                 glowColor: 'rgba(16, 185, 129, 0.45)',
                 activeIndicator: 'bg-emerald-300 shadow-[0_0_12px_#6EE7B7]'
               },
@@ -274,17 +274,17 @@ export default function SkillsMatrix() {
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.25 }}
                 className={`p-5 rounded-2xl border mb-4 backdrop-blur-2xl transition-all ${
-                  isDark ? 'bg-white/[0.05] border-white/15 shadow-[0_8px_30px_rgba(0,0,0,0.3)]' : 'bg-white/80 border-stone-200/90 shadow-sm'
+                  isDark ? 'bg-white/[0.05] border-white/15 shadow-[0_8px_30px_rgba(0,0,0,0.3)]' : 'bg-white border-slate-200/90 shadow-xs'
                 }`}
               >
-                <div className={`font-mono text-xs uppercase font-bold mb-1 flex items-center justify-between ${
-                  isDark ? 'text-cyan-300' : 'text-atelier-violet'
+                <div className={`font-mono text-xs uppercase font-extrabold mb-1 flex items-center justify-between ${
+                  isDark ? 'text-cyan-300' : 'text-violet-700'
                 }`}>
                   <span>DOMAIN MANIFESTO // {currentCategory.code}</span>
                   <span className="text-[10px] opacity-75 font-mono">{currentCategory.skills.length} VERIFIED STACKS</span>
                 </div>
-                <p className={`font-sans text-sm leading-relaxed ${
-                  isDark ? 'text-slate-200' : 'text-stone-600'
+                <p className={`font-sans text-sm leading-relaxed font-medium ${
+                  isDark ? 'text-slate-200' : 'text-slate-600'
                 }`}>
                   {currentCategory.description}
                 </p>
@@ -314,29 +314,29 @@ export default function SkillsMatrix() {
                           isSelected
                             ? isDark
                               ? 'bg-white/[0.09] border-violet-400/50 shadow-[0_8px_30px_rgba(167,139,250,0.25)] pl-5'
-                              : 'bg-white border-atelier-violet shadow-glow-atelier pl-5'
+                              : 'bg-white border-violet-600 shadow-md pl-5 ring-1 ring-violet-500/20'
                             : isDark
                             ? 'bg-white/[0.04] border-white/10 hover:border-white/20 hover:bg-white/[0.08]'
-                            : 'bg-white/70 border-stone-200 hover:border-stone-300 hover:bg-white shadow-sm'
+                            : 'bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 shadow-xs'
                         }`}
                         spotlightColor={isDark ? 'rgba(167, 139, 250, 0.22)' : 'rgba(109, 40, 217, 0.12)'}
                       >
                         {isSelected && (
                           <div className={`absolute left-0 top-0 bottom-0 w-1.5 ${
-                            isDark ? 'bg-gradient-to-b from-cyan-400 to-violet-500 shadow-[0_0_10px_#38BDF8]' : 'bg-gradient-to-b from-atelier-violet to-atelier-coral'
+                            isDark ? 'bg-gradient-to-b from-cyan-400 to-violet-500 shadow-[0_0_10px_#38BDF8]' : 'bg-gradient-to-b from-violet-600 to-indigo-600'
                           }`} />
                         )}
 
                         <div className="flex-1 pr-2 relative z-10">
                           <div className="flex items-center gap-2 mb-1 flex-wrap">
-                            <span className="font-display font-bold text-base">
+                            <span className={`font-display font-black text-base ${isDark ? 'text-white' : 'text-slate-900'}`}>
                               {skill.name}
                             </span>
                             <span className={`text-[10px] font-mono px-2 py-0.5 rounded font-bold ${
                               skill.tier === 'ARCHITECTURAL LEAD'
                                 ? isDark
                                   ? 'bg-aurora-violet/20 text-aurora-lavender border border-aurora-violet/40'
-                                  : 'bg-purple-100 text-atelier-violet border border-purple-200'
+                                  : 'bg-violet-50 text-violet-700 border border-violet-200'
                                 : isDark
                                 ? 'bg-sky-950/40 text-sky-300 border border-sky-500/30'
                                 : 'bg-rose-50 text-rose-700 border border-rose-200'
@@ -344,17 +344,17 @@ export default function SkillsMatrix() {
                               {skill.tier}
                             </span>
                           </div>
-                          <div className={`font-mono text-xs ${isDark ? 'text-slate-400' : 'text-stone-600'}`}>
+                          <div className={`font-mono text-xs font-medium ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
                             {skill.highlight}
                           </div>
                         </div>
 
                         <div className="flex items-center gap-2 text-xs font-mono opacity-70 self-end sm:self-center shrink-0 relative z-10">
-                          <span className={isSelected ? (isDark ? 'text-aurora-lavender font-bold' : 'text-atelier-violet font-bold') : ''}>
+                          <span className={isSelected ? (isDark ? 'text-aurora-lavender font-bold' : 'text-violet-700 font-extrabold') : ''}>
                             {isSelected ? 'INSPECTING' : 'VIEW DETAILS'}
                           </span>
                           <ChevronRight className={`w-4 h-4 transition-transform duration-300 ${
-                            isSelected ? (isDark ? 'text-aurora-lavender translate-x-1.5' : 'text-atelier-violet translate-x-1.5') : ''
+                            isSelected ? (isDark ? 'text-aurora-lavender translate-x-1.5' : 'text-violet-700 translate-x-1.5') : ''
                           }`} />
                         </div>
                       </SpotlightCard>
@@ -378,53 +378,59 @@ export default function SkillsMatrix() {
                 className={`rounded-2xl border backdrop-blur-2xl p-6 sm:p-7 shadow-2xl hud-border ambient-sheen-container transition-all ${
                   isDark
                     ? 'bg-white/[0.05] border-white/15 shadow-[0_16px_50px_rgba(0,0,0,0.4)]'
-                    : 'bg-white/95 border-stone-300/80 shadow-xl'
+                    : 'bg-white border-slate-200 shadow-xl'
                 }`}
-                spotlightColor={isDark ? 'rgba(167, 139, 250, 0.22)' : 'rgba(109, 40, 217, 0.14)'}
+                spotlightColor={isDark ? 'rgba(167, 139, 250, 0.22)' : 'rgba(109, 40, 217, 0.12)'}
               >
                 
-                <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
-                  <div className={`flex items-center gap-2 font-mono text-xs font-semibold ${
-                    isDark ? 'text-cyan-300' : 'text-atelier-violet'
+                <div className={`flex items-center justify-between pb-4 border-b mb-6 ${
+                  isDark ? 'border-white/10' : 'border-slate-200'
+                }`}>
+                  <div className={`flex items-center gap-2 font-mono text-xs font-extrabold ${
+                    isDark ? 'text-cyan-300' : 'text-violet-700'
                   }`}>
                     <AnimatedIcon icon={Terminal} variant="spin" color="violet" size="sm" badge={false} />
                     <span>ARCHITECTURE DOSSIER</span>
                   </div>
-                  <div className="text-[10px] font-mono text-emerald-300 font-semibold flex items-center gap-1.5 bg-emerald-500/20 px-2.5 py-1 rounded-full border border-emerald-400/30 shadow-[0_0_10px_rgba(52,211,153,0.2)]">
+                  <div className="text-[10px] font-mono text-emerald-600 font-extrabold flex items-center gap-1.5 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/30">
                     <AnimatedIcon icon={CheckCircle2} variant="pulse" color="emerald" size="sm" badge={false} />
                     <span>PRODUCTION VERIFIED</span>
                   </div>
                 </div>
 
                 <div className="mb-6">
-                  <div className="text-[11px] font-mono opacity-60 uppercase tracking-wider mb-1 flex items-center gap-1.5 text-slate-300">
+                  <div className={`text-[11px] font-mono uppercase tracking-wider mb-1 flex items-center gap-1.5 ${
+                    isDark ? 'text-slate-300 opacity-60' : 'text-slate-500 font-bold'
+                  }`}>
                     <AnimatedIcon icon={Sparkles} variant="wiggle" color="amber" size="sm" badge={false} />
                     <span>CORE SPECIALIZATION</span>
                   </div>
-                  <h3 className={`font-display font-extrabold text-2xl sm:text-3xl mb-2 ${isDark ? 'text-white' : 'text-stone-900'}`}>
+                  <h3 className={`font-display font-black text-2xl sm:text-3xl mb-2 ${isDark ? 'text-white' : 'text-slate-900'}`}>
                     {activeSkillData.name}
                   </h3>
                   <div className="flex items-center gap-2 flex-wrap">
                     <span className={`inline-block px-3 py-1 rounded-lg font-mono text-xs font-semibold border ${
-                      isDark ? 'bg-white/[0.08] text-violet-200 border-white/15 shadow-sm' : 'bg-stone-100 text-atelier-violet border-stone-300'
+                      isDark ? 'bg-white/[0.08] text-violet-200 border-white/15 shadow-sm' : 'bg-violet-50 text-violet-700 border-violet-200 font-bold'
                     }`}>
                       TIER: {activeSkillData.tier}
                     </span>
-                    <span className="text-[10px] font-mono text-emerald-400 font-bold">
+                    <span className="text-[10px] font-mono text-emerald-600 font-extrabold">
                       {getProficiencyPercentage(activeSkillData.tier)}% OPERATIONAL CONFIDENCE
                     </span>
                   </div>
 
                   {/* Dynamic Animated Meter */}
                   <div className="mt-4 pt-2">
-                    <div className="flex justify-between text-[10px] font-mono mb-1.5 opacity-80 text-slate-300">
+                    <div className={`flex justify-between text-[10px] font-mono mb-1.5 ${
+                      isDark ? 'text-slate-300 opacity-80' : 'text-slate-600 font-bold'
+                    }`}>
                       <span className="flex items-center gap-1">
                         <Activity className="w-3 h-3 text-cyan-400" />
                         CAPABILITY DEPTH
                       </span>
-                      <span className="font-bold text-cyan-300">{getProficiencyPercentage(activeSkillData.tier)}%</span>
+                      <span className={`font-bold ${isDark ? 'text-cyan-300' : 'text-sky-700'}`}>{getProficiencyPercentage(activeSkillData.tier)}%</span>
                     </div>
-                    <div className="w-full h-2 rounded-full bg-white/10 overflow-hidden relative">
+                    <div className="w-full h-2 rounded-full bg-slate-200 dark:bg-white/10 overflow-hidden relative">
                       <motion.div
                         initial={{ width: 0 }}
                         animate={{ width: `${getProficiencyPercentage(activeSkillData.tier)}%` }}
@@ -432,7 +438,7 @@ export default function SkillsMatrix() {
                         className={`h-full rounded-full ${
                           isDark
                             ? 'bg-gradient-to-r from-violet-500 via-cyan-400 to-emerald-400 shadow-[0_0_12px_#38BDF8]'
-                            : 'bg-gradient-to-r from-atelier-violet via-atelier-coral to-emerald-500'
+                            : 'bg-gradient-to-r from-violet-600 via-indigo-600 to-emerald-500'
                         }`}
                       />
                     </div>
@@ -443,7 +449,7 @@ export default function SkillsMatrix() {
                   <div className={`p-4 rounded-xl border ${
                     isDark ? 'bg-white/[0.04] border-white/10' : 'bg-slate-50 border-slate-200'
                   }`}>
-                    <div className={`text-[10px] font-bold uppercase mb-1 tracking-wider ${isDark ? 'text-cyan-300' : 'text-sky-700'}`}>PRODUCTION APPLICATION</div>
+                    <div className={`text-[10px] font-extrabold uppercase mb-1 tracking-wider ${isDark ? 'text-cyan-300' : 'text-sky-700'}`}>PRODUCTION APPLICATION</div>
                     <div className={`leading-relaxed font-normal ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>
                       {activeSkillData.highlight}
                     </div>
@@ -452,7 +458,7 @@ export default function SkillsMatrix() {
                   <div className={`p-4 rounded-xl border ${
                     isDark ? 'bg-white/[0.04] border-white/10' : 'bg-slate-50 border-slate-200'
                   }`}>
-                    <div className={`text-[10px] font-bold uppercase mb-1 tracking-wider ${isDark ? 'text-cyan-300' : 'text-sky-700'}`}>APPLIED IN ENTERPRISE SYSTEMS</div>
+                    <div className={`text-[10px] font-extrabold uppercase mb-1 tracking-wider ${isDark ? 'text-cyan-300' : 'text-sky-700'}`}>APPLIED IN ENTERPRISE SYSTEMS</div>
                     <div className={`leading-relaxed font-normal ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>
                       MMS Mess Management ERP, High-Throughput Inventory Ledger, Mobile Approvals Microservices.
                     </div>
@@ -462,7 +468,7 @@ export default function SkillsMatrix() {
                   <div className={`p-4 rounded-xl border ${
                     isDark ? 'bg-white/[0.04] border-white/10' : 'bg-slate-50 border-slate-200'
                   }`}>
-                    <div className={`text-[10px] uppercase mb-2.5 flex items-center gap-1.5 font-bold tracking-wider ${isDark ? 'text-cyan-300' : 'text-sky-700'}`}>
+                    <div className={`text-[10px] uppercase mb-2.5 flex items-center gap-1.5 font-extrabold tracking-wider ${isDark ? 'text-cyan-300' : 'text-sky-700'}`}>
                       <Network className="w-3.5 h-3.5 text-cyan-400" />
                       CONNECTED ARCHITECTURAL NODES
                     </div>
@@ -473,13 +479,13 @@ export default function SkillsMatrix() {
                           whileHover={{ scale: 1.05, y: -1 }}
                           whileTap={{ scale: 0.95 }}
                           onMouseEnter={() => celestialAudio.playChime('chime')}
-                          className={`px-3 py-1.5 rounded-lg text-[10px] font-mono font-medium border transition-all ${
+                          className={`px-3 py-1.5 rounded-lg text-[10px] font-mono font-semibold border transition-all ${
                             isDark
                               ? 'bg-white/[0.06] border-white/15 text-slate-200 hover:border-cyan-400/50 hover:text-white hover:bg-white/[0.12] hover:shadow-[0_0_15px_rgba(56,189,248,0.3)]'
-                              : 'bg-white border-stone-300 text-atelier-violet hover:border-atelier-coral hover:text-atelier-coral shadow-sm'
+                              : 'bg-white border-slate-200 text-violet-700 hover:border-violet-300 hover:text-violet-900 shadow-2xs'
                           }`}
                         >
-                          <span className="opacity-50 mr-1 text-cyan-400">#</span>{nodeName}
+                          <span className="opacity-50 mr-1 text-cyan-500 font-bold">#</span>{nodeName}
                         </motion.button>
                       ))}
                     </div>

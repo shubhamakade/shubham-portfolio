@@ -140,7 +140,7 @@ export default function ContactSection() {
             </h2>
           </div>
           <p className={`font-sans text-sm sm:text-base max-w-md ${
-            isDark ? 'text-slate-400' : 'text-stone-600'
+            isDark ? 'text-slate-400' : 'text-slate-600 font-medium'
           }`}>
             Looking for a Java Full Stack Developer & Systems Engineer to build high-scale, bulletproof enterprise systems? Let's discuss your engineering roadmap.
           </p>
@@ -154,7 +154,7 @@ export default function ContactSection() {
             className={`lg:col-span-6 rounded-2xl border backdrop-blur-2xl overflow-hidden shadow-2xl hud-border ambient-sheen-container ${
               isDark
                 ? 'border-white/15 bg-white/[0.04] shadow-[0_16px_50px_rgba(0,0,0,0.4)] text-slate-200'
-                : 'border-stone-300 bg-stone-900 shadow-xl text-stone-100'
+                : 'border-slate-800 bg-slate-950 shadow-2xl text-slate-100'
             }`}
             spotlightColor={isDark ? 'rgba(56, 189, 248, 0.20)' : 'rgba(109, 40, 217, 0.14)'}
           >
@@ -227,18 +227,18 @@ export default function ContactSection() {
             className={`lg:col-span-6 rounded-2xl border backdrop-blur-2xl p-6 sm:p-8 shadow-2xl hud-border ambient-sheen-container transition-all ${
               isDark
                 ? 'bg-white/[0.05] border-white/15 shadow-[0_16px_50px_rgba(0,0,0,0.4)]'
-                : 'bg-white/90 border-stone-200/90 shadow-xl'
+                : 'bg-white border-slate-200 shadow-xl'
             }`}
             spotlightColor={isDark ? 'rgba(167, 139, 250, 0.22)' : 'rgba(109, 40, 217, 0.14)'}
           >
             
             <div className="flex items-center gap-2.5 mb-1.5">
               <AnimatedIcon icon={Send} variant="float" palette="violet" size="sm" isGlowing={true} />
-              <h3 className={`font-display font-extrabold text-2xl tracking-tight ${isDark ? 'text-white' : 'text-stone-900'}`}>
+              <h3 className={`font-display font-extrabold text-2xl tracking-tight ${isDark ? 'text-white' : 'text-slate-900 font-black'}`}>
                 Direct Engineering Dispatch
               </h3>
             </div>
-            <p className={`font-sans text-xs sm:text-sm mb-6 ${isDark ? 'text-slate-300' : 'text-stone-600'}`}>
+            <p className={`font-sans text-xs sm:text-sm mb-6 font-medium ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
               Send an architectural brief or collaboration mandate directly to Shubham Akade.
             </p>
 
@@ -274,7 +274,7 @@ export default function ContactSection() {
                       setFormData({ name: '', email: '', message: '' });
                     }}
                     className={`px-5 py-3 rounded-xl font-mono text-xs font-bold border transition-all ${
-                      isDark ? 'bg-white/[0.08] hover:bg-white/[0.15] text-white border-white/20' : 'bg-white hover:bg-stone-50 text-atelier-violet border-stone-300'
+                      isDark ? 'bg-white/[0.08] hover:bg-white/[0.15] text-white border-white/20' : 'bg-white hover:bg-slate-50 text-violet-700 border-slate-200 shadow-xs'
                     }`}
                   >
                     SEND ANOTHER MESSAGE
@@ -349,7 +349,7 @@ export default function ContactSection() {
                     className={`w-full py-3.5 rounded-xl font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 border shadow-lg ${
                       isDark
                         ? 'bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white shadow-[0_4px_25px_rgba(167,139,250,0.45)] border-violet-400/40'
-                        : 'bg-atelier-violet text-white hover:bg-stone-900 shadow-glow-atelier'
+                        : 'bg-violet-700 text-white hover:bg-violet-800 shadow-md border-violet-700'
                     }`}
                   >
                     <Send className="w-4 h-4" />
