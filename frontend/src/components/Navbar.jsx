@@ -138,7 +138,7 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
           
           {/* Identity Monolith: Elegant SA Logo + Name + Role */}
           <a href="#hero" className="flex items-center gap-2.5 sm:gap-3 group shrink-0 select-none">
-            <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center font-mono font-bold text-sm tracking-tight transition-all duration-300 shadow-sm ${
+            <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center font-mono font-bold text-sm tracking-tight transition-all duration-300 shadow-sm dynamic-border-beam ${
               isDark
                 ? 'bg-gradient-to-br from-aurora-card to-aurora-night border border-aurora-violet/40 text-aurora-lavender group-hover:border-aurora-violet group-hover:shadow-glow-violet'
                 : 'bg-gradient-to-br from-white to-slate-100 border border-slate-300 text-atelier-violet group-hover:border-atelier-violet group-hover:shadow-glow-atelier'

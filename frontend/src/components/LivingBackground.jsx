@@ -116,10 +116,14 @@ export default function LivingBackground() {
 
       const isMidnight = themeRef.current === 'midnight';
 
-      // 1. Radiant Volumetric God Rays (Harmonic Solar/Aurora Shafts)
-      const rayOriginX = width * 0.35 + (mouse.x - width * 0.5) * 0.03;
+      // 1. Radiant Volumetric God Rays (Dynamic Harmonic Shafts)
+      const rayOriginX = width * 0.35 + (mouse.x - width * 0.5) * 0.04;
       const rayOriginY = -40;
       const rayCount = 7;
+      
+      // Slow organic color cycle progress (28s loop)
+      const colorCycle = prefersReducedMotion ? 0 : (time * 0.035) % 1;
+      
       ctx.save();
       for (let r = 0; r < rayCount; r++) {
         const angleBase = 0.45 + (r / rayCount) * 0.85;
@@ -134,11 +138,23 @@ export default function LivingBackground() {
         const rayAlpha = Math.sin(time * 0.6 + r * 0.9) * 0.018 + 0.028;
 
         if (isMidnight) {
-          rayGrad.addColorStop(0, `rgba(167, 139, 250, ${rayAlpha * 1.9})`);
+          // Slowly shifting aurora hue between violet (167, 139, 250), sky (56, 189, 248), and delicate coral (251, 113, 133)
+          const rayShift = Math.sin(time * 0.2 + r * 0.5) * 0.5 + 0.5;
+          const rCol = Math.round(167 * (1 - rayShift) + 56 * rayShift);
+          const gCol = Math.round(139 * (1 - rayShift) + 189 * rayShift);
+          const bCol = Math.round(250 * (1 - rayShift) + 248 * rayShift);
+          
+          rayGrad.addColorStop(0, `rgba(${rCol}, ${gCol}, ${bCol}, ${rayAlpha * 1.9})`);
           rayGrad.addColorStop(0.4, `rgba(56, 189, 248, ${rayAlpha * 1.3})`);
           rayGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
         } else {
-          rayGrad.addColorStop(0, `rgba(124, 58, 237, ${rayAlpha * 0.85})`);
+          // Ivory theme: smooth shift between soft violet and soft sky
+          const rayShift = Math.sin(time * 0.18 + r * 0.4) * 0.5 + 0.5;
+          const rCol = Math.round(124 * (1 - rayShift) + 2 * rayShift);
+          const gCol = Math.round(58 * (1 - rayShift) + 132 * rayShift);
+          const bCol = Math.round(237 * (1 - rayShift) + 199 * rayShift);
+
+          rayGrad.addColorStop(0, `rgba(${rCol}, ${gCol}, ${bCol}, ${rayAlpha * 0.85})`);
           rayGrad.addColorStop(0.4, `rgba(2, 132, 199, ${rayAlpha * 0.55})`);
           rayGrad.addColorStop(1, 'rgba(248, 250, 252, 0)');
         }
@@ -155,24 +171,56 @@ export default function LivingBackground() {
       }
       ctx.restore();
 
-      // 2. Atmospheric Drifting Light Fields (Breathing Ethereal Glow)
+      // 2. Atmospheric Drifting Light Fields (Living Evolving Ambient Color)
       const breath = Math.sin(time * 0.5) * 0.012;
+      
+      // Dynamic Color Interpolation Helper
+      const evalColorStops = (stops, progress) => {
+        const scaled = (progress % 1) * stops.length;
+        const i = Math.floor(scaled);
+        const next = (i + 1) % stops.length;
+        const f = scaled - i;
+        const cA = stops[i];
+        const cB = stops[next];
+        return [
+          Math.round(cA[0] + (cB[0] - cA[0]) * f),
+          Math.round(cA[1] + (cB[1] - cA[1]) * f),
+          Math.round(cA[2] + (cB[2] - cA[2]) * f),
+        ];
+      };
+
+      // Theme-specific evolving harmonic color sequences
+      const darkStops1 = [[139, 92, 246], [99, 102, 241], [167, 139, 250]]; // Violet -> Indigo -> Lavender
+      const darkStops2 = [[56, 189, 248], [45, 212, 191], [129, 140, 248]]; // Sky -> Teal -> Indigo
+      const darkStops3 = [[45, 212, 191], [251, 113, 133], [139, 92, 246]]; // Teal -> Coral -> Violet
+
+      const lightStops1 = [[124, 58, 237], [79, 70, 229], [109, 40, 217]]; // Royal Violet -> Indigo -> Deep Violet
+      const lightStops2 = [[2, 132, 199], [251, 113, 133], [14, 165, 233]]; // Sky -> Coral Blush -> Cyan
+      const lightStops3 = [[5, 150, 105], [2, 132, 199], [124, 58, 237]]; // Emerald -> Sky -> Violet
+
+      const c1 = isMidnight ? evalColorStops(darkStops1, colorCycle) : evalColorStops(lightStops1, colorCycle);
+      const c2 = isMidnight ? evalColorStops(darkStops2, colorCycle + 0.33) : evalColorStops(lightStops2, colorCycle + 0.33);
+      const c3 = isMidnight ? evalColorStops(darkStops3, colorCycle + 0.66) : evalColorStops(lightStops3, colorCycle + 0.66);
+
       const orbs = isMidnight
         ? [
-            { xR: 0.2, yR: 0.25, r: 490, col: `rgba(139, 92, 246, ${0.048 + breath})`, sp: 0.0006, ph: 0 },
-            { xR: 0.8, yR: 0.65, r: 530, col: `rgba(129, 140, 248, ${0.042 + breath})`, sp: 0.0005, ph: 2 },
-            { xR: 0.5, yR: 0.85, r: 430, col: `rgba(45, 212, 191, ${0.028 + breath})`, sp: 0.0007, ph: 4 },
+            { xR: 0.2, yR: 0.25, r: 520, col: `rgba(${c1[0]}, ${c1[1]}, ${c1[2]}, ${0.052 + breath})`, sp: 0.0006, ph: 0 },
+            { xR: 0.8, yR: 0.65, r: 550, col: `rgba(${c2[0]}, ${c2[1]}, ${c2[2]}, ${0.045 + breath})`, sp: 0.0005, ph: 2 },
+            { xR: 0.5, yR: 0.85, r: 450, col: `rgba(${c3[0]}, ${c3[1]}, ${c3[2]}, ${0.032 + breath})`, sp: 0.0007, ph: 4 },
           ]
         : [
-            { xR: 0.25, yR: 0.2, r: 460, col: `rgba(124, 58, 237, ${0.022 + breath})`, sp: 0.0006, ph: 0 },
-            { xR: 0.75, yR: 0.6, r: 510, col: `rgba(2, 132, 199, ${0.016 + breath})`, sp: 0.0005, ph: 2 },
-            { xR: 0.45, yR: 0.8, r: 410, col: `rgba(5, 150, 105, ${0.012 + breath})`, sp: 0.0007, ph: 4 },
+            { xR: 0.25, yR: 0.2, r: 480, col: `rgba(${c1[0]}, ${c1[1]}, ${c1[2]}, ${0.024 + breath})`, sp: 0.0006, ph: 0 },
+            { xR: 0.75, yR: 0.6, r: 530, col: `rgba(${c2[0]}, ${c2[1]}, ${c2[2]}, ${0.018 + breath})`, sp: 0.0005, ph: 2 },
+            { xR: 0.45, yR: 0.8, r: 430, col: `rgba(${c3[0]}, ${c3[1]}, ${c3[2]}, ${0.014 + breath})`, sp: 0.0007, ph: 4 },
           ];
 
       orbs.forEach((orb) => {
         const scrollDrift = (scrollY * 0.08) % (height * 0.5);
-        const ox = width * orb.xR + Math.cos(time * orb.sp * 1000 + orb.ph) * 80;
-        const oy = height * orb.yR - scrollDrift + Math.sin(time * orb.sp * 800 + orb.ph) * 70;
+        // Subtle mouse parallax influence on atmospheric light
+        const mouseParallaxX = (mouse.x - width * 0.5) * 0.035;
+        const mouseParallaxY = (mouse.y - height * 0.5) * 0.035;
+        const ox = width * orb.xR + Math.cos(time * orb.sp * 1000 + orb.ph) * 80 + mouseParallaxX;
+        const oy = height * orb.yR - scrollDrift + Math.sin(time * orb.sp * 800 + orb.ph) * 70 + mouseParallaxY;
         const grad = ctx.createRadialGradient(ox, oy, 0, ox, oy, orb.r);
         grad.addColorStop(0, orb.col);
         grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
@@ -195,8 +243,15 @@ export default function LivingBackground() {
           const shimmer = Math.sin(time * s.period) * 0.12 + 0.88;
           ctx.beginPath();
           ctx.arc(s.x, renderY, s.radius, 0, Math.PI * 2);
-          ctx.fillStyle = isMidnight ? '#C4B5FD' : '#8B5CF6';
-          ctx.globalAlpha = isMidnight ? s.alpha * shimmer * 0.8 : s.alpha * shimmer * 0.5;
+          
+          // Shifting stardust color between primary accent and delicate secondary tint
+          if (isMidnight) {
+            ctx.fillStyle = i % 3 === 0 ? '#C4B5FD' : i % 3 === 1 ? '#38BDF8' : '#FDA4AF';
+            ctx.globalAlpha = s.alpha * shimmer * 0.85;
+          } else {
+            ctx.fillStyle = i % 3 === 0 ? '#7C3AED' : i % 3 === 1 ? '#0284C7' : '#FB7185';
+            ctx.globalAlpha = s.alpha * shimmer * 0.55;
+          }
           ctx.fill();
         }
         ctx.globalAlpha = 1;
@@ -314,12 +369,12 @@ export default function LivingBackground() {
 
         let pColor;
         if (isMidnight) {
-          pColor = i % 2 === 0 ? '#A78BFA' : '#38BDF8';
+          pColor = i % 3 === 0 ? '#A78BFA' : i % 3 === 1 ? '#38BDF8' : '#FB7185';
         } else {
-          pColor = i % 2 === 0 ? '#7C3AED' : '#52525B';
+          pColor = i % 3 === 0 ? '#7C3AED' : i % 3 === 1 ? '#0284C7' : '#64748B';
         }
         ctx.fillStyle = pColor;
-        ctx.globalAlpha = isMidnight ? p.baseAlpha * pulse : (p.baseAlpha * 0.7) * pulse;
+        ctx.globalAlpha = isMidnight ? p.baseAlpha * pulse : (p.baseAlpha * 0.65) * pulse;
         ctx.fill();
 
         // Constellation proximity threads
@@ -333,7 +388,7 @@ export default function LivingBackground() {
             ctx.lineTo(p2.x, p2.y);
             ctx.strokeStyle = isMidnight
               ? `rgba(167, 139, 250, ${threadAlpha})`
-              : `rgba(28, 25, 23, ${threadAlpha})`;
+              : `rgba(124, 58, 237, ${threadAlpha * 0.65})`;
             ctx.lineWidth = 0.8;
             ctx.stroke();
           }

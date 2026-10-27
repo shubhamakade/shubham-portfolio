@@ -145,7 +145,7 @@ export default function ArchitecturePlayground() {
         </div>
 
         {/* Playground Interactive Hub */}
-        <div className={`rounded-2xl border backdrop-blur-xl p-6 sm:p-8 shadow-2xl hud-border transition-colors ${
+        <div className={`rounded-2xl border backdrop-blur-xl p-6 sm:p-8 shadow-2xl hud-border dynamic-card-glow transition-colors ${
           isDark
             ? 'bg-aurora-night/80 border-aurora-violet/25'
             : 'bg-white border-slate-200 shadow-xl'

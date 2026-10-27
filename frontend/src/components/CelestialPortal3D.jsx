@@ -141,9 +141,19 @@ export default function CelestialPortal3D({ onSupernova }) {
           if (i === 0) ctx.moveTo(pt.x, pt.y);
           else ctx.lineTo(pt.x, pt.y);
         }
-        ctx.strokeStyle = isDark 
-          ? `rgba(167, 139, 250, ${0.22 + idx * 0.12})` 
-          : `rgba(124, 58, 237, ${0.18 + idx * 0.1})`;
+        // Smoothly evolving ring stroke color
+        const ringShift = Math.sin(time * 0.3 + idx * 0.8) * 0.5 + 0.5;
+        if (isDark) {
+          const rC = Math.round(167 * (1 - ringShift) + 56 * ringShift);
+          const gC = Math.round(139 * (1 - ringShift) + 189 * ringShift);
+          const bC = Math.round(250 * (1 - ringShift) + 248 * ringShift);
+          ctx.strokeStyle = `rgba(${rC}, ${gC}, ${bC}, ${0.22 + idx * 0.12})`;
+        } else {
+          const rC = Math.round(124 * (1 - ringShift) + 2 * ringShift);
+          const gC = Math.round(58 * (1 - ringShift) + 132 * ringShift);
+          const bC = Math.round(237 * (1 - ringShift) + 199 * ringShift);
+          ctx.strokeStyle = `rgba(${rC}, ${gC}, ${bC}, ${0.18 + idx * 0.1})`;
+        }
         ctx.lineWidth = idx === 1 ? 1.5 : 1;
         ctx.stroke();
 
@@ -287,7 +297,7 @@ export default function CelestialPortal3D({ onSupernova }) {
         
         {/* Floating 3D Portrait Monolith Card (z-20) */}
         <div
-          className={`relative z-20 w-44 sm:w-48 xl:w-52 h-60 sm:h-64 xl:h-72 rounded-2xl sm:rounded-3xl overflow-hidden border-2 transition-transform duration-200 ease-out shadow-2xl backdrop-blur-2xl hud-border ${
+          className={`relative z-20 w-44 sm:w-48 xl:w-52 h-60 sm:h-64 xl:h-72 rounded-2xl sm:rounded-3xl overflow-hidden border-2 transition-transform duration-200 ease-out shadow-2xl backdrop-blur-2xl hud-border dynamic-border-beam ${
             isDark 
               ? 'bg-aurora-card/85 border-aurora-violet/50 shadow-glow-violet' 
               : 'bg-white/95 border-slate-200/90 shadow-[0_16px_40px_rgba(0,0,0,0.08)]'
@@ -346,7 +356,7 @@ export default function CelestialPortal3D({ onSupernova }) {
           ======================================================== */}
       <div 
         onClick={(e) => e.stopPropagation()}
-        className={`mt-4 w-full max-w-[340px] sm:max-w-[440px] xl:max-w-[480px] rounded-2xl border backdrop-blur-2xl p-2.5 transition-all shadow-xl z-30 pointer-events-auto select-none ${
+        className={`mt-4 w-full max-w-[340px] sm:max-w-[440px] xl:max-w-[480px] rounded-2xl border backdrop-blur-2xl p-2.5 transition-all shadow-xl z-30 pointer-events-auto select-none dynamic-card-glow ${
           isDark 
             ? 'bg-slate-950/80 border-aurora-violet/35 shadow-[0_12px_35px_rgba(0,0,0,0.5)]' 
             : 'bg-white/95 border-slate-200/90 shadow-[0_12px_35px_rgba(15,23,42,0.06)]'

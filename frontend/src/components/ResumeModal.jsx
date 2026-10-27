@@ -113,16 +113,16 @@ Java 17, Spring Boot 3, Spring Data JPA, Hibernate, PostgreSQL, MySQL, GraphQL, 
               />
               <div>
                 <h4 className="font-display font-bold text-base">{personalInfo.name}</h4>
-                <p className="font-mono text-xs opacity-75">{personalInfo.title}</p>
-                <p className="font-mono text-[11px] text-emerald-400 font-medium">
+                <p className={`font-mono text-xs ${isDark ? 'text-slate-300' : 'text-slate-700 font-medium'}`}>{personalInfo.title}</p>
+                <p className={`font-mono text-[11px] font-semibold ${isDark ? 'text-emerald-400' : 'text-emerald-700'}`}>
                   {personalInfo.company} • {personalInfo.location}
                 </p>
               </div>
             </div>
 
             <div className="flex sm:flex-col items-end gap-1.5 font-mono text-[11px]">
-              <span className="opacity-60">{personalInfo.social.email}</span>
-              <span className="opacity-60">{personalInfo.social.phone}</span>
+              <span className={isDark ? 'text-slate-400' : 'text-slate-700 font-medium'}>{personalInfo.social.email}</span>
+              <span className={isDark ? 'text-slate-400' : 'text-slate-700 font-medium'}>{personalInfo.social.phone}</span>
             </div>
           </div>
 
@@ -133,12 +133,12 @@ Java 17, Spring Boot 3, Spring Data JPA, Hibernate, PostgreSQL, MySQL, GraphQL, 
                 isDark ? 'bg-aurora-card/30 border-white/5' : 'bg-white border-slate-200'
               }`}
             >
-              <div className="flex items-center gap-2 font-bold mb-1.5 text-aurora-lavender">
-                <Briefcase className="w-4 h-4 text-aurora-violet" />
+              <div className={`flex items-center gap-2 font-bold mb-1.5 ${isDark ? 'text-aurora-lavender' : 'text-violet-700 font-extrabold'}`}>
+                <Briefcase className={`w-4 h-4 ${isDark ? 'text-aurora-violet' : 'text-violet-600'}`} />
                 <span>EXPERIENCE</span>
               </div>
-              <p className={`font-semibold ${isDark ? 'text-slate-200' : 'text-slate-900'}`}>EPPS Infotech Ltd. (Jul 2025 - Present)</p>
-              <p className="opacity-70 text-[11px] mt-0.5">
+              <p className={`font-semibold ${isDark ? 'text-slate-200' : 'text-slate-900 font-bold'}`}>EPPS Infotech Ltd. (Jul 2025 - Present)</p>
+              <p className={`text-[11px] mt-0.5 leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600 font-medium'}`}>
                 Core Java Developer on Multi-module ERP (MMS, FAMS, PQMS) & Spring Boot 3 GraphQL mobile microservices.
               </p>
             </div>
@@ -148,12 +148,12 @@ Java 17, Spring Boot 3, Spring Data JPA, Hibernate, PostgreSQL, MySQL, GraphQL, 
                 isDark ? 'bg-aurora-card/30 border-white/5' : 'bg-white border-slate-200'
               }`}
             >
-              <div className="flex items-center gap-2 font-bold mb-1.5 text-sky-400">
-                <GraduationCap className="w-4 h-4 text-sky-400" />
+              <div className={`flex items-center gap-2 font-bold mb-1.5 ${isDark ? 'text-sky-400' : 'text-sky-700 font-extrabold'}`}>
+                <GraduationCap className={`w-4 h-4 ${isDark ? 'text-sky-400' : 'text-sky-600'}`} />
                 <span>EDUCATION</span>
               </div>
-              <p className={`font-semibold ${isDark ? 'text-slate-200' : 'text-slate-900'}`}>B.E. Computer Engineering (2019 - 2023)</p>
-              <p className="opacity-70 text-[11px] mt-0.5">
+              <p className={`font-semibold ${isDark ? 'text-slate-200' : 'text-slate-900 font-bold'}`}>B.E. Computer Engineering (2019 - 2023)</p>
+              <p className={`text-[11px] mt-0.5 leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600 font-medium'}`}>
                 Government College of Engineering, Chandrapur (GCOE Chandrapur).
               </p>
             </div>
@@ -187,7 +187,7 @@ Java 17, Spring Boot 3, Spring Data JPA, Hibernate, PostgreSQL, MySQL, GraphQL, 
                   className={`px-2.5 py-1 rounded-md border ${
                     isDark
                       ? 'bg-aurora-card border-aurora-violet/20 text-slate-300'
-                      : 'bg-slate-100 border-slate-200 text-slate-700'
+                      : 'bg-slate-100 border-slate-300 text-slate-800 font-semibold shadow-xs'
                   }`}
                 >
                   {skill}

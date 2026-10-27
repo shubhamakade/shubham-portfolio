@@ -447,8 +447,159 @@
     filter: blur(6px);
   }
 
+  /* ========================================================
+     10. DYNAMIC, LIVING COLOR SYSTEM KEYFRAMES & CLASSES
+     Fluid, organic, theme-aware evolving aesthetic
+     ======================================================== */
+
+  /* Evolving multi-stop border gradient for Featured Cards */
+  @keyframes dynamic-border-sweep {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .dynamic-border-beam {
+    position: relative;
+  }
+  .dynamic-border-beam::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    pointer-events: none;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    background-size: 300% 300%;
+    animation: dynamic-border-sweep 10s ease infinite;
+    z-index: 10;
+  }
+  html[data-theme="midnight"] .dynamic-border-beam::after {
+    background-image: linear-gradient(
+      115deg,
+      rgba(157, 123, 255, 0.45) 0%,
+      rgba(56, 189, 248, 0.5) 25%,
+      rgba(251, 113, 133, 0.4) 50%,
+      rgba(45, 212, 191, 0.45) 75%,
+      rgba(157, 123, 255, 0.45) 100%
+    );
+  }
+  html[data-theme="ivory"] .dynamic-border-beam::after {
+    background-image: linear-gradient(
+      115deg,
+      rgba(124, 58, 237, 0.45) 0%,
+      rgba(2, 132, 199, 0.4) 25%,
+      rgba(251, 113, 133, 0.35) 50%,
+      rgba(5, 150, 105, 0.35) 75%,
+      rgba(124, 58, 237, 0.45) 100%
+    );
+  }
+
+  /* Evolving subtle ambient aura glow for Interactive Consoles */
+  @keyframes dynamic-aura-dark {
+    0%, 100% {
+      box-shadow: 0 8px 32px -4px rgba(157, 123, 255, 0.15), 0 0 1px 1px rgba(157, 123, 255, 0.2);
+    }
+    33% {
+      box-shadow: 0 8px 32px -4px rgba(56, 189, 248, 0.18), 0 0 1px 1px rgba(56, 189, 248, 0.22);
+    }
+    66% {
+      box-shadow: 0 8px 32px -4px rgba(251, 113, 133, 0.14), 0 0 1px 1px rgba(251, 113, 133, 0.18);
+    }
+  }
+
+  @keyframes dynamic-aura-light {
+    0%, 100% {
+      box-shadow: 0 10px 30px -4px rgba(124, 58, 237, 0.12), 0 2px 8px rgba(15, 23, 42, 0.04);
+      border-color: rgba(124, 58, 237, 0.22);
+    }
+    33% {
+      box-shadow: 0 10px 30px -4px rgba(2, 132, 199, 0.10), 0 2px 8px rgba(15, 23, 42, 0.04);
+      border-color: rgba(2, 132, 199, 0.20);
+    }
+    66% {
+      box-shadow: 0 10px 30px -4px rgba(251, 113, 133, 0.09), 0 2px 8px rgba(15, 23, 42, 0.04);
+      border-color: rgba(251, 113, 133, 0.20);
+    }
+  }
+
+  html[data-theme="midnight"] .dynamic-card-glow {
+    animation: dynamic-aura-dark 14s ease-in-out infinite;
+  }
+  html[data-theme="ivory"] .dynamic-card-glow {
+    animation: dynamic-aura-light 14s ease-in-out infinite;
+  }
+
+  /* Shifting hairline shimmer for KPI / Stat Spotlight Cards */
+  @keyframes dynamic-kpi-shimmer {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }
+
+  .dynamic-kpi-border {
+    position: relative;
+  }
+  .dynamic-kpi-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    pointer-events: none;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    background-size: 200% 200%;
+    animation: dynamic-kpi-shimmer 8s ease infinite;
+    z-index: 5;
+  }
+  html[data-theme="midnight"] .dynamic-kpi-border::before {
+    background-image: linear-gradient(
+      135deg,
+      rgba(157, 123, 255, 0.35),
+      rgba(56, 189, 248, 0.1),
+      rgba(251, 113, 133, 0.25),
+      rgba(157, 123, 255, 0.35)
+    );
+  }
+  html[data-theme="ivory"] .dynamic-kpi-border::before {
+    background-image: linear-gradient(
+      135deg,
+      rgba(124, 58, 237, 0.3),
+      rgba(2, 132, 199, 0.1),
+      rgba(251, 113, 133, 0.2),
+      rgba(124, 58, 237, 0.3)
+    );
+  }
+
+  /* Evolving accent highlights for live indicators and badges */
+  @keyframes accent-hue-drift {
+    0%, 100% {
+      filter: hue-rotate(0deg);
+    }
+    50% {
+      filter: hue-rotate(25deg);
+    }
+  }
+  .dynamic-accent-cycle {
+    animation: accent-hue-drift 12s ease-in-out infinite;
+  }
+
   /* Accessibility override */
   @media (prefers-reduced-motion: reduce) {
+    .dynamic-border-beam::after,
+    .dynamic-card-glow,
+    .dynamic-kpi-border::before,
+    .dynamic-accent-cycle,
     .card-alive-float-1,
     .card-alive-float-2,
     .card-alive-float-3,

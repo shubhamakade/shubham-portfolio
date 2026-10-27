@@ -85,7 +85,7 @@ export default function HeroSection({ onWarp, isWarped, onOpenResume, onOpenTerm
 
             {/* Sub-headline: Pure Authenticity with Chromatic Shimmer */}
             <div className="flex items-center gap-2.5">
-              <div className={`h-[2px] w-8 sm:w-10 ${isDark ? 'bg-aurora-violet' : 'bg-atelier-violet'}`} />
+              <div className={`h-[2px] w-8 sm:w-10 rounded-full dynamic-accent-cycle ${isDark ? 'bg-aurora-violet' : 'bg-atelier-violet'}`} />
               <p className="font-mono text-xs sm:text-sm tracking-wider uppercase font-extrabold text-shimmer-aurora">
                 JAVA FULL STACK DEVELOPER & SYSTEMS ENGINEER
               </p>
@@ -247,6 +247,7 @@ export default function HeroSection({ onWarp, isWarped, onOpenResume, onOpenTerm
                     className="will-change-transform cursor-default"
                   >
                     <SpotlightCard
+                      variant="kpi"
                       className={`p-2.5 sm:p-3 xl:p-3.5 rounded-xl border backdrop-blur-2xl transition-all duration-300 ${
                         isDark
                           ? 'bg-aurora-card/45 border-white/10 hover:border-aurora-violet/50 hover:shadow-glow-violet'

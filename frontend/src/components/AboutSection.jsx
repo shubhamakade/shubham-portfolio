@@ -175,7 +175,7 @@ public class AccountsPayableGraphQLController {
 
               {/* Verified Credentials Pills */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 font-mono text-xs">
-                <div className={`p-3.5 rounded-2xl border backdrop-blur-xl flex items-center gap-3 transition-all ${
+                <div className={`p-3.5 rounded-2xl border backdrop-blur-xl flex items-center gap-3 transition-all dynamic-kpi-border ${
                   isDark 
                     ? 'bg-gradient-to-r from-emerald-950/40 via-white/[0.06] to-emerald-950/20 border-emerald-400/30 text-slate-100 shadow-[0_4px_20px_rgba(16,185,129,0.15)]' 
                     : 'bg-white border-slate-200/90 text-slate-800 shadow-xs'
@@ -189,7 +189,7 @@ public class AccountsPayableGraphQLController {
                   </div>
                 </div>
 
-                <div className={`p-3.5 rounded-2xl border backdrop-blur-xl flex items-center gap-3 transition-all ${
+                <div className={`p-3.5 rounded-2xl border backdrop-blur-xl flex items-center gap-3 transition-all dynamic-kpi-border ${
                   isDark 
                     ? 'bg-gradient-to-r from-cyan-950/40 via-white/[0.06] to-sky-950/20 border-cyan-400/30 text-slate-100 shadow-[0_4px_20px_rgba(56,189,248,0.15)]' 
                     : 'bg-white border-slate-200/90 text-slate-800 shadow-xs'
@@ -292,6 +292,7 @@ public class AccountsPayableGraphQLController {
               return (
                 <SpotlightCard
                   key={pillar.code}
+                  variant={isSelected ? 'interactive' : 'default'}
                   onClick={() => {
                     celestialAudio.playChime('chime');
                     setSelectedPillar(idx);

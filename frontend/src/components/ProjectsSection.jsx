@@ -114,7 +114,7 @@ export default function ProjectsSection() {
         {/* ========================================================
             FLAGSHIP: MMS MESS MANAGEMENT & SUPPLY CHAIN ERP
             ======================================================== */}
-        <div className={`rounded-3xl border backdrop-blur-2xl shadow-2xl overflow-hidden mb-20 hud-border ambient-sheen-container card-breathing-aura transition-all ${
+        <div className={`rounded-3xl border backdrop-blur-2xl shadow-2xl overflow-hidden mb-20 hud-border ambient-sheen-container card-breathing-aura dynamic-card-glow transition-all ${
           isDark
             ? 'bg-white/[0.05] border-white/15 shadow-[0_12px_45px_rgba(0,0,0,0.5)]'
             : 'bg-white border-slate-200 shadow-xl'
@@ -161,6 +161,7 @@ export default function ProjectsSection() {
               {trunkProject.metrics.map((m, idx) => (
                 <SpotlightCard
                   key={idx}
+                  variant="kpi"
                   className={`p-4 rounded-2xl border transition-all backdrop-blur-xl ${
                     isDark ? 'bg-white/[0.07] hover:bg-white/[0.12] border-white/15 hover:border-violet-400/40 shadow-md' : 'bg-white border-slate-200/90 shadow-sm hover:border-violet-300 hover:shadow-md'
                   }`}
@@ -740,7 +741,7 @@ export default function ProjectsSection() {
         {/* ========================================================
             FLAGSHIP 2: EPPS SMART MOBILE ERP BACKEND (SPRING BOOT 3 + GRAPHQL)
             ======================================================== */}
-        <div className={`rounded-3xl border backdrop-blur-2xl shadow-2xl overflow-hidden mb-20 hud-border ambient-sheen-container card-breathing-aura transition-all ${
+        <div className={`rounded-3xl border backdrop-blur-2xl shadow-2xl overflow-hidden mb-20 hud-border ambient-sheen-container card-breathing-aura dynamic-card-glow transition-all ${
           isDark
             ? 'bg-white/[0.05] border-white/15 shadow-[0_12px_45px_rgba(0,0,0,0.5)]'
             : 'bg-white border-slate-200 shadow-xl'
@@ -782,12 +783,17 @@ export default function ProjectsSection() {
               {mobileProject.overview}
             </p>
 
-            {/* Metrics Ribbon */}
+            {/* Metrics Ribbon with Dynamic Shimmer Spotlight */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 pt-4 border-t border-white/10">
               {mobileProject.metrics.map((m, idx) => (
-                <div key={idx} className={`p-4 rounded-2xl border transition-all backdrop-blur-xl ${
-                  isDark ? 'bg-white/[0.07] hover:bg-white/[0.12] border-white/15 shadow-md' : 'bg-white border-slate-200/90 shadow-sm hover:border-violet-300 hover:shadow-md'
-                }`}>
+                <SpotlightCard
+                  key={idx}
+                  variant="kpi"
+                  className={`p-4 rounded-2xl border transition-all backdrop-blur-xl ${
+                    isDark ? 'bg-white/[0.07] hover:bg-white/[0.12] border-white/15 shadow-md' : 'bg-white border-slate-200/90 shadow-sm hover:border-violet-300 hover:shadow-md'
+                  }`}
+                  spotlightColor={isDark ? 'rgba(56, 189, 248, 0.25)' : 'rgba(109, 40, 217, 0.12)'}
+                >
                   <div className={`font-display font-black text-2xl sm:text-3xl ${
                     isDark ? 'text-white drop-shadow-sm' : 'text-violet-700'
                   }`}>
@@ -798,7 +804,7 @@ export default function ProjectsSection() {
                   }`}>
                     {m.label}
                   </div>
-                </div>
+                </SpotlightCard>
               ))}
             </div>
           </div>

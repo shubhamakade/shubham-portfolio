@@ -175,7 +175,7 @@ export default function SkillsMatrix() {
                   setSelectedSkill(0);
                 }}
                 className={`p-4 rounded-2xl text-left border relative transition-all duration-300 flex flex-col justify-between overflow-hidden backdrop-blur-2xl ${
-                  isActive ? domainMeta.activeBg : domainMeta.inactiveBg
+                  isActive ? `${domainMeta.activeBg} dynamic-card-glow` : domainMeta.inactiveBg
                 }`}
               >
                 {/* Luminous Animated Shimmer on Active Card */}
@@ -370,6 +370,7 @@ export default function SkillsMatrix() {
             <AnimatePresence mode="wait">
               <SpotlightCard
                 as={motion.div}
+                variant="featured"
                 key={`${currentCategory.code}-${activeSkillData.name}`}
                 initial={{ opacity: 0, scale: 0.96, y: 10 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
