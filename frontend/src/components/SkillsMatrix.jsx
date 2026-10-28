@@ -104,18 +104,14 @@ export default function SkillsMatrix() {
                 subtitle: 'Java 21 • Spring Boot 3',
                 palette: 'violet',
                 accentColor: '#A78BFA',
-                laserLineLight: 'from-transparent via-violet-600 to-transparent shadow-[0_0_12px_rgba(124,58,237,0.9)]',
-                laserLineDark: 'from-transparent via-violet-400 to-transparent shadow-[0_0_16px_#A78BFA]',
-                laserFilamentLight: 'bg-violet-600 shadow-[0_0_10px_rgba(124,58,237,0.9)]',
-                laserFilamentDark: 'bg-violet-300 shadow-[0_0_14px_#C4B5FD]',
-                sheenBeamLight: 'from-transparent via-violet-500/20 to-transparent',
-                sheenBeamDark: 'from-transparent via-violet-400/20 to-transparent',
-                conduitLight: 'bg-gradient-to-b from-violet-600 via-indigo-600 to-cyan-500 shadow-[0_0_12px_rgba(124,58,237,0.8)]',
-                conduitDark: 'bg-gradient-to-b from-cyan-400 via-violet-400 to-rose-400 shadow-[0_0_12px_#38BDF8]',
                 tagClass: isDark ? 'text-violet-200 bg-violet-500/30 border-violet-300/40' : 'text-violet-700 bg-violet-100 border-violet-200 font-bold',
+                activeBg: isDark
+                  ? 'bg-gradient-to-br from-violet-600/45 via-purple-600/30 to-indigo-600/35 border-2 border-violet-300 shadow-[0_12px_36px_rgba(167,139,250,0.4)]'
+                  : 'bg-gradient-to-br from-violet-100/95 via-purple-50/90 to-indigo-100/90 border-2 border-violet-600 shadow-xl text-slate-900',
                 inactiveBg: isDark
-                  ? 'bg-gradient-to-br from-violet-950/30 via-white/[0.08] to-indigo-950/20 hover:from-violet-900/40 hover:via-white/[0.12] hover:to-indigo-900/30 border border-white/20 hover:border-violet-300/60 text-slate-100 pl-4'
-                  : 'bg-white hover:bg-slate-50 border border-slate-200/90 hover:border-violet-300 diffuse-ivory-card specular-rim-light text-slate-700 pl-4',
+                  ? 'bg-gradient-to-br from-violet-950/30 via-white/[0.08] to-indigo-950/20 hover:from-violet-900/40 hover:via-white/[0.12] hover:to-indigo-900/30 border border-white/20 hover:border-violet-300/60 text-slate-100'
+                  : 'bg-white hover:bg-slate-50 border border-slate-200/90 hover:border-violet-300 diffuse-ivory-card specular-rim-light text-slate-700',
+                glowColor: 'rgba(167, 139, 250, 0.45)',
                 activeIndicator: 'bg-violet-300 shadow-[0_0_12px_#C4B5FD]'
               },
               {
@@ -124,18 +120,14 @@ export default function SkillsMatrix() {
                 subtitle: 'PostgreSQL • Redis • Locks',
                 palette: 'cyan',
                 accentColor: '#38BDF8',
-                laserLineLight: 'from-transparent via-sky-600 to-transparent shadow-[0_0_12px_rgba(2,132,199,0.9)]',
-                laserLineDark: 'from-transparent via-cyan-400 to-transparent shadow-[0_0_16px_#38BDF8]',
-                laserFilamentLight: 'bg-sky-600 shadow-[0_0_10px_rgba(2,132,199,0.9)]',
-                laserFilamentDark: 'bg-cyan-300 shadow-[0_0_14px_#7DD3FC]',
-                sheenBeamLight: 'from-transparent via-sky-500/20 to-transparent',
-                sheenBeamDark: 'from-transparent via-cyan-400/20 to-transparent',
-                conduitLight: 'bg-gradient-to-b from-sky-600 via-cyan-600 to-indigo-500 shadow-[0_0_12px_rgba(2,132,199,0.8)]',
-                conduitDark: 'bg-gradient-to-b from-sky-400 via-cyan-400 to-emerald-400 shadow-[0_0_12px_#38BDF8]',
                 tagClass: isDark ? 'text-cyan-200 bg-cyan-500/30 border-cyan-300/40' : 'text-cyan-700 bg-cyan-100 border-cyan-200 font-bold',
+                activeBg: isDark
+                  ? 'bg-gradient-to-br from-cyan-600/45 via-sky-600/30 to-blue-600/35 border-2 border-cyan-300 shadow-[0_12px_36px_rgba(56,189,248,0.4)]'
+                  : 'bg-gradient-to-br from-cyan-100/95 via-sky-50/90 to-teal-100/90 border-2 border-cyan-600 shadow-xl text-slate-900',
                 inactiveBg: isDark
-                  ? 'bg-gradient-to-br from-cyan-950/30 via-white/[0.08] to-sky-950/20 hover:from-cyan-900/40 hover:via-white/[0.12] hover:to-sky-900/30 border border-white/20 hover:border-cyan-300/60 text-slate-100 pl-4'
-                  : 'bg-white hover:bg-slate-50 border border-slate-200/90 hover:border-cyan-300 diffuse-ivory-card specular-rim-light text-slate-700 pl-4',
+                  ? 'bg-gradient-to-br from-cyan-950/30 via-white/[0.08] to-sky-950/20 hover:from-cyan-900/40 hover:via-white/[0.12] hover:to-sky-900/30 border border-white/20 hover:border-cyan-300/60 text-slate-100'
+                  : 'bg-white hover:bg-slate-50 border border-slate-200/90 hover:border-cyan-300 diffuse-ivory-card specular-rim-light text-slate-700',
+                glowColor: 'rgba(56, 189, 248, 0.45)',
                 activeIndicator: 'bg-cyan-300 shadow-[0_0_12px_#7DD3FC]'
               },
               {
@@ -144,18 +136,14 @@ export default function SkillsMatrix() {
                 subtitle: 'React 18 • Framer • Canvas',
                 palette: 'rose',
                 accentColor: '#F43F5E',
-                laserLineLight: 'from-transparent via-rose-600 to-transparent shadow-[0_0_12px_rgba(225,29,72,0.9)]',
-                laserLineDark: 'from-transparent via-rose-400 to-transparent shadow-[0_0_16px_#FB7185]',
-                laserFilamentLight: 'bg-rose-600 shadow-[0_0_10px_rgba(225,29,72,0.9)]',
-                laserFilamentDark: 'bg-rose-300 shadow-[0_0_14px_#FDA4AF]',
-                sheenBeamLight: 'from-transparent via-rose-500/20 to-transparent',
-                sheenBeamDark: 'from-transparent via-rose-400/20 to-transparent',
-                conduitLight: 'bg-gradient-to-b from-rose-600 via-pink-600 to-violet-500 shadow-[0_0_12px_rgba(225,29,72,0.8)]',
-                conduitDark: 'bg-gradient-to-b from-rose-400 via-pink-400 to-purple-400 shadow-[0_0_12px_#FB7185]',
                 tagClass: isDark ? 'text-rose-200 bg-rose-500/30 border-rose-300/40' : 'text-rose-700 bg-rose-100 border-rose-200 font-bold',
+                activeBg: isDark
+                  ? 'bg-gradient-to-br from-rose-600/45 via-pink-600/30 to-purple-600/35 border-2 border-rose-300 shadow-[0_12px_36px_rgba(244,63,94,0.4)]'
+                  : 'bg-gradient-to-br from-rose-100/95 via-pink-50/90 to-purple-100/90 border-2 border-rose-500 shadow-xl text-slate-900',
                 inactiveBg: isDark
-                  ? 'bg-gradient-to-br from-rose-950/30 via-white/[0.08] to-pink-950/20 hover:from-rose-900/40 hover:via-white/[0.12] hover:to-pink-900/30 border border-white/20 hover:border-rose-300/60 text-slate-100 pl-4'
-                  : 'bg-white hover:bg-slate-50 border border-slate-200/90 hover:border-rose-300 diffuse-ivory-card specular-rim-light text-slate-700 pl-4',
+                  ? 'bg-gradient-to-br from-rose-950/30 via-white/[0.08] to-pink-950/20 hover:from-rose-900/40 hover:via-white/[0.12] hover:to-pink-900/30 border border-white/20 hover:border-rose-300/60 text-slate-100'
+                  : 'bg-white hover:bg-slate-50 border border-slate-200/90 hover:border-rose-300 diffuse-ivory-card specular-rim-light text-slate-700',
+                glowColor: 'rgba(244, 63, 94, 0.45)',
                 activeIndicator: 'bg-rose-400 shadow-[0_0_12px_#FDA4AF]'
               },
               {
@@ -164,18 +152,14 @@ export default function SkillsMatrix() {
                 subtitle: 'Docker • Linux • CI/CD',
                 palette: 'emerald',
                 accentColor: '#10B981',
-                laserLineLight: 'from-transparent via-emerald-600 to-transparent shadow-[0_0_12px_rgba(5,150,105,0.9)]',
-                laserLineDark: 'from-transparent via-emerald-400 to-transparent shadow-[0_0_16px_#34D399]',
-                laserFilamentLight: 'bg-emerald-600 shadow-[0_0_10px_rgba(5,150,105,0.9)]',
-                laserFilamentDark: 'bg-emerald-300 shadow-[0_0_14px_#6EE7B7]',
-                sheenBeamLight: 'from-transparent via-emerald-500/20 to-transparent',
-                sheenBeamDark: 'from-transparent via-emerald-400/20 to-transparent',
-                conduitLight: 'bg-gradient-to-b from-emerald-600 via-teal-600 to-cyan-500 shadow-[0_0_12px_rgba(5,150,105,0.8)]',
-                conduitDark: 'bg-gradient-to-b from-emerald-400 via-teal-400 to-cyan-400 shadow-[0_0_12px_#34D399]',
                 tagClass: isDark ? 'text-emerald-200 bg-emerald-500/30 border-emerald-300/40' : 'text-emerald-700 bg-emerald-100 border-emerald-200 font-bold',
+                activeBg: isDark
+                  ? 'bg-gradient-to-br from-emerald-600/45 via-teal-600/30 to-cyan-600/35 border-2 border-emerald-300 shadow-[0_12px_36px_rgba(16,185,129,0.4)]'
+                  : 'bg-gradient-to-br from-emerald-100/95 via-teal-50/90 to-cyan-100/90 border-2 border-emerald-600 shadow-xl text-slate-900',
                 inactiveBg: isDark
-                  ? 'bg-gradient-to-br from-emerald-950/30 via-white/[0.08] to-teal-950/20 hover:from-emerald-900/40 hover:via-white/[0.12] hover:to-teal-900/30 border border-white/20 hover:border-emerald-300/60 text-slate-100 pl-4'
-                  : 'bg-white hover:bg-slate-50 border border-slate-200/90 hover:border-emerald-300 diffuse-ivory-card specular-rim-light text-slate-700 pl-4',
+                  ? 'bg-gradient-to-br from-emerald-950/30 via-white/[0.08] to-teal-950/20 hover:from-emerald-900/40 hover:via-white/[0.12] hover:to-teal-900/30 border border-white/20 hover:border-emerald-300/60 text-slate-100'
+                  : 'bg-white hover:bg-slate-50 border border-slate-200/90 hover:border-emerald-300 diffuse-ivory-card specular-rim-light text-slate-700',
+                glowColor: 'rgba(16, 185, 129, 0.45)',
                 activeIndicator: 'bg-emerald-300 shadow-[0_0_12px_#6EE7B7]'
               },
             ][idx];
@@ -190,41 +174,25 @@ export default function SkillsMatrix() {
                   setActiveCategory(idx);
                   setSelectedSkill(0);
                 }}
-                className={`py-4 pr-4 rounded-2xl text-left border relative transition-all duration-300 flex flex-col justify-between overflow-hidden backdrop-blur-2xl ${
-                  isActive
-                    ? isDark
-                      ? 'dynamic-selected-skill border-2 border-violet-400/80 shadow-[0_12px_36px_rgba(167,139,250,0.35)] pl-6 sm:pl-7'
-                      : 'dynamic-selected-skill border-2 border-violet-600 shadow-xl pl-6 sm:pl-7 text-slate-900'
-                    : domainMeta.inactiveBg
+                className={`p-4 rounded-2xl text-left border relative transition-all duration-300 flex flex-col justify-between overflow-hidden backdrop-blur-2xl ${
+                  isActive ? `${domainMeta.activeBg} dynamic-card-glow` : domainMeta.inactiveBg
                 }`}
               >
-                {/* Luminous Animated Laser Scan Line & Sheen (Sweeps Left-to-Right in ~1.6s) */}
+                {/* Luminous Animated Shimmer on Active Card */}
                 {isActive && (
-                  <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-                    <motion.div
-                      className="h-full w-28 relative"
-                      initial={{ x: '-120%' }}
-                      animate={{ x: '420%' }}
-                      transition={{
-                        repeat: Infinity,
-                        duration: 1.6,
-                        ease: 'easeInOut',
-                        repeatDelay: 0.1,
-                      }}
-                    >
-                      {/* Atmospheric Sheen Beam */}
-                      <div className={`w-full h-full skew-x-12 bg-gradient-to-r ${isDark ? domainMeta.sheenBeamDark : domainMeta.sheenBeamLight}`} />
-                      {/* Crisp Glowing Vertical Laser Filament Line */}
-                      <div className={`absolute top-0 bottom-0 left-1/2 w-[2px] -translate-x-1/2 ${isDark ? domainMeta.laserFilamentDark : domainMeta.laserFilamentLight}`} />
-                    </motion.div>
-                  </div>
-                )}
-
-                {/* Rounded Left Conduit Indicator */}
-                {isActive && (
-                  <div className={`absolute left-0 top-3 bottom-3 w-1.5 rounded-r-full z-20 ${
-                    isDark ? domainMeta.conduitDark : domainMeta.conduitLight
-                  } animate-pulse`} />
+                  <motion.div
+                    className="absolute inset-0 pointer-events-none z-0"
+                    initial={{ x: '-150%' }}
+                    animate={{ x: '250%' }}
+                    transition={{
+                      repeat: Infinity,
+                      duration: 4,
+                      ease: 'easeInOut',
+                      repeatDelay: 1,
+                    }}
+                  >
+                    <div className="w-1/2 h-full bg-gradient-to-r from-transparent via-white/15 to-transparent skew-x-12" />
+                  </motion.div>
                 )}
 
                 {/* Top Row: Domain Tag & Active Beacon */}
@@ -273,25 +241,7 @@ export default function SkillsMatrix() {
                 </div>
 
                 {/* Bottom Row: Subtitle Stack Details */}
-                <div className="relative z-10 pt-2 border-t border-current/10 w-full overflow-hidden">
-                  {/* Divider Laser Line Pulse travelling left to right */}
-                  {isActive && (
-                    <div className="absolute top-0 inset-x-0 h-[2px] overflow-hidden pointer-events-none">
-                      <motion.div
-                        className={`h-full w-1/3 bg-gradient-to-r ${
-                          isDark ? domainMeta.laserLineDark : domainMeta.laserLineLight
-                        }`}
-                        initial={{ x: '-100%' }}
-                        animate={{ x: '350%' }}
-                        transition={{
-                          repeat: Infinity,
-                          duration: 1.6,
-                          ease: 'easeInOut',
-                          repeatDelay: 0.1,
-                        }}
-                      />
-                    </div>
-                  )}
+                <div className="relative z-10 pt-2 border-t border-current/10 w-full">
                   <div className={`text-[11px] font-mono tracking-tight truncate ${
                     isActive
                       ? isDark ? 'text-slate-200 font-medium' : 'text-slate-700 font-semibold'
@@ -301,23 +251,13 @@ export default function SkillsMatrix() {
                   </div>
                 </div>
 
-                {/* Continuous Radiant Laser Beam Line along the bottom border (Sweeps Left-to-Right in ~1.6s) */}
+                {/* Subtle Radiant Hairline Bottom Indicator */}
                 {isActive && (
-                  <div className="absolute bottom-0 inset-x-0 h-[3px] overflow-hidden pointer-events-none z-20">
-                    <motion.div
-                      className={`h-full w-1/3 rounded-full bg-gradient-to-r ${
-                        isDark ? domainMeta.laserLineDark : domainMeta.laserLineLight
-                      }`}
-                      initial={{ x: '-100%' }}
-                      animate={{ x: '350%' }}
-                      transition={{
-                        repeat: Infinity,
-                        duration: 1.6,
-                        ease: 'easeInOut',
-                        repeatDelay: 0.1,
-                      }}
-                    />
-                  </div>
+                  <motion.div
+                    layoutId="activeDomainLine"
+                    className="absolute bottom-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-white/80 to-transparent"
+                    transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+                  />
                 )}
               </motion.button>
             );
