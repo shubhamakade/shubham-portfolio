@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Terminal, Send, CheckCircle2, Linkedin, Github, Mail, Loader2, ExternalLink } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Terminal, Send, CheckCircle2, Linkedin, Github, Mail, Loader2, ExternalLink, Check } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { personalInfo } from '../data/portfolioData';
 import { useTheme } from '../context/ThemeContext';
@@ -362,7 +363,9 @@ export default function ContactSection() {
                     href={getMailtoUrl(formData)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-[11px] font-mono text-slate-400 hover:text-cyan-300 transition-colors"
+                    className={`inline-flex items-center gap-1.5 text-[11px] font-mono transition-colors ${
+                      isDark ? 'text-slate-400 hover:text-cyan-300' : 'text-slate-600 hover:text-violet-700 font-semibold'
+                    }`}
                   >
                     <span>Or send via Outlook / default mail app</span>
                     <ExternalLink className="w-3 h-3 opacity-70" />
@@ -372,34 +375,68 @@ export default function ContactSection() {
             )}
 
             {/* Quick Connect Links */}
-            <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-3 font-mono text-xs">
-              <a
+            <div className={`mt-8 pt-6 border-t flex flex-wrap items-center justify-between gap-3 font-mono text-xs ${
+              isDark ? 'border-white/10' : 'border-slate-200/90'
+            }`}>
+              <motion.a
                 href={personalInfo.social.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-2 px-3 py-2 rounded-xl border bg-white/[0.05] border-white/10 hover:border-cyan-400/40 hover:bg-white/[0.1] text-slate-200 hover:text-white transition-all shadow-sm"
+                whileHover={{ y: -2, scale: 1.02 }}
+                whileTap={{ scale: 0.97 }}
+                className={`flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl border transition-all shadow-sm group ${
+                  isDark
+                    ? 'bg-cyan-500/10 border-cyan-500/25 text-sky-200 hover:bg-cyan-500/20 hover:border-cyan-400 hover:text-white hover:shadow-[0_0_18px_rgba(56,189,248,0.3)]'
+                    : 'bg-sky-50 border-sky-200 text-sky-950 hover:bg-sky-100 hover:border-sky-400 hover:text-sky-900 hover:shadow-md'
+                }`}
               >
-                <AnimatedIcon icon={Linkedin} variant="pulse" palette="cyan" size="sm" />
-                <span className="font-semibold">LINKEDIN ↗</span>
-              </a>
+                <AnimatedIcon icon={Linkedin} variant="pulse" color="cyan" size="sm" isGlowing />
+                <span className="font-bold tracking-wide">LINKEDIN</span>
+                <span className="text-[11px] opacity-70 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+              </motion.a>
 
-              <a
+              <motion.a
                 href={personalInfo.social.github}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-2 px-3 py-2 rounded-xl border bg-white/[0.05] border-white/10 hover:border-violet-400/40 hover:bg-white/[0.1] text-slate-200 hover:text-white transition-all shadow-sm"
+                whileHover={{ y: -2, scale: 1.02 }}
+                whileTap={{ scale: 0.97 }}
+                className={`flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl border transition-all shadow-sm group ${
+                  isDark
+                    ? 'bg-purple-500/10 border-purple-500/25 text-purple-200 hover:bg-purple-500/20 hover:border-purple-400 hover:text-white hover:shadow-[0_0_18px_rgba(168,85,247,0.3)]'
+                    : 'bg-purple-50 border-purple-200 text-purple-950 hover:bg-purple-100 hover:border-purple-400 hover:text-purple-900 hover:shadow-md'
+                }`}
               >
-                <AnimatedIcon icon={Github} variant="spin" palette="violet" size="sm" />
-                <span className="font-semibold">GITHUB ↗</span>
-              </a>
+                <AnimatedIcon icon={Github} variant="spin" color="violet" size="sm" isGlowing />
+                <span className="font-bold tracking-wide">GITHUB</span>
+                <span className="text-[11px] opacity-70 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+              </motion.a>
 
-              <button
+              <motion.button
                 onClick={handleCopyEmail}
-                className="flex items-center gap-2 px-3 py-2 rounded-xl border bg-white/[0.05] border-white/10 hover:border-emerald-400/40 hover:bg-white/[0.1] text-slate-200 hover:text-white transition-all shadow-sm"
+                whileHover={{ y: -2, scale: 1.02 }}
+                whileTap={{ scale: 0.97 }}
+                className={`flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl border transition-all shadow-sm group ${
+                  copiedEmail
+                    ? isDark
+                      ? 'bg-emerald-500/30 border-emerald-400 text-emerald-300 shadow-[0_0_20px_rgba(52,211,153,0.4)]'
+                      : 'bg-emerald-100 border-emerald-500 text-emerald-900 font-bold shadow-md'
+                    : isDark
+                      ? 'bg-emerald-500/10 border-emerald-500/25 text-emerald-200 hover:bg-emerald-500/20 hover:border-emerald-400 hover:text-white hover:shadow-[0_0_18px_rgba(52,211,153,0.3)]'
+                      : 'bg-emerald-50 border-emerald-200 text-emerald-950 hover:bg-emerald-100 hover:border-emerald-400 hover:text-emerald-900 hover:shadow-md'
+                }`}
               >
-                <AnimatedIcon icon={Mail} variant="wiggle" palette="emerald" size="sm" />
-                <span className="font-semibold">{copiedEmail ? 'COPIED!' : 'COPY EMAIL'}</span>
-              </button>
+                <AnimatedIcon
+                  icon={copiedEmail ? Check : Mail}
+                  variant={copiedEmail ? 'pulse' : 'wiggle'}
+                  color="emerald"
+                  size="sm"
+                  isGlowing={copiedEmail}
+                />
+                <span className="font-bold tracking-wide">
+                  {copiedEmail ? 'COPIED TO CLIPBOARD!' : 'COPY EMAIL'}
+                </span>
+              </motion.button>
             </div>
 
           </SpotlightCard>

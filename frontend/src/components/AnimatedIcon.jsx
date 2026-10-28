@@ -6,16 +6,20 @@ import celestialAudio from '../utils/celestialAudio';
 export default function AnimatedIcon({
   icon: Icon,
   variant = 'pulse',
-  color = 'violet',
+  color,
+  palette,
   size = 'md',
   badge = true,
   className = '',
   sound = null,
+  isGlowing = false,
   onClick,
 }) {
   const { isDark } = useTheme();
 
   if (!Icon) return null;
+
+  const activeColor = color || palette || 'violet';
 
   // Color theme presets
   const colorMap = {
@@ -51,7 +55,7 @@ export default function AnimatedIcon({
     },
   };
 
-  const scheme = colorMap[color] || colorMap.violet;
+  const scheme = colorMap[activeColor] || colorMap.violet;
 
   // Size presets
   const sizeMap = {
@@ -124,7 +128,9 @@ export default function AnimatedIcon({
     >
       {/* Ambient Pulsing Radar Ring */}
       <span
-        className={"absolute -inset-0.5 rounded-xl opacity-35 filter blur-sm pointer-events-none group-hover/icon:opacity-80 transition-opacity " + scheme.radar}
+        className={`absolute -inset-0.5 rounded-xl pointer-events-none transition-opacity ${
+          isGlowing ? 'opacity-70 animate-pulse' : 'opacity-25 group-hover/icon:opacity-75'
+        } filter blur-xs ${scheme.radar}`}
       />
 
       {/* Center Icon */}
