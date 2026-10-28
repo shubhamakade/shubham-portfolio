@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Terminal, Volume2, VolumeX, FileDown, ZapOff, Zap, ExternalLink } from 'lucide-react';
+import { Menu, X, Terminal, Volume2, VolumeX, FileDown, ZapOff, Zap, ExternalLink, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { personalInfo } from '../data/portfolioData';
 import { useTheme } from '../context/ThemeContext';
@@ -64,6 +64,34 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
     if (!isWarped) celestialAudio.playChime('warp');
     else celestialAudio.playChime('affirm');
     if (onWarp) onWarp();
+  };
+
+  const handleNavClick = (e, targetId) => {
+    if (e) e.preventDefault();
+    celestialAudio.playChime('chime');
+    setMobileMenuOpen(false);
+
+    const targetMap = {
+      'home': 'hero',
+      'about': 'architecture',
+      'experience': 'timeline',
+    };
+    const finalId = targetMap[targetId] || targetId;
+
+    setTimeout(() => {
+      const el = document.getElementById(finalId) || document.getElementById(targetId);
+      if (el) {
+        const headerOffset = 70;
+        const elementPosition = el.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+          top: Math.max(0, offsetPosition),
+          behavior: 'smooth'
+        });
+        window.history.pushState(null, '', `#${targetId}`);
+        setActiveSection(finalId);
+      }
+    }, 100);
   };
 
   const navLinks = [
@@ -174,7 +202,7 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
                 <a
                   key={link.id}
                   href={`#${link.id}`}
-                  onClick={() => celestialAudio.playChime('chime')}
+                  onClick={(e) => handleNavClick(e, link.id)}
                   className={`relative px-2.5 xl:px-4 py-1.5 rounded-full text-xs font-mono font-medium tracking-wide transition-colors duration-200 select-none ${
                     isActive
                       ? isDark
@@ -348,31 +376,71 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
                   <span>DOWNLOAD OFFICIAL RESUME (PDF 93KB)</span>
                 </button>
 
-                {/* 6 Core Navigation Destinations */}
-                <nav className="flex flex-col space-y-1">
+                {/* 6 Core Navigation Destinations with Living Dynamic Colors */}
+                <nav className="flex flex-col space-y-1.5">
                   {navLinks.map((link) => {
                     const isActive = activeSection === link.id;
                     return (
                       <a
                         key={link.id}
                         href={`#${link.id}`}
-                        onClick={() => {
-                          celestialAudio.playChime('chime');
-                          setMobileMenuOpen(false);
-                        }}
-                        className={`px-4 py-2.5 rounded-xl font-mono text-sm font-semibold transition-all flex items-center justify-between ${
+                        onClick={(e) => handleNavClick(e, link.id)}
+                        className={`relative px-4 py-3 rounded-xl font-mono text-sm font-semibold transition-all flex items-center justify-between overflow-hidden ${
                           isActive
                             ? isDark
-                              ? 'bg-aurora-card text-aurora-lavender border border-aurora-violet/30'
-                              : 'bg-slate-100 text-atelier-violet border border-slate-300'
+                              ? 'dynamic-selected-skill border-2 border-violet-400/80 shadow-[0_8px_25px_rgba(167,139,250,0.35)] pl-5'
+                              : 'dynamic-selected-skill border-2 border-violet-600 shadow-md pl-5 text-slate-900'
                             : isDark
-                            ? 'text-slate-300 hover:bg-aurora-card/50'
-                            : 'text-slate-700 hover:bg-slate-50'
+                            ? 'text-slate-300 hover:bg-white/[0.06] border border-transparent pl-4'
+                            : 'text-slate-700 hover:bg-slate-50 border border-transparent pl-4'
                         }`}
                       >
-                        <span>{link.label}</span>
+                        {/* Dynamic Sweeping Sheen on Active Mobile Link */}
                         {isActive && (
-                          <span className={`w-2 h-2 rounded-full ${isDark ? 'bg-aurora-violet' : 'bg-atelier-violet'}`} />
+                          <motion.div
+                            className="absolute inset-0 pointer-events-none z-0"
+                            initial={{ x: '-150%' }}
+                            animate={{ x: '250%' }}
+                            transition={{ repeat: Infinity, duration: 3.5, ease: 'easeInOut', repeatDelay: 1 }}
+                          >
+                            <div className={`w-1/2 h-full skew-x-12 ${
+                              isDark ? 'bg-gradient-to-r from-transparent via-white/15 to-transparent' : 'bg-gradient-to-r from-transparent via-white/45 to-transparent'
+                            }`} />
+                          </motion.div>
+                        )}
+
+                        {/* Rounded Left Conduit Indicator */}
+                        {isActive && (
+                          <div className={`absolute left-0 top-2.5 bottom-2.5 w-1.5 rounded-r-full z-20 ${
+                            isDark
+                              ? 'bg-gradient-to-b from-cyan-400 via-violet-400 to-rose-400 shadow-[0_0_10px_#38BDF8]'
+                              : 'bg-gradient-to-b from-violet-600 via-indigo-600 to-cyan-500 shadow-[0_0_10px_rgba(124,58,237,0.8)]'
+                          } animate-pulse`} />
+                        )}
+
+                        <span className={`relative z-10 ${
+                          isActive
+                            ? isDark ? 'text-white font-black' : 'text-slate-900 font-black'
+                            : ''
+                        }`}>
+                          {link.label}
+                        </span>
+
+                        {/* Animated Radar Beacon on Active Link */}
+                        {isActive ? (
+                          <div className="relative flex items-center justify-center w-5 h-5 z-10">
+                            <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-65 ${
+                              isDark ? 'bg-cyan-400' : 'bg-violet-400'
+                            }`} />
+                            <span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${
+                              isDark ? 'bg-cyan-300 shadow-[0_0_8px_#38BDF8]' : 'bg-violet-600 shadow-[0_0_8px_#7C3AED]'
+                            }`} />
+                            <span className={`absolute inset-0 rounded-full border ${
+                              isDark ? 'border-cyan-400/40' : 'border-violet-500/40'
+                            }`} />
+                          </div>
+                        ) : (
+                          <ChevronRight className="w-4 h-4 opacity-30 text-slate-400" />
                         )}
                       </a>
                     );

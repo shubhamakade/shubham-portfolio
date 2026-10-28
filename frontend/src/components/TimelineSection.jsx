@@ -17,6 +17,8 @@ export default function TimelineSection() {
 
   return (
     <section id="timeline" className="py-24 relative z-10 section-ambient-divider transition-colors duration-500">
+      {/* Anchor alias for Experience navigation */}
+      <div id="experience" className="absolute -top-20 pointer-events-none" />
       <div className="max-w-[1280px] w-full mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

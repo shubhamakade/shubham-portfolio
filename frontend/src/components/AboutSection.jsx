@@ -3,6 +3,7 @@ import {
   ShieldCheck, Layers, Zap, Cpu, CheckCircle2, Code2, 
   GraduationCap, Briefcase, MapPin, Mail, Phone, ExternalLink, Copy, Check, FileDown 
 } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { architecturePillars, personalInfo } from '../data/portfolioData';
 import { useTheme } from '../context/ThemeContext';
 import SpotlightCard from './SpotlightCard';
@@ -105,6 +106,8 @@ public class AccountsPayableGraphQLController {
 
   return (
     <section id="architecture" className="py-24 relative z-10 section-ambient-divider transition-colors duration-500">
+      {/* Anchor alias for About navigation */}
+      <div id="about" className="absolute -top-20 pointer-events-none" />
       <div className="max-w-[1280px] w-full mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* ========================================================
@@ -297,55 +300,99 @@ public class AccountsPayableGraphQLController {
                     celestialAudio.playChime('chime');
                     setSelectedPillar(idx);
                   }}
-                  className={`p-5 rounded-2xl cursor-pointer transition-all border backdrop-blur-xl ${floatClass} ${
+                  className={`p-5 rounded-2xl cursor-pointer transition-all border relative overflow-hidden backdrop-blur-xl ${floatClass} ${
                     isSelected
                       ? isDark
-                        ? 'bg-white/[0.12] border-2 border-violet-400 shadow-[0_8px_32px_rgba(167,139,250,0.35)]'
-                        : 'bg-white border-2 border-violet-600 diffuse-ivory-card specular-rim-light ring-1 ring-violet-500/20'
+                        ? 'dynamic-selected-skill border-2 border-violet-400/80 shadow-[0_12px_36px_rgba(167,139,250,0.35)] pl-6 sm:pl-7'
+                        : 'dynamic-selected-skill border-2 border-violet-600 shadow-xl pl-6 sm:pl-7 text-slate-900'
                       : isDark
-                      ? 'bg-white/[0.05] hover:bg-white/[0.10] border-white/10 hover:border-white/25 shadow-md'
-                      : 'bg-white border-slate-200/90 hover:border-slate-300 hover:bg-slate-50 diffuse-ivory-card specular-rim-light'
+                      ? 'bg-white/[0.05] hover:bg-white/[0.10] border-white/10 hover:border-white/25 shadow-md pl-5'
+                      : 'bg-white border-slate-200/90 hover:border-violet-300 hover:bg-slate-50 diffuse-ivory-card specular-rim-light pl-5 text-slate-700'
                   }`}
                   spotlightColor={isDark ? 'rgba(167, 139, 250, 0.25)' : 'rgba(109, 40, 217, 0.12)'}
                 >
-                  <div className="flex items-start justify-between mb-2">
+                  {/* Dynamic Sweeping Sheen */}
+                  {isSelected && (
+                    <motion.div
+                      className="absolute inset-0 pointer-events-none z-0"
+                      initial={{ x: '-150%' }}
+                      animate={{ x: '250%' }}
+                      transition={{ repeat: Infinity, duration: 3.5, ease: 'easeInOut', repeatDelay: 1 }}
+                    >
+                      <div className={`w-1/2 h-full skew-x-12 ${
+                        isDark ? 'bg-gradient-to-r from-transparent via-white/15 to-transparent' : 'bg-gradient-to-r from-transparent via-white/45 to-transparent'
+                      }`} />
+                    </motion.div>
+                  )}
+
+                  {/* Rounded Left Conduit Indicator */}
+                  {isSelected && (
+                    <div className={`absolute left-0 top-3 bottom-3 w-1.5 rounded-r-full z-20 ${
+                      isDark
+                        ? 'bg-gradient-to-b from-cyan-400 via-violet-400 to-rose-400 shadow-[0_0_12px_#38BDF8]'
+                        : 'bg-gradient-to-b from-violet-600 via-indigo-600 to-cyan-500 shadow-[0_0_12px_rgba(124,58,237,0.8)]'
+                    } animate-pulse`} />
+                  )}
+
+                  <div className="flex items-start justify-between mb-2 relative z-10">
                     <div className="flex items-center gap-3">
-                      <div className={`p-1.5 rounded-xl ${isDark ? 'bg-white/[0.08] border border-white/10' : 'bg-slate-100 border border-slate-200'}`}>
+                      <div className={`p-1.5 rounded-xl transition-colors ${
+                        isSelected
+                          ? isDark ? 'bg-white/15 border border-white/25 shadow-md' : 'bg-white border border-slate-300 shadow-sm'
+                          : isDark ? 'bg-white/[0.08] border border-white/10' : 'bg-slate-100 border border-slate-200'
+                      }`}>
                         <AnimatedIcon
                           icon={Icon}
                           variant={idx === 0 ? 'radar' : idx === 1 ? 'float' : idx === 2 ? 'wiggle' : 'pulse'}
                           color={idx === 0 ? 'emerald' : idx === 1 ? 'violet' : idx === 2 ? 'amber' : 'cyan'}
                           size="md"
                           sound="chime"
+                          isGlowing={isSelected}
                         />
                       </div>
                       <span className={`font-mono text-xs font-bold ${
-                        isDark ? 'text-violet-300' : 'text-violet-700'
+                        isSelected
+                          ? isDark ? 'text-cyan-300 font-extrabold' : 'text-violet-700 font-black'
+                          : isDark ? 'text-violet-300' : 'text-violet-700'
                       }`}>
                         PILLAR_{pillar.code}
                       </span>
                     </div>
-                    <span className={`font-mono text-[10px] uppercase px-2 py-0.5 rounded-full ${
-                      isSelected 
-                        ? 'bg-violet-500/20 text-violet-300 border border-violet-400/40 font-bold' 
-                        : isDark ? 'opacity-60 text-slate-400' : 'text-slate-500 font-bold'
-                    }`}>
-                      {isSelected ? '● AUDITING' : 'INSPECT'}
-                    </span>
+
+                    {/* Active Animated Beacon on Pill */}
+                    {isSelected ? (
+                      <span className={`flex items-center gap-1.5 font-mono text-[10px] uppercase px-2.5 py-0.5 rounded-full border shadow-xs ${
+                        isDark 
+                          ? 'bg-white/10 border-white/20 text-white' 
+                          : 'bg-white/95 text-slate-900 border-slate-300/80 font-bold shadow-sm'
+                      }`}>
+                        <span className="relative flex h-2 w-2">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75" />
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-violet-600 shadow-[0_0_8px_#7C3AED]" />
+                        </span>
+                        <span>AUDITING</span>
+                      </span>
+                    ) : (
+                      <span className={`font-mono text-[10px] uppercase px-2 py-0.5 rounded-full ${
+                        isDark ? 'opacity-60 text-slate-400' : 'text-slate-500 font-bold'
+                      }`}>
+                        INSPECT
+                      </span>
+                    )}
                   </div>
 
-                  <h3 className={`font-display font-black text-lg mb-1 ${
+                  <h3 className={`font-display font-black text-lg mb-1 relative z-10 ${
                     isDark ? 'text-white' : 'text-slate-900'
                   }`}>
                     {pillar.title}
                   </h3>
-                  <p className={`font-sans text-xs leading-relaxed mb-3 font-medium ${
+                  <p className={`font-sans text-xs leading-relaxed mb-3 font-medium relative z-10 ${
                     isDark ? 'text-slate-200' : 'text-slate-600'
                   }`}>
                     {pillar.description}
                   </p>
 
-                  <div className="flex flex-wrap gap-1.5">
+                  <div className="flex flex-wrap gap-1.5 relative z-10">
                     {pillar.tags.map((tag, tIdx) => (
                       <span
                         key={tIdx}
