@@ -107,7 +107,7 @@ export default function SkillsMatrix() {
                 tagClass: isDark ? 'text-violet-200 bg-violet-500/30 border-violet-300/40' : 'text-violet-700 bg-violet-100 border-violet-200 font-bold',
                 activeBg: isDark
                   ? 'bg-gradient-to-br from-violet-600/45 via-purple-600/30 to-indigo-600/35 border-2 border-violet-300 shadow-[0_12px_36px_rgba(167,139,250,0.4)]'
-                  : 'bg-gradient-to-br from-violet-50/90 via-white to-purple-50/80 border-2 border-violet-600 diffuse-ivory-card specular-rim-light text-slate-900',
+                  : 'bg-gradient-to-br from-violet-100/95 via-purple-50/90 to-indigo-100/90 border-2 border-violet-600 shadow-xl text-slate-900',
                 inactiveBg: isDark
                   ? 'bg-gradient-to-br from-violet-950/30 via-white/[0.08] to-indigo-950/20 hover:from-violet-900/40 hover:via-white/[0.12] hover:to-indigo-900/30 border border-white/20 hover:border-violet-300/60 text-slate-100'
                   : 'bg-white hover:bg-slate-50 border border-slate-200/90 hover:border-violet-300 diffuse-ivory-card specular-rim-light text-slate-700',
@@ -123,7 +123,7 @@ export default function SkillsMatrix() {
                 tagClass: isDark ? 'text-cyan-200 bg-cyan-500/30 border-cyan-300/40' : 'text-cyan-700 bg-cyan-100 border-cyan-200 font-bold',
                 activeBg: isDark
                   ? 'bg-gradient-to-br from-cyan-600/45 via-sky-600/30 to-blue-600/35 border-2 border-cyan-300 shadow-[0_12px_36px_rgba(56,189,248,0.4)]'
-                  : 'bg-gradient-to-br from-cyan-50/90 via-white to-sky-50/80 border-2 border-cyan-600 diffuse-ivory-card specular-rim-light text-slate-900',
+                  : 'bg-gradient-to-br from-cyan-100/95 via-sky-50/90 to-teal-100/90 border-2 border-cyan-600 shadow-xl text-slate-900',
                 inactiveBg: isDark
                   ? 'bg-gradient-to-br from-cyan-950/30 via-white/[0.08] to-sky-950/20 hover:from-cyan-900/40 hover:via-white/[0.12] hover:to-sky-900/30 border border-white/20 hover:border-cyan-300/60 text-slate-100'
                   : 'bg-white hover:bg-slate-50 border border-slate-200/90 hover:border-cyan-300 diffuse-ivory-card specular-rim-light text-slate-700',
@@ -139,12 +139,12 @@ export default function SkillsMatrix() {
                 tagClass: isDark ? 'text-rose-200 bg-rose-500/30 border-rose-300/40' : 'text-rose-700 bg-rose-100 border-rose-200 font-bold',
                 activeBg: isDark
                   ? 'bg-gradient-to-br from-rose-600/45 via-pink-600/30 to-purple-600/35 border-2 border-rose-300 shadow-[0_12px_36px_rgba(244,63,94,0.4)]'
-                  : 'bg-gradient-to-br from-rose-50/90 via-white to-pink-50/80 border-2 border-rose-600 diffuse-ivory-card specular-rim-light text-slate-900',
+                  : 'bg-gradient-to-br from-rose-100/95 via-pink-50/90 to-purple-100/90 border-2 border-rose-500 shadow-xl text-slate-900',
                 inactiveBg: isDark
                   ? 'bg-gradient-to-br from-rose-950/30 via-white/[0.08] to-pink-950/20 hover:from-rose-900/40 hover:via-white/[0.12] hover:to-pink-900/30 border border-white/20 hover:border-rose-300/60 text-slate-100'
                   : 'bg-white hover:bg-slate-50 border border-slate-200/90 hover:border-rose-300 diffuse-ivory-card specular-rim-light text-slate-700',
                 glowColor: 'rgba(244, 63, 94, 0.45)',
-                activeIndicator: 'bg-rose-300 shadow-[0_0_12px_#FDA4AF]'
+                activeIndicator: 'bg-rose-400 shadow-[0_0_12px_#FDA4AF]'
               },
               {
                 domain: 'DOMAIN_04',
@@ -155,7 +155,7 @@ export default function SkillsMatrix() {
                 tagClass: isDark ? 'text-emerald-200 bg-emerald-500/30 border-emerald-300/40' : 'text-emerald-700 bg-emerald-100 border-emerald-200 font-bold',
                 activeBg: isDark
                   ? 'bg-gradient-to-br from-emerald-600/45 via-teal-600/30 to-cyan-600/35 border-2 border-emerald-300 shadow-[0_12px_36px_rgba(16,185,129,0.4)]'
-                  : 'bg-gradient-to-br from-emerald-50/90 via-white to-teal-50/80 border-2 border-emerald-600 diffuse-ivory-card specular-rim-light text-slate-900',
+                  : 'bg-gradient-to-br from-emerald-100/95 via-teal-50/90 to-cyan-100/90 border-2 border-emerald-600 shadow-xl text-slate-900',
                 inactiveBg: isDark
                   ? 'bg-gradient-to-br from-emerald-950/30 via-white/[0.08] to-teal-950/20 hover:from-emerald-900/40 hover:via-white/[0.12] hover:to-teal-900/30 border border-white/20 hover:border-emerald-300/60 text-slate-100'
                   : 'bg-white hover:bg-slate-50 border border-slate-200/90 hover:border-emerald-300 diffuse-ivory-card specular-rim-light text-slate-700',
@@ -202,14 +202,17 @@ export default function SkillsMatrix() {
                   </span>
 
                   {isActive ? (
-                    <span className={`flex items-center gap-1.5 px-2 py-0.5 rounded-full border text-[9px] font-mono font-bold ${
-                      isDark ? 'bg-white/10 border-white/20' : 'bg-slate-100 border-slate-200'
+                    <span className={`flex items-center gap-1.5 px-2.5 py-0.5 rounded-full border text-[9px] font-mono font-bold shadow-xs ${
+                      isDark ? 'bg-white/10 border-white/20 text-white' : 'bg-white/90 border-slate-300/80 text-slate-900 shadow-sm'
                     }`}>
-                      <span className={`w-1.5 h-1.5 rounded-full ${domainMeta.activeIndicator} animate-pulse`} />
-                      <span className={isDark ? 'text-white' : 'text-slate-900'}>ACTIVE</span>
+                      <span className="relative flex h-2 w-2">
+                        <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${domainMeta.activeIndicator}`} />
+                        <span className={`relative inline-flex rounded-full h-2 w-2 ${domainMeta.activeIndicator}`} />
+                      </span>
+                      <span>ACTIVE</span>
                     </span>
                   ) : (
-                    <span className="w-1.5 h-1.5 rounded-full bg-white/20 opacity-40 group-hover:opacity-80" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-white/20 opacity-40 group-hover:opacity-80" />
                   )}
                 </div>
 
@@ -313,18 +316,37 @@ export default function SkillsMatrix() {
                         className={`p-4 rounded-xl cursor-pointer border transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-3 relative overflow-hidden ${
                           isSelected
                             ? isDark
-                              ? 'bg-white/[0.09] border-violet-400/50 shadow-[0_8px_30px_rgba(167,139,250,0.25)] pl-5'
-                              : 'bg-white border-violet-600 diffuse-ivory-card specular-rim-light pl-5 ring-1 ring-violet-500/20'
+                              ? 'dynamic-selected-skill border-2 border-violet-400/80 shadow-[0_12px_36px_rgba(167,139,250,0.35)] pl-6 sm:pl-7 pr-4'
+                              : 'dynamic-selected-skill border-2 border-violet-600 shadow-xl pl-6 sm:pl-7 pr-4 text-slate-900'
                             : isDark
-                            ? 'bg-white/[0.04] border-white/10 hover:border-white/20 hover:bg-white/[0.08]'
-                            : 'bg-white border-slate-200/90 hover:border-violet-300 hover:bg-slate-50 diffuse-ivory-card specular-rim-light'
+                            ? 'bg-white/[0.04] border-white/10 hover:border-white/20 hover:bg-white/[0.08] pl-5'
+                            : 'bg-white border-slate-200/90 hover:border-violet-300 hover:bg-slate-50 diffuse-ivory-card specular-rim-light pl-5 text-slate-700'
                         }`}
                         spotlightColor={isDark ? 'rgba(167, 139, 250, 0.22)' : 'rgba(109, 40, 217, 0.12)'}
                       >
+                        {/* Dynamic Sweeping Sheen */}
                         {isSelected && (
-                          <div className={`absolute left-0 top-0 bottom-0 w-1.5 ${
-                            isDark ? 'bg-gradient-to-b from-cyan-400 to-violet-500 shadow-[0_0_10px_#38BDF8]' : 'bg-gradient-to-b from-violet-600 to-indigo-600'
-                          }`} />
+                          <motion.div
+                            className="absolute inset-0 pointer-events-none z-0"
+                            initial={{ x: '-150%' }}
+                            animate={{ x: '250%' }}
+                            transition={{ repeat: Infinity, duration: 3.5, ease: 'easeInOut', repeatDelay: 1 }}
+                          >
+                            <div className={`w-1/2 h-full skew-x-12 ${
+                              isDark
+                                ? 'bg-gradient-to-r from-transparent via-white/15 to-transparent'
+                                : 'bg-gradient-to-r from-transparent via-white/45 to-transparent'
+                            }`} />
+                          </motion.div>
+                        )}
+
+                        {/* Rounded Left Conduit Indicator */}
+                        {isSelected && (
+                          <div className={`absolute left-0 top-3 bottom-3 w-1.5 rounded-r-full z-20 ${
+                            isDark
+                              ? 'bg-gradient-to-b from-cyan-400 via-violet-400 to-rose-400 shadow-[0_0_12px_#38BDF8]'
+                              : 'bg-gradient-to-b from-violet-600 via-indigo-600 to-cyan-500 shadow-[0_0_12px_rgba(124,58,237,0.8)]'
+                          } animate-pulse`} />
                         )}
 
                         <div className="flex-1 min-w-0 pr-3 relative z-10">
@@ -349,12 +371,31 @@ export default function SkillsMatrix() {
                           </div>
                         </div>
 
-                        <div className="flex items-center gap-2 text-xs font-mono opacity-70 self-end sm:self-center shrink-0 relative z-10">
-                          <span className={isSelected ? (isDark ? 'text-aurora-lavender font-bold' : 'text-violet-700 font-extrabold') : ''}>
+                        <div className="flex items-center gap-2.5 text-xs font-mono self-end sm:self-center shrink-0 relative z-10">
+                          {isSelected && (
+                            <div className="relative flex items-center justify-center w-5 h-5">
+                              <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-60 ${
+                                isDark ? 'bg-cyan-400' : 'bg-violet-400'
+                              }`} />
+                              <span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${
+                                isDark ? 'bg-cyan-300 shadow-[0_0_10px_#38BDF8]' : 'bg-violet-600 shadow-[0_0_10px_#7C3AED]'
+                              }`} />
+                              <span className={`absolute inset-0 rounded-full border ${
+                                isDark ? 'border-cyan-400/40' : 'border-violet-500/40'
+                              }`} />
+                            </div>
+                          )}
+                          <span className={`tracking-wider ${
+                            isSelected
+                              ? isDark ? 'text-cyan-300 font-extrabold' : 'text-violet-700 font-black'
+                              : isDark ? 'text-slate-400' : 'text-slate-500 font-semibold'
+                          }`}>
                             {isSelected ? 'INSPECTING' : 'VIEW DETAILS'}
                           </span>
                           <ChevronRight className={`w-4 h-4 transition-transform duration-300 ${
-                            isSelected ? (isDark ? 'text-aurora-lavender translate-x-1.5' : 'text-violet-700 translate-x-1.5') : ''
+                            isSelected
+                              ? isDark ? 'text-cyan-300 translate-x-1.5' : 'text-violet-700 translate-x-1.5'
+                              : 'text-slate-400'
                           }`} />
                         </div>
                       </SpotlightCard>

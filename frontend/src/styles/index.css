@@ -511,49 +511,124 @@
   html[data-theme="midnight"] .dynamic-border-beam::after {
     background-image: linear-gradient(
       115deg,
-      rgba(157, 123, 255, 0.45) 0%,
-      rgba(56, 189, 248, 0.5) 25%,
-      rgba(251, 113, 133, 0.4) 50%,
-      rgba(45, 212, 191, 0.45) 75%,
-      rgba(157, 123, 255, 0.45) 100%
+      rgba(157, 123, 255, 0.75) 0%,
+      rgba(56, 189, 248, 0.7) 25%,
+      rgba(251, 113, 133, 0.65) 50%,
+      rgba(45, 212, 191, 0.65) 75%,
+      rgba(157, 123, 255, 0.75) 100%
     );
+    padding: 1.5px;
+    animation: dynamic-border-sweep 6s ease infinite;
   }
   html[data-theme="ivory"] .dynamic-border-beam::after {
     background-image: linear-gradient(
       115deg,
-      rgba(124, 58, 237, 0.45) 0%,
-      rgba(2, 132, 199, 0.4) 25%,
-      rgba(251, 113, 133, 0.35) 50%,
-      rgba(5, 150, 105, 0.35) 75%,
-      rgba(124, 58, 237, 0.45) 100%
+      rgba(124, 58, 237, 0.75) 0%,
+      rgba(2, 132, 199, 0.7) 25%,
+      rgba(244, 63, 94, 0.65) 50%,
+      rgba(5, 150, 105, 0.65) 75%,
+      rgba(124, 58, 237, 0.75) 100%
     );
+    padding: 1.5px;
+    animation: dynamic-border-sweep 6s ease infinite;
+  }
+
+  /* Live, Animated Dynamic Selected Card with Cycling Color Breathing */
+  @keyframes dynamic-selected-bg-cycle {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes dynamic-selected-border-glow {
+    0% {
+      border-color: rgba(124, 58, 237, 0.85);
+      box-shadow: 0 8px 30px -4px rgba(124, 58, 237, 0.32), 0 0 20px rgba(124, 58, 237, 0.25);
+    }
+    33% {
+      border-color: rgba(2, 132, 199, 0.85);
+      box-shadow: 0 8px 30px -4px rgba(2, 132, 199, 0.32), 0 0 20px rgba(2, 132, 199, 0.25);
+    }
+    66% {
+      border-color: rgba(244, 63, 94, 0.85);
+      box-shadow: 0 8px 30px -4px rgba(244, 63, 94, 0.30), 0 0 20px rgba(244, 63, 94, 0.22);
+    }
+    100% {
+      border-color: rgba(124, 58, 237, 0.85);
+      box-shadow: 0 8px 30px -4px rgba(124, 58, 237, 0.32), 0 0 20px rgba(124, 58, 237, 0.25);
+    }
+  }
+
+  @keyframes dynamic-selected-border-glow-dark {
+    0% {
+      border-color: rgba(167, 139, 250, 0.85);
+      box-shadow: 0 8px 32px -4px rgba(167, 139, 250, 0.4), 0 0 24px rgba(167, 139, 250, 0.35);
+    }
+    33% {
+      border-color: rgba(56, 189, 248, 0.85);
+      box-shadow: 0 8px 32px -4px rgba(56, 189, 248, 0.4), 0 0 24px rgba(56, 189, 248, 0.35);
+    }
+    66% {
+      border-color: rgba(251, 113, 133, 0.85);
+      box-shadow: 0 8px 32px -4px rgba(251, 113, 133, 0.4), 0 0 24px rgba(251, 113, 133, 0.35);
+    }
+    100% {
+      border-color: rgba(167, 139, 250, 0.85);
+      box-shadow: 0 8px 32px -4px rgba(167, 139, 250, 0.4), 0 0 24px rgba(167, 139, 250, 0.35);
+    }
+  }
+
+  html[data-theme="ivory"] .dynamic-selected-skill {
+    background: linear-gradient(
+      120deg,
+      rgba(243, 232, 255, 0.95) 0%,
+      rgba(238, 242, 255, 0.95) 30%,
+      rgba(224, 242, 254, 0.9) 65%,
+      rgba(254, 242, 242, 0.9) 85%,
+      rgba(243, 232, 255, 0.95) 100%
+    );
+    background-size: 250% 250%;
+    animation: dynamic-selected-bg-cycle 7s ease-in-out infinite, dynamic-selected-border-glow 8s ease-in-out infinite;
+  }
+
+  html[data-theme="midnight"] .dynamic-selected-skill {
+    background: linear-gradient(
+      120deg,
+      rgba(139, 92, 246, 0.28) 0%,
+      rgba(99, 102, 241, 0.24) 30%,
+      rgba(56, 189, 248, 0.22) 65%,
+      rgba(244, 63, 94, 0.20) 85%,
+      rgba(139, 92, 246, 0.28) 100%
+    );
+    background-size: 250% 250%;
+    animation: dynamic-selected-bg-cycle 7s ease-in-out infinite, dynamic-selected-border-glow-dark 8s ease-in-out infinite;
   }
 
   /* Evolving subtle ambient aura glow for Interactive Consoles */
   @keyframes dynamic-aura-dark {
     0%, 100% {
-      box-shadow: 0 8px 32px -4px rgba(157, 123, 255, 0.15), 0 0 1px 1px rgba(157, 123, 255, 0.2);
+      box-shadow: 0 8px 32px -4px rgba(157, 123, 255, 0.22), 0 0 12px rgba(157, 123, 255, 0.25);
     }
     33% {
-      box-shadow: 0 8px 32px -4px rgba(56, 189, 248, 0.18), 0 0 1px 1px rgba(56, 189, 248, 0.22);
+      box-shadow: 0 8px 32px -4px rgba(56, 189, 248, 0.25), 0 0 12px rgba(56, 189, 248, 0.28);
     }
     66% {
-      box-shadow: 0 8px 32px -4px rgba(251, 113, 133, 0.14), 0 0 1px 1px rgba(251, 113, 133, 0.18);
+      box-shadow: 0 8px 32px -4px rgba(251, 113, 133, 0.22), 0 0 12px rgba(251, 113, 133, 0.25);
     }
   }
 
   @keyframes dynamic-aura-light {
     0%, 100% {
-      box-shadow: 0 10px 30px -4px rgba(124, 58, 237, 0.12), 0 2px 8px rgba(15, 23, 42, 0.04);
-      border-color: rgba(124, 58, 237, 0.22);
+      box-shadow: 0 10px 30px -4px rgba(124, 58, 237, 0.18), 0 0 14px rgba(124, 58, 237, 0.12);
+      border-color: rgba(124, 58, 237, 0.35);
     }
     33% {
-      box-shadow: 0 10px 30px -4px rgba(2, 132, 199, 0.10), 0 2px 8px rgba(15, 23, 42, 0.04);
-      border-color: rgba(2, 132, 199, 0.20);
+      box-shadow: 0 10px 30px -4px rgba(2, 132, 199, 0.18), 0 0 14px rgba(2, 132, 199, 0.12);
+      border-color: rgba(2, 132, 199, 0.35);
     }
     66% {
-      box-shadow: 0 10px 30px -4px rgba(251, 113, 133, 0.09), 0 2px 8px rgba(15, 23, 42, 0.04);
-      border-color: rgba(251, 113, 133, 0.20);
+      box-shadow: 0 10px 30px -4px rgba(244, 63, 94, 0.16), 0 0 14px rgba(244, 63, 94, 0.12);
+      border-color: rgba(244, 63, 94, 0.35);
     }
   }
 
