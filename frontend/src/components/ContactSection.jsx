@@ -227,7 +227,7 @@ export default function ContactSection() {
             className={`lg:col-span-6 rounded-2xl border backdrop-blur-2xl p-6 sm:p-8 shadow-2xl hud-border ambient-sheen-container transition-all ${
               isDark
                 ? 'bg-white/[0.05] border-white/15 shadow-[0_16px_50px_rgba(0,0,0,0.4)]'
-                : 'bg-white border-slate-200 shadow-xl'
+                : 'bg-white border-slate-200/90 diffuse-ivory-card specular-rim-light'
             }`}
             spotlightColor={isDark ? 'rgba(167, 139, 250, 0.22)' : 'rgba(109, 40, 217, 0.14)'}
           >

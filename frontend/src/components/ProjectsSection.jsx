@@ -117,14 +117,14 @@ export default function ProjectsSection() {
         <div className={`rounded-3xl border backdrop-blur-2xl shadow-2xl overflow-hidden mb-20 hud-border ambient-sheen-container card-breathing-aura dynamic-card-glow transition-all ${
           isDark
             ? 'bg-white/[0.05] border-white/15 shadow-[0_12px_45px_rgba(0,0,0,0.5)]'
-            : 'bg-white border-slate-200 shadow-xl'
+            : 'bg-white border-slate-200/90 diffuse-ivory-card specular-rim-light'
         }`}>
           
           {/* Header Strip */}
           <div className={`p-6 sm:p-8 border-b ${
             isDark
               ? 'bg-white/[0.03] border-white/10'
-              : 'bg-gradient-to-r from-slate-50 via-white to-slate-50 border-slate-200/90'
+              : 'bg-gradient-to-r from-slate-50/80 via-white to-slate-50/80 border-slate-200/90'
           }`}>
             <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
               <div className="flex items-center gap-3">
@@ -133,12 +133,12 @@ export default function ProjectsSection() {
                 }`}>
                   {trunkProject.badge}
                 </span>
-                <span className={`font-mono text-xs ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
+                <span className={`font-mono text-xs ${isDark ? 'text-slate-300' : 'text-slate-700 font-medium'}`}>
                   CODEBASE: <code className={`font-semibold ${isDark ? 'text-white' : 'text-slate-900 font-bold'}`}>epps-trunk-suite (Maven Multi-Module)</code>
                 </span>
               </div>
               <div className={`flex items-center gap-2 text-xs font-mono px-3.5 py-1.5 rounded-full border backdrop-blur-xl ${
-                isDark ? 'bg-emerald-500/15 text-emerald-300 border-emerald-400/30 shadow-[0_0_15px_rgba(16,185,129,0.2)]' : 'bg-emerald-50 text-emerald-800 border-emerald-300 shadow-xs'
+                isDark ? 'bg-emerald-500/15 text-emerald-300 border-emerald-400/30 shadow-[0_0_15px_rgba(16,185,129,0.2)]' : 'bg-emerald-50/90 text-emerald-800 border-emerald-300 shadow-xs font-bold'
               }`}>
                 <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                 <span className="font-semibold">ENTERPRISE PRODUCTION ARCHITECTURE</span>
@@ -163,7 +163,7 @@ export default function ProjectsSection() {
                   key={idx}
                   variant="kpi"
                   className={`p-4 rounded-2xl border transition-all backdrop-blur-xl ${
-                    isDark ? 'bg-white/[0.07] hover:bg-white/[0.12] border-white/15 hover:border-violet-400/40 shadow-md' : 'bg-white border-slate-200/90 shadow-sm hover:border-violet-300 hover:shadow-md'
+                    isDark ? 'bg-white/[0.07] hover:bg-white/[0.12] border-white/15 hover:border-violet-400/40 shadow-md' : 'bg-white border-slate-200/90 diffuse-ivory-card hover:border-violet-400 specular-rim-light'
                   }`}
                   spotlightColor={isDark ? 'rgba(167, 139, 250, 0.25)' : 'rgba(109, 40, 217, 0.12)'}
                 >
@@ -192,86 +192,51 @@ export default function ProjectsSection() {
               }`}>
                 <div className="flex flex-wrap items-center gap-2">
                   <span className={`font-mono text-xs uppercase font-extrabold mr-2 tracking-wider ${
-                    isDark ? 'text-slate-300 opacity-80' : 'text-slate-900'
+                    isDark ? 'text-slate-300 opacity-80' : 'text-slate-900 font-black'
                   }`}>
                     OPERATIONS CONSOLE:
                   </span>
                   
-                  <button
-                    onClick={() => {
-                      celestialAudio.playChime('chime');
-                      setActiveMmsTab('menu');
-                    }}
-                    className={`px-3.5 py-2 rounded-xl flex items-center gap-2 transition-all font-semibold border ${
-                      activeMmsTab === 'menu'
-                        ? isDark
-                          ? 'bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-[0_4px_20px_rgba(139,92,246,0.35)] border-violet-400/50'
-                          : 'bg-violet-700 text-white shadow-md border-violet-700'
-                        : isDark
-                        ? 'bg-white/[0.06] hover:bg-white/[0.12] text-slate-200 border-white/10 hover:border-white/20'
-                        : 'bg-white text-slate-700 hover:text-slate-950 hover:bg-slate-50 border-slate-200 shadow-xs'
-                    }`}
-                  >
-                    <AnimatedIcon icon={Utensils} variant={activeMmsTab === 'menu' ? 'bounce' : 'float'} color="emerald" size="sm" badge={false} />
-                    <span>01. MENU CARD MATRIX</span>
-                  </button>
-
-                  <button
-                    onClick={() => {
-                      celestialAudio.playChime('chime');
-                      setActiveMmsTab('demand');
-                    }}
-                    className={`px-3.5 py-2 rounded-xl flex items-center gap-2 transition-all font-semibold border ${
-                      activeMmsTab === 'demand'
-                        ? isDark
-                          ? 'bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-[0_4px_20px_rgba(139,92,246,0.35)] border-violet-400/50'
-                          : 'bg-violet-700 text-white shadow-md border-violet-700'
-                        : isDark
-                        ? 'bg-white/[0.06] hover:bg-white/[0.12] text-slate-200 border-white/10 hover:border-white/20'
-                        : 'bg-white text-slate-700 hover:text-slate-950 hover:bg-slate-50 border-slate-200 shadow-xs'
-                    }`}
-                  >
-                    <AnimatedIcon icon={Calculator} variant={activeMmsTab === 'demand' ? 'pulse' : 'radar'} color="cyan" size="sm" badge={false} />
-                    <span>02. HEADCOUNT DEMAND ENGINE</span>
-                  </button>
-
-                  <button
-                    onClick={() => {
-                      celestialAudio.playChime('chime');
-                      setActiveMmsTab('transfer');
-                    }}
-                    className={`px-3.5 py-2 rounded-xl flex items-center gap-2 transition-all font-semibold border ${
-                      activeMmsTab === 'transfer'
-                        ? isDark
-                          ? 'bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-[0_4px_20px_rgba(139,92,246,0.35)] border-violet-400/50'
-                          : 'bg-violet-700 text-white shadow-md border-violet-700'
-                        : isDark
-                        ? 'bg-white/[0.06] hover:bg-white/[0.12] text-slate-200 border-white/10 hover:border-white/20'
-                        : 'bg-white text-slate-700 hover:text-slate-950 hover:bg-slate-50 border-slate-200 shadow-xs'
-                    }`}
-                  >
-                    <AnimatedIcon icon={ArrowRightLeft} variant={activeMmsTab === 'transfer' ? 'wiggle' : 'float'} color="amber" size="sm" badge={false} />
-                    <span>03. STORE-TO-STORE REQUISITION</span>
-                  </button>
-
-                  <button
-                    onClick={() => {
-                      celestialAudio.playChime('chime');
-                      setActiveMmsTab('cost');
-                    }}
-                    className={`px-3.5 py-2 rounded-xl flex items-center gap-2 transition-all font-semibold border ${
-                      activeMmsTab === 'cost'
-                        ? isDark
-                          ? 'bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-[0_4px_20px_rgba(139,92,246,0.35)] border-violet-400/50'
-                          : 'bg-violet-700 text-white shadow-md border-violet-700'
-                        : isDark
-                        ? 'bg-white/[0.06] hover:bg-white/[0.12] text-slate-200 border-white/10 hover:border-white/20'
-                        : 'bg-white text-slate-700 hover:text-slate-950 hover:bg-slate-50 border-slate-200 shadow-xs'
-                    }`}
-                  >
-                    <AnimatedIcon icon={DollarSign} variant={activeMmsTab === 'cost' ? 'pulse' : 'radar'} color="violet" size="sm" badge={false} />
-                    <span>04. COST CENTER AUDITING</span>
-                  </button>
+                  {[
+                    { id: 'menu', label: '01. MENU CARD MATRIX', icon: Utensils, variant: 'bounce', color: 'emerald' },
+                    { id: 'demand', label: '02. HEADCOUNT DEMAND ENGINE', icon: Calculator, variant: 'pulse', color: 'cyan' },
+                    { id: 'transfer', label: '03. STORE-TO-STORE REQUISITION', icon: ArrowRightLeft, variant: 'wiggle', color: 'amber' },
+                    { id: 'cost', label: '04. COST CENTER AUDITING', icon: DollarSign, variant: 'radar', color: 'violet' },
+                  ].map((tab) => {
+                    const isActive = activeMmsTab === tab.id;
+                    return (
+                      <button
+                        key={tab.id}
+                        onClick={() => {
+                          celestialAudio.playChime('chime');
+                          setActiveMmsTab(tab.id);
+                        }}
+                        className={`relative px-3.5 py-2 rounded-xl flex items-center gap-2 transition-all font-semibold text-xs border ${
+                          isActive
+                            ? isDark
+                              ? 'text-white border-violet-400/50'
+                              : 'text-slate-900 border-violet-500/40 shadow-xs'
+                            : isDark
+                            ? 'bg-white/[0.04] hover:bg-white/[0.09] text-slate-300 border-white/10 hover:border-white/20'
+                            : 'bg-white text-slate-700 hover:text-slate-950 hover:bg-slate-50 border-slate-200/90 shadow-xs'
+                        }`}
+                      >
+                        {isActive && (
+                          <motion.div
+                            layoutId="operationsConsoleTabIndicator"
+                            className={`absolute inset-0 rounded-xl -z-10 ${
+                              isDark
+                                ? 'bg-gradient-to-r from-violet-600 to-indigo-600 shadow-[0_4px_20px_rgba(139,92,246,0.35)]'
+                                : 'bg-gradient-to-r from-violet-100/90 via-indigo-50/80 to-white text-slate-900 border border-violet-400/40 shadow-sm'
+                            }`}
+                            transition={{ type: "spring", stiffness: 450, damping: 32 }}
+                          />
+                        )}
+                        <AnimatedIcon icon={tab.icon} variant={isActive ? tab.variant : 'float'} color={tab.color} size="sm" badge={false} />
+                        <span className="relative z-10 font-bold">{tab.label}</span>
+                      </button>
+                    );
+                  })}
                 </div>
 
                 <div className={`font-mono text-[11px] flex items-center gap-2 ${
@@ -744,14 +709,14 @@ export default function ProjectsSection() {
         <div className={`rounded-3xl border backdrop-blur-2xl shadow-2xl overflow-hidden mb-20 hud-border ambient-sheen-container card-breathing-aura dynamic-card-glow transition-all ${
           isDark
             ? 'bg-white/[0.05] border-white/15 shadow-[0_12px_45px_rgba(0,0,0,0.5)]'
-            : 'bg-white border-slate-200 shadow-xl'
+            : 'bg-white border-slate-200/90 diffuse-ivory-card specular-rim-light'
         }`}>
           
           {/* Header Strip */}
           <div className={`p-6 sm:p-8 border-b ${
             isDark
               ? 'bg-white/[0.03] border-white/10'
-              : 'bg-gradient-to-r from-slate-50 via-white to-slate-50 border-slate-200/90'
+              : 'bg-gradient-to-r from-slate-50/80 via-white to-slate-50/80 border-slate-200/90'
           }`}>
             <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
               <div className="flex items-center gap-3">
@@ -819,86 +784,51 @@ export default function ProjectsSection() {
               }`}>
                 <div className="flex flex-wrap items-center gap-2">
                   <span className={`font-mono text-xs uppercase font-extrabold mr-2 tracking-wider ${
-                    isDark ? 'text-slate-300 opacity-80' : 'text-slate-900'
+                    isDark ? 'text-slate-300 opacity-80' : 'text-slate-900 font-black'
                   }`}>
                     MOBILE ENDPOINT TESTER:
                   </span>
                   
-                  <button
-                    onClick={() => {
-                      celestialAudio.playChime('chime');
-                      setActiveMobileTab('graphql-fas');
-                    }}
-                    className={`px-3.5 py-2 rounded-xl flex items-center gap-2 transition-all font-semibold border ${
-                      activeMobileTab === 'graphql-fas'
-                        ? isDark
-                          ? 'bg-gradient-to-r from-cyan-600 to-sky-600 text-white shadow-[0_4px_20px_rgba(56,189,248,0.35)] border-cyan-400/50'
-                          : 'bg-violet-700 text-white shadow-md border-violet-700'
-                        : isDark
-                        ? 'bg-white/[0.06] hover:bg-white/[0.12] text-slate-200 border-white/10 hover:border-white/20'
-                        : 'bg-white text-slate-700 hover:text-slate-950 hover:bg-slate-50 border-slate-200 shadow-xs'
-                    }`}
-                  >
-                    <AnimatedIcon icon={Database} variant={activeMobileTab === 'graphql-fas' ? 'bounce' : 'float'} color="cyan" size="sm" badge={false} />
-                    <span>01. GRAPHQL: FINANCIAL AGING</span>
-                  </button>
-
-                  <button
-                    onClick={() => {
-                      celestialAudio.playChime('chime');
-                      setActiveMobileTab('rest-sdms');
-                    }}
-                    className={`px-3.5 py-2 rounded-xl flex items-center gap-2 transition-all font-semibold border ${
-                      activeMobileTab === 'rest-sdms'
-                        ? isDark
-                          ? 'bg-gradient-to-r from-cyan-600 to-sky-600 text-white shadow-[0_4px_20px_rgba(56,189,248,0.35)] border-cyan-400/50'
-                          : 'bg-violet-700 text-white shadow-md border-violet-700'
-                        : isDark
-                        ? 'bg-white/[0.06] hover:bg-white/[0.12] text-slate-200 border-white/10 hover:border-white/20'
-                        : 'bg-white text-slate-700 hover:text-slate-950 hover:bg-slate-50 border-slate-200 shadow-xs'
-                    }`}
-                  >
-                    <AnimatedIcon icon={Smartphone} variant={activeMobileTab === 'rest-sdms' ? 'wiggle' : 'pulse'} color="emerald" size="sm" badge={false} />
-                    <span>02. REST: MOBILE SALES ORDER</span>
-                  </button>
-
-                  <button
-                    onClick={() => {
-                      celestialAudio.playChime('chime');
-                      setActiveMobileTab('hrms-claim');
-                    }}
-                    className={`px-3.5 py-2 rounded-xl flex items-center gap-2 transition-all font-semibold border ${
-                      activeMobileTab === 'hrms-claim'
-                        ? isDark
-                          ? 'bg-gradient-to-r from-cyan-600 to-sky-600 text-white shadow-[0_4px_20px_rgba(56,189,248,0.35)] border-cyan-400/50'
-                          : 'bg-violet-700 text-white shadow-md border-violet-700'
-                        : isDark
-                        ? 'bg-white/[0.06] hover:bg-white/[0.12] text-slate-200 border-white/10 hover:border-white/20'
-                        : 'bg-white text-slate-700 hover:text-slate-950 hover:bg-slate-50 border-slate-200 shadow-xs'
-                    }`}
-                  >
-                    <AnimatedIcon icon={FileText} variant={activeMobileTab === 'hrms-claim' ? 'float' : 'radar'} color="amber" size="sm" badge={false} />
-                    <span>03. HRMS: EXPENSE WORKFLOW</span>
-                  </button>
-
-                  <button
-                    onClick={() => {
-                      celestialAudio.playChime('chime');
-                      setActiveMobileTab('mms-po');
-                    }}
-                    className={`px-3.5 py-2 rounded-xl flex items-center gap-2 transition-all font-semibold border ${
-                      activeMobileTab === 'mms-po'
-                        ? isDark
-                          ? 'bg-gradient-to-r from-cyan-600 to-sky-600 text-white shadow-[0_4px_20px_rgba(56,189,248,0.35)] border-cyan-400/50'
-                          : 'bg-violet-700 text-white shadow-md border-violet-700'
-                        : isDark
-                        ? 'bg-white/[0.06] hover:bg-white/[0.12] text-slate-200 border-white/10 hover:border-white/20'
-                        : 'bg-white text-slate-700 hover:text-slate-950 hover:bg-slate-50 border-slate-200 shadow-xs'
-                    }`}
-                  >
-                    <AnimatedIcon icon={CheckCircle2} variant={activeMobileTab === 'mms-po' ? 'pulse' : 'float'} color="emerald" size="sm" badge={false} />
-                    <span>04. MMS: MOBILE PO APPROVAL</span>
-                  </button>
+                  {[
+                    { id: 'graphql-fas', label: '01. GRAPHQL: FINANCIAL AGING', icon: Database, variant: 'bounce', color: 'cyan' },
+                    { id: 'rest-sdms', label: '02. REST: MOBILE SALES ORDER', icon: Smartphone, variant: 'wiggle', color: 'emerald' },
+                    { id: 'hrms-claim', label: '03. HRMS: EXPENSE WORKFLOW', icon: FileText, variant: 'float', color: 'amber' },
+                    { id: 'mms-po', label: '04. MMS: MOBILE PO APPROVAL', icon: CheckCircle2, variant: 'pulse', color: 'emerald' },
+                  ].map((tab) => {
+                    const isActive = activeMobileTab === tab.id;
+                    return (
+                      <button
+                        key={tab.id}
+                        onClick={() => {
+                          celestialAudio.playChime('chime');
+                          setActiveMobileTab(tab.id);
+                        }}
+                        className={`relative px-3.5 py-2 rounded-xl flex items-center gap-2 transition-all font-semibold text-xs border ${
+                          isActive
+                            ? isDark
+                              ? 'text-white border-cyan-400/50'
+                              : 'text-slate-900 border-violet-500/40 shadow-xs'
+                            : isDark
+                            ? 'bg-white/[0.04] hover:bg-white/[0.09] text-slate-300 border-white/10 hover:border-white/20'
+                            : 'bg-white text-slate-700 hover:text-slate-950 hover:bg-slate-50 border-slate-200/90 shadow-xs'
+                        }`}
+                      >
+                        {isActive && (
+                          <motion.div
+                            layoutId="mobileEndpointTabIndicator"
+                            className={`absolute inset-0 rounded-xl -z-10 ${
+                              isDark
+                                ? 'bg-gradient-to-r from-cyan-600 to-sky-600 shadow-[0_4px_20px_rgba(56,189,248,0.35)]'
+                                : 'bg-gradient-to-r from-violet-100/90 via-sky-50/80 to-white text-slate-900 border border-violet-400/40 shadow-sm'
+                            }`}
+                            transition={{ type: "spring", stiffness: 450, damping: 32 }}
+                          />
+                        )}
+                        <AnimatedIcon icon={tab.icon} variant={isActive ? tab.variant : 'float'} color={tab.color} size="sm" badge={false} />
+                        <span className="relative z-10 font-bold">{tab.label}</span>
+                      </button>
+                    );
+                  })}
                 </div>
 
                 <div className={`font-mono text-[11px] flex items-center gap-2 ${

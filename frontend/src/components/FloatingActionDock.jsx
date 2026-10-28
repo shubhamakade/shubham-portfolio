@@ -44,7 +44,7 @@ export default function FloatingActionDock({ onOpenResume, onWarp, isWarped, onO
           <div className={`flex items-center gap-1.5 px-1 py-0.5 rounded-xl border ${
             isDark 
               ? 'bg-aurora-night/90 border-aurora-violet/30 shadow-glow-violet' 
-              : 'bg-white/95 border-slate-300 shadow-xl'
+              : 'bg-white/90 border-slate-200/90 diffuse-ivory-card specular-rim-light'
           }`}>
 
             {/* 1. Resume Download Button */}

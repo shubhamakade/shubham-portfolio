@@ -194,9 +194,9 @@ export default function LivingBackground() {
       const darkStops2 = [[56, 189, 248], [45, 212, 191], [129, 140, 248]]; // Sky -> Teal -> Indigo
       const darkStops3 = [[45, 212, 191], [251, 113, 133], [139, 92, 246]]; // Teal -> Coral -> Violet
 
-      const lightStops1 = [[124, 58, 237], [79, 70, 229], [109, 40, 217]]; // Royal Violet -> Indigo -> Deep Violet
-      const lightStops2 = [[2, 132, 199], [251, 113, 133], [14, 165, 233]]; // Sky -> Coral Blush -> Cyan
-      const lightStops3 = [[5, 150, 105], [2, 132, 199], [124, 58, 237]]; // Emerald -> Sky -> Violet
+      const lightStops1 = [[129, 140, 248], [99, 102, 241], [147, 51, 234]]; // Periwinkle -> Royal Indigo -> Soft Amethyst
+      const lightStops2 = [[56, 189, 248], [165, 180, 252], [14, 165, 233]]; // Sky -> Soft Periwinkle -> Cyan
+      const lightStops3 = [[16, 185, 129], [14, 165, 233], [99, 102, 241]]; // Soft Emerald -> Sky -> Indigo
 
       const c1 = isMidnight ? evalColorStops(darkStops1, colorCycle) : evalColorStops(lightStops1, colorCycle);
       const c2 = isMidnight ? evalColorStops(darkStops2, colorCycle + 0.33) : evalColorStops(lightStops2, colorCycle + 0.33);
@@ -209,9 +209,9 @@ export default function LivingBackground() {
             { xR: 0.5, yR: 0.85, r: 450, col: `rgba(${c3[0]}, ${c3[1]}, ${c3[2]}, ${0.032 + breath})`, sp: 0.0007, ph: 4 },
           ]
         : [
-            { xR: 0.25, yR: 0.2, r: 480, col: `rgba(${c1[0]}, ${c1[1]}, ${c1[2]}, ${0.024 + breath})`, sp: 0.0006, ph: 0 },
-            { xR: 0.75, yR: 0.6, r: 530, col: `rgba(${c2[0]}, ${c2[1]}, ${c2[2]}, ${0.018 + breath})`, sp: 0.0005, ph: 2 },
-            { xR: 0.45, yR: 0.8, r: 430, col: `rgba(${c3[0]}, ${c3[1]}, ${c3[2]}, ${0.014 + breath})`, sp: 0.0007, ph: 4 },
+            { xR: 0.25, yR: 0.2, r: 520, col: `rgba(${c1[0]}, ${c1[1]}, ${c1[2]}, ${0.035 + breath})`, sp: 0.0006, ph: 0 },
+            { xR: 0.75, yR: 0.6, r: 560, col: `rgba(${c2[0]}, ${c2[1]}, ${c2[2]}, ${0.028 + breath})`, sp: 0.0005, ph: 2 },
+            { xR: 0.45, yR: 0.8, r: 480, col: `rgba(${c3[0]}, ${c3[1]}, ${c3[2]}, ${0.022 + breath})`, sp: 0.0007, ph: 4 },
           ];
 
       orbs.forEach((orb) => {

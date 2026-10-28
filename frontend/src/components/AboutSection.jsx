@@ -178,7 +178,7 @@ public class AccountsPayableGraphQLController {
                 <div className={`p-3.5 rounded-2xl border backdrop-blur-xl flex items-center gap-3 transition-all dynamic-kpi-border ${
                   isDark 
                     ? 'bg-gradient-to-r from-emerald-950/40 via-white/[0.06] to-emerald-950/20 border-emerald-400/30 text-slate-100 shadow-[0_4px_20px_rgba(16,185,129,0.15)]' 
-                    : 'bg-white border-slate-200/90 text-slate-800 shadow-xs'
+                    : 'bg-white border-slate-200/90 text-slate-800 diffuse-ivory-card specular-rim-light'
                 }`}>
                   <div className={`p-2 rounded-xl border ${isDark ? 'bg-emerald-500/20 border-emerald-400/30' : 'bg-emerald-50 border-emerald-200'}`}>
                     <AnimatedIcon icon={Briefcase} variant="bounce" color="emerald" size="sm" badge={false} />
@@ -192,7 +192,7 @@ public class AccountsPayableGraphQLController {
                 <div className={`p-3.5 rounded-2xl border backdrop-blur-xl flex items-center gap-3 transition-all dynamic-kpi-border ${
                   isDark 
                     ? 'bg-gradient-to-r from-cyan-950/40 via-white/[0.06] to-sky-950/20 border-cyan-400/30 text-slate-100 shadow-[0_4px_20px_rgba(56,189,248,0.15)]' 
-                    : 'bg-white border-slate-200/90 text-slate-800 shadow-xs'
+                    : 'bg-white border-slate-200/90 text-slate-800 diffuse-ivory-card specular-rim-light'
                 }`}>
                   <div className={`p-2 rounded-xl border ${isDark ? 'bg-cyan-500/20 border-cyan-400/30' : 'bg-sky-50 border-sky-200'}`}>
                     <AnimatedIcon icon={GraduationCap} variant="float" color="cyan" size="sm" badge={false} />
@@ -301,10 +301,10 @@ public class AccountsPayableGraphQLController {
                     isSelected
                       ? isDark
                         ? 'bg-white/[0.12] border-2 border-violet-400 shadow-[0_8px_32px_rgba(167,139,250,0.35)]'
-                        : 'bg-white border-2 border-violet-600 shadow-md ring-1 ring-violet-500/20'
+                        : 'bg-white border-2 border-violet-600 diffuse-ivory-card specular-rim-light ring-1 ring-violet-500/20'
                       : isDark
                       ? 'bg-white/[0.05] hover:bg-white/[0.10] border-white/10 hover:border-white/25 shadow-md'
-                      : 'bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 shadow-xs'
+                      : 'bg-white border-slate-200/90 hover:border-slate-300 hover:bg-slate-50 diffuse-ivory-card specular-rim-light'
                   }`}
                   spotlightColor={isDark ? 'rgba(167, 139, 250, 0.25)' : 'rgba(109, 40, 217, 0.12)'}
                 >

@@ -251,7 +251,7 @@ export default function HeroSection({ onWarp, isWarped, onOpenResume, onOpenTerm
                       className={`p-2.5 sm:p-3 xl:p-3.5 rounded-xl border backdrop-blur-2xl transition-all duration-300 ${
                         isDark
                           ? 'bg-aurora-card/45 border-white/10 hover:border-aurora-violet/50 hover:shadow-glow-violet'
-                          : 'bg-white/90 border-slate-200/90 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.06)] hover:border-violet-400/50 hover:shadow-md'
+                          : 'bg-white border-slate-200/90 diffuse-ivory-card specular-rim-light hover:border-violet-400/60'
                       }`}
                       spotlightColor={isDark ? 'rgba(167, 139, 250, 0.22)' : 'rgba(124, 58, 237, 0.12)'}
                     >

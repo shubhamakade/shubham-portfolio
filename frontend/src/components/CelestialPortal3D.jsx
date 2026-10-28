@@ -359,7 +359,7 @@ export default function CelestialPortal3D({ onSupernova }) {
         className={`mt-4 w-full max-w-[340px] sm:max-w-[440px] xl:max-w-[480px] rounded-2xl border backdrop-blur-2xl p-2.5 transition-all shadow-xl z-30 pointer-events-auto select-none dynamic-card-glow ${
           isDark 
             ? 'bg-slate-950/80 border-aurora-violet/35 shadow-[0_12px_35px_rgba(0,0,0,0.5)]' 
-            : 'bg-white/95 border-slate-200/90 shadow-[0_12px_35px_rgba(15,23,42,0.06)]'
+            : 'bg-white/95 border-slate-200/90 diffuse-ivory-card specular-rim-light'
         }`}
       >
         {/* Header Telemetry Status Bar */}

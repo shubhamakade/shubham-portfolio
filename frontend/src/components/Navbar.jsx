@@ -128,10 +128,10 @@ export default function Navbar({ onWarp, isWarped, onOpenResume, onOpenTerminal 
           scrolled
             ? isDark
               ? 'bg-aurora-night/90 backdrop-blur-xl border-b border-aurora-violet/20 shadow-2xl py-2.5'
-              : 'bg-white/90 backdrop-blur-xl border-b border-slate-200/90 shadow-md py-2.5'
+              : 'bg-white/85 backdrop-blur-2xl border-b border-slate-200/90 diffuse-ivory-card specular-rim-light py-2.5'
             : isDark
             ? 'bg-aurora-night/60 backdrop-blur-md border-b border-white/5 py-3'
-            : 'bg-atelier-ivory/80 backdrop-blur-md border-b border-slate-200/50 py-3'
+            : 'bg-white/70 backdrop-blur-xl border-b border-slate-200/60 py-3'
         }`}
       >
         <div className="max-w-[1280px] w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-2 lg:gap-3 xl:gap-4">

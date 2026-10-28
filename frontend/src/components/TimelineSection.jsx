@@ -95,7 +95,7 @@ export default function TimelineSection() {
                   className={`flex-1 p-6 sm:p-8 rounded-2xl border backdrop-blur-2xl transition-all duration-300 hud-border ambient-sheen-container ${floatClass} ${
                     isDark
                       ? 'bg-white/[0.05] border-white/15 group-hover:border-violet-400/40 group-hover:bg-white/[0.08] shadow-[0_12px_40px_rgba(0,0,0,0.35)] hover:shadow-[0_16px_50px_rgba(167,139,250,0.2)]'
-                      : 'bg-white border-slate-200/90 group-hover:border-violet-300 shadow-sm hover:shadow-md'
+                      : 'bg-white border-slate-200/90 group-hover:border-violet-300 diffuse-ivory-card specular-rim-light'
                   }`}
                   spotlightColor={isDark ? 'rgba(167, 139, 250, 0.22)' : 'rgba(109, 40, 217, 0.12)'}
                 >

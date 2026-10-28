@@ -104,13 +104,13 @@ export default function SkillsMatrix() {
                 subtitle: 'Java 21 • Spring Boot 3',
                 palette: 'violet',
                 accentColor: '#A78BFA',
-                tagClass: isDark ? 'text-violet-200 bg-violet-500/30 border-violet-300/40' : 'text-violet-700 bg-violet-100 border-violet-200',
+                tagClass: isDark ? 'text-violet-200 bg-violet-500/30 border-violet-300/40' : 'text-violet-700 bg-violet-100 border-violet-200 font-bold',
                 activeBg: isDark
                   ? 'bg-gradient-to-br from-violet-600/45 via-purple-600/30 to-indigo-600/35 border-2 border-violet-300 shadow-[0_12px_36px_rgba(167,139,250,0.4)]'
-                  : 'bg-gradient-to-br from-violet-100/90 via-white to-purple-50/80 border-2 border-violet-600 shadow-lg text-slate-900',
+                  : 'bg-gradient-to-br from-violet-50/90 via-white to-purple-50/80 border-2 border-violet-600 diffuse-ivory-card specular-rim-light text-slate-900',
                 inactiveBg: isDark
                   ? 'bg-gradient-to-br from-violet-950/30 via-white/[0.08] to-indigo-950/20 hover:from-violet-900/40 hover:via-white/[0.12] hover:to-indigo-900/30 border border-white/20 hover:border-violet-300/60 text-slate-100'
-                  : 'bg-white hover:bg-slate-50 border border-slate-200 hover:border-violet-300 shadow-xs text-slate-700',
+                  : 'bg-white hover:bg-slate-50 border border-slate-200/90 hover:border-violet-300 diffuse-ivory-card specular-rim-light text-slate-700',
                 glowColor: 'rgba(167, 139, 250, 0.45)',
                 activeIndicator: 'bg-violet-300 shadow-[0_0_12px_#C4B5FD]'
               },
@@ -120,13 +120,13 @@ export default function SkillsMatrix() {
                 subtitle: 'PostgreSQL • Redis • Locks',
                 palette: 'cyan',
                 accentColor: '#38BDF8',
-                tagClass: isDark ? 'text-cyan-200 bg-cyan-500/30 border-cyan-300/40' : 'text-cyan-700 bg-cyan-100 border-cyan-200',
+                tagClass: isDark ? 'text-cyan-200 bg-cyan-500/30 border-cyan-300/40' : 'text-cyan-700 bg-cyan-100 border-cyan-200 font-bold',
                 activeBg: isDark
                   ? 'bg-gradient-to-br from-cyan-600/45 via-sky-600/30 to-blue-600/35 border-2 border-cyan-300 shadow-[0_12px_36px_rgba(56,189,248,0.4)]'
-                  : 'bg-gradient-to-br from-cyan-100/90 via-white to-sky-50/80 border-2 border-cyan-600 shadow-lg text-slate-900',
+                  : 'bg-gradient-to-br from-cyan-50/90 via-white to-sky-50/80 border-2 border-cyan-600 diffuse-ivory-card specular-rim-light text-slate-900',
                 inactiveBg: isDark
                   ? 'bg-gradient-to-br from-cyan-950/30 via-white/[0.08] to-sky-950/20 hover:from-cyan-900/40 hover:via-white/[0.12] hover:to-sky-900/30 border border-white/20 hover:border-cyan-300/60 text-slate-100'
-                  : 'bg-white hover:bg-slate-50 border border-slate-200 hover:border-cyan-300 shadow-xs text-slate-700',
+                  : 'bg-white hover:bg-slate-50 border border-slate-200/90 hover:border-cyan-300 diffuse-ivory-card specular-rim-light text-slate-700',
                 glowColor: 'rgba(56, 189, 248, 0.45)',
                 activeIndicator: 'bg-cyan-300 shadow-[0_0_12px_#7DD3FC]'
               },
@@ -136,13 +136,13 @@ export default function SkillsMatrix() {
                 subtitle: 'React 18 • Framer • Canvas',
                 palette: 'rose',
                 accentColor: '#F43F5E',
-                tagClass: isDark ? 'text-rose-200 bg-rose-500/30 border-rose-300/40' : 'text-rose-700 bg-rose-100 border-rose-200',
+                tagClass: isDark ? 'text-rose-200 bg-rose-500/30 border-rose-300/40' : 'text-rose-700 bg-rose-100 border-rose-200 font-bold',
                 activeBg: isDark
                   ? 'bg-gradient-to-br from-rose-600/45 via-pink-600/30 to-purple-600/35 border-2 border-rose-300 shadow-[0_12px_36px_rgba(244,63,94,0.4)]'
-                  : 'bg-gradient-to-br from-rose-100/90 via-white to-pink-50/80 border-2 border-rose-600 shadow-lg text-slate-900',
+                  : 'bg-gradient-to-br from-rose-50/90 via-white to-pink-50/80 border-2 border-rose-600 diffuse-ivory-card specular-rim-light text-slate-900',
                 inactiveBg: isDark
                   ? 'bg-gradient-to-br from-rose-950/30 via-white/[0.08] to-pink-950/20 hover:from-rose-900/40 hover:via-white/[0.12] hover:to-pink-900/30 border border-white/20 hover:border-rose-300/60 text-slate-100'
-                  : 'bg-white hover:bg-slate-50 border border-slate-200 hover:border-rose-300 shadow-xs text-slate-700',
+                  : 'bg-white hover:bg-slate-50 border border-slate-200/90 hover:border-rose-300 diffuse-ivory-card specular-rim-light text-slate-700',
                 glowColor: 'rgba(244, 63, 94, 0.45)',
                 activeIndicator: 'bg-rose-300 shadow-[0_0_12px_#FDA4AF]'
               },
@@ -152,13 +152,13 @@ export default function SkillsMatrix() {
                 subtitle: 'Docker • Linux • CI/CD',
                 palette: 'emerald',
                 accentColor: '#10B981',
-                tagClass: isDark ? 'text-emerald-200 bg-emerald-500/30 border-emerald-300/40' : 'text-emerald-700 bg-emerald-100 border-emerald-200',
+                tagClass: isDark ? 'text-emerald-200 bg-emerald-500/30 border-emerald-300/40' : 'text-emerald-700 bg-emerald-100 border-emerald-200 font-bold',
                 activeBg: isDark
                   ? 'bg-gradient-to-br from-emerald-600/45 via-teal-600/30 to-cyan-600/35 border-2 border-emerald-300 shadow-[0_12px_36px_rgba(16,185,129,0.4)]'
-                  : 'bg-gradient-to-br from-emerald-100/90 via-white to-teal-50/80 border-2 border-emerald-600 shadow-lg text-slate-900',
+                  : 'bg-gradient-to-br from-emerald-50/90 via-white to-teal-50/80 border-2 border-emerald-600 diffuse-ivory-card specular-rim-light text-slate-900',
                 inactiveBg: isDark
                   ? 'bg-gradient-to-br from-emerald-950/30 via-white/[0.08] to-teal-950/20 hover:from-emerald-900/40 hover:via-white/[0.12] hover:to-teal-900/30 border border-white/20 hover:border-emerald-300/60 text-slate-100'
-                  : 'bg-white hover:bg-slate-50 border border-slate-200 hover:border-emerald-300 shadow-xs text-slate-700',
+                  : 'bg-white hover:bg-slate-50 border border-slate-200/90 hover:border-emerald-300 diffuse-ivory-card specular-rim-light text-slate-700',
                 glowColor: 'rgba(16, 185, 129, 0.45)',
                 activeIndicator: 'bg-emerald-300 shadow-[0_0_12px_#6EE7B7]'
               },
@@ -314,10 +314,10 @@ export default function SkillsMatrix() {
                           isSelected
                             ? isDark
                               ? 'bg-white/[0.09] border-violet-400/50 shadow-[0_8px_30px_rgba(167,139,250,0.25)] pl-5'
-                              : 'bg-white border-violet-600 shadow-md pl-5 ring-1 ring-violet-500/20'
+                              : 'bg-white border-violet-600 diffuse-ivory-card specular-rim-light pl-5 ring-1 ring-violet-500/20'
                             : isDark
                             ? 'bg-white/[0.04] border-white/10 hover:border-white/20 hover:bg-white/[0.08]'
-                            : 'bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 shadow-xs'
+                            : 'bg-white border-slate-200/90 hover:border-violet-300 hover:bg-slate-50 diffuse-ivory-card specular-rim-light'
                         }`}
                         spotlightColor={isDark ? 'rgba(167, 139, 250, 0.22)' : 'rgba(109, 40, 217, 0.12)'}
                       >
@@ -327,7 +327,7 @@ export default function SkillsMatrix() {
                           }`} />
                         )}
 
-                        <div className="flex-1 pr-2 relative z-10">
+                        <div className="flex-1 min-w-0 pr-3 relative z-10">
                           <div className="flex items-center gap-2 mb-1 flex-wrap">
                             <span className={`font-display font-black text-base ${isDark ? 'text-white' : 'text-slate-900'}`}>
                               {skill.name}
@@ -344,7 +344,7 @@ export default function SkillsMatrix() {
                               {skill.tier}
                             </span>
                           </div>
-                          <div className={`font-mono text-xs font-medium ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                          <div className={`font-mono text-xs font-medium leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
                             {skill.highlight}
                           </div>
                         </div>
@@ -379,7 +379,7 @@ export default function SkillsMatrix() {
                 className={`rounded-2xl border backdrop-blur-2xl p-6 sm:p-7 shadow-2xl hud-border ambient-sheen-container transition-all ${
                   isDark
                     ? 'bg-white/[0.05] border-white/15 shadow-[0_16px_50px_rgba(0,0,0,0.4)]'
-                    : 'bg-white border-slate-200 shadow-xl'
+                    : 'bg-white border-slate-200/90 diffuse-ivory-card specular-rim-light'
                 }`}
                 spotlightColor={isDark ? 'rgba(167, 139, 250, 0.22)' : 'rgba(109, 40, 217, 0.12)'}
               >

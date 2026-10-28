@@ -46,7 +46,7 @@ export default function SpotlightCard({
     >
       {/* Specular Interactive Cursor Spotlight Layer */}
       <div
-        className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+        className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"
         style={{
           background: `radial-gradient(${spotlightSize}px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), ${resolvedSpotlight}, transparent 75%)`,
         }}
@@ -55,7 +55,7 @@ export default function SpotlightCard({
       {/* Living Ambient Diagonal Sheen for High-Impact Cards */}
       {(variant === 'featured' || variant === 'kpi') && (
         <div
-          className="pointer-events-none absolute -inset-full opacity-[0.035] group-hover:opacity-[0.07] transition-opacity duration-500"
+          className="pointer-events-none absolute -inset-full opacity-[0.035] group-hover:opacity-[0.07] transition-opacity duration-500 z-0"
           style={{
             background: isDark
               ? 'linear-gradient(115deg, transparent 40%, rgba(255,255,255,0.8) 50%, transparent 60%)'
@@ -66,9 +66,7 @@ export default function SpotlightCard({
         />
       )}
 
-      <div className="relative z-10 w-full h-full">
-        {children}
-      </div>
+      {children}
     </Component>
   );
 }
