@@ -104,6 +104,10 @@ export default function SkillsMatrix() {
                 subtitle: 'Java 21 • Spring Boot 3',
                 palette: 'violet',
                 accentColor: '#A78BFA',
+                lightSheen: 'from-transparent via-violet-500/20 to-transparent',
+                darkSheen: 'from-transparent via-white/15 to-transparent',
+                lightHairline: 'from-transparent via-violet-600/70 to-transparent',
+                darkHairline: 'from-transparent via-white/80 to-transparent',
                 tagClass: isDark ? 'text-violet-200 bg-violet-500/30 border-violet-300/40' : 'text-violet-700 bg-violet-100 border-violet-200 font-bold',
                 activeBg: isDark
                   ? 'bg-gradient-to-br from-violet-600/45 via-purple-600/30 to-indigo-600/35 border-2 border-violet-300 shadow-[0_12px_36px_rgba(167,139,250,0.4)]'
@@ -120,6 +124,10 @@ export default function SkillsMatrix() {
                 subtitle: 'PostgreSQL • Redis • Locks',
                 palette: 'cyan',
                 accentColor: '#38BDF8',
+                lightSheen: 'from-transparent via-sky-500/20 to-transparent',
+                darkSheen: 'from-transparent via-white/15 to-transparent',
+                lightHairline: 'from-transparent via-sky-600/70 to-transparent',
+                darkHairline: 'from-transparent via-white/80 to-transparent',
                 tagClass: isDark ? 'text-cyan-200 bg-cyan-500/30 border-cyan-300/40' : 'text-cyan-700 bg-cyan-100 border-cyan-200 font-bold',
                 activeBg: isDark
                   ? 'bg-gradient-to-br from-cyan-600/45 via-sky-600/30 to-blue-600/35 border-2 border-cyan-300 shadow-[0_12px_36px_rgba(56,189,248,0.4)]'
@@ -136,6 +144,10 @@ export default function SkillsMatrix() {
                 subtitle: 'React 18 • Framer • Canvas',
                 palette: 'rose',
                 accentColor: '#F43F5E',
+                lightSheen: 'from-transparent via-rose-500/20 to-transparent',
+                darkSheen: 'from-transparent via-white/15 to-transparent',
+                lightHairline: 'from-transparent via-rose-600/70 to-transparent',
+                darkHairline: 'from-transparent via-white/80 to-transparent',
                 tagClass: isDark ? 'text-rose-200 bg-rose-500/30 border-rose-300/40' : 'text-rose-700 bg-rose-100 border-rose-200 font-bold',
                 activeBg: isDark
                   ? 'bg-gradient-to-br from-rose-600/45 via-pink-600/30 to-purple-600/35 border-2 border-rose-300 shadow-[0_12px_36px_rgba(244,63,94,0.4)]'
@@ -152,6 +164,10 @@ export default function SkillsMatrix() {
                 subtitle: 'Docker • Linux • CI/CD',
                 palette: 'emerald',
                 accentColor: '#10B981',
+                lightSheen: 'from-transparent via-emerald-500/20 to-transparent',
+                darkSheen: 'from-transparent via-white/15 to-transparent',
+                lightHairline: 'from-transparent via-emerald-600/70 to-transparent',
+                darkHairline: 'from-transparent via-white/80 to-transparent',
                 tagClass: isDark ? 'text-emerald-200 bg-emerald-500/30 border-emerald-300/40' : 'text-emerald-700 bg-emerald-100 border-emerald-200 font-bold',
                 activeBg: isDark
                   ? 'bg-gradient-to-br from-emerald-600/45 via-teal-600/30 to-cyan-600/35 border-2 border-emerald-300 shadow-[0_12px_36px_rgba(16,185,129,0.4)]'
@@ -186,12 +202,12 @@ export default function SkillsMatrix() {
                     animate={{ x: '250%' }}
                     transition={{
                       repeat: Infinity,
-                      duration: 4,
+                      duration: 3.5,
                       ease: 'easeInOut',
-                      repeatDelay: 1,
+                      repeatDelay: 0.8,
                     }}
                   >
-                    <div className="w-1/2 h-full bg-gradient-to-r from-transparent via-white/15 to-transparent skew-x-12" />
+                    <div className={`w-1/2 h-full bg-gradient-to-r ${isDark ? domainMeta.darkSheen : domainMeta.lightSheen} skew-x-12`} />
                   </motion.div>
                 )}
 
@@ -255,7 +271,7 @@ export default function SkillsMatrix() {
                 {isActive && (
                   <motion.div
                     layoutId="activeDomainLine"
-                    className="absolute bottom-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-white/80 to-transparent"
+                    className={`absolute bottom-0 inset-x-0 h-1 bg-gradient-to-r ${isDark ? domainMeta.darkHairline : domainMeta.lightHairline}`}
                     transition={{ type: 'spring', stiffness: 300, damping: 25 }}
                   />
                 )}
